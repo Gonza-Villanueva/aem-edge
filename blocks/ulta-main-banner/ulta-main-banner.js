@@ -44,7 +44,7 @@ export default function decorate(block) {
 
     contentElements.forEach((element, index) => {
       if (element.isConnected) {
-        let text = element.textContent.trim();
+        const text = element.textContent.trim();
         if (index === 0) {
           element.classList.add('ulta-banner-tagline');
           // Limitar a 50 caracteres el tagline

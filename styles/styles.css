@@ -12,6 +12,7 @@
 
  :root {
   /* colors */
+
   /* --background-color: white;
   --light-color: #f8f8f8;
   --dark-color: #505050;
@@ -27,7 +28,6 @@
   --primary-400: #F26B1C;
   --primary-500: #E35200;
   --primary-600: #BA4301;
-
   --secondary-50: #FDF1F3;
   --secondary-100: #FEDFE6;
   --secondary-200: #FFCCD8;
@@ -37,7 +37,7 @@
   --secondary-600: #850130;
 
   /* Escala de grises */
-  --gray-0: #FFFFFF;
+  --gray-0: #FFF;
   --gray-25: #FAFAFA;
   --gray-50: #F6F6F6;
   --gray-100: #F1F1F1;
@@ -49,13 +49,13 @@
   --gray-700: #505050;
   --gray-800: #363636;
   --gray-900: #232323;
-  --black: #000000;
+  --black: #000;
 
   /* Colores semánticos */
   --error: #B30000;
   --success: #207E15;
   --info: #0E3AC9;
-  --warning: #FFCC00; 
+  --warning: #FC0;
 
   /* fonts */
   --body-font-family: 'Circular Std', sans-serif;
