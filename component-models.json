@@ -192,56 +192,586 @@
     ]
   },
   {
-    "id": "quote",
+    "id": "ulta-article-list",
     "fields": [
       {
         "component": "richtext",
-        "name": "quote",
+        "name": "text",
         "value": "",
-        "label": "Quote",
+        "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "ulta-article-list-block",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Link"
+      }
+    ]
+  },
+  {
+    "id": "ulta-banner-daily-offers",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Block Title"
+      }
+    ]
+  },
+  {
+    "id": "ulta-daily-offer",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "offerImage",
+        "label": "Offer image",
+        "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "author",
-        "label": "Author",
+        "name": "offerImageAlt",
+        "label": "Offer image Alt"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "offerTagline",
+        "label": "Offer tagline"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "offerCategory",
+        "label": "Offer category"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Offer title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Offer description"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttontext",
+        "label": "Button text",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "buttonlink",
+        "label": "Button link URL"
+      }
+    ]
+  },
+  {
+    "id": "ulta-beauty-trends",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Block Title"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "description",
+        "label": "Block Description",
         "value": ""
       }
     ]
   },
   {
-    "id": "simple-marquee",
+    "id": "ulta-beauty-trend",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "trendImage",
+        "label": "Trend image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "trendImageAlt",
+        "label": "Trend image Alt"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "trendCategory",
+        "label": "Trend category"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Trend title"
+      },
+      {
+        "component": "aem-content",
+        "name": "trendLinkUrl",
+        "label": "Trend link URL"
+      }
+    ]
+  },
+  {
+    "id": "ulta-category-blogs",
     "fields": [
       {
         "component": "text",
         "valueType": "string",
-        "name": "Marquee",
+        "name": "title",
+        "label": "Title Block"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description Block"
+      }
+    ]
+  },
+  {
+    "id": "ulta-category-blog",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "titleCard",
+        "label": "Title Card"
+      },
+      {
+        "component": "richtext",
+        "name": "descriptionCard",
+        "label": "Description Card",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "textButton",
+        "label": "Button Text"
+      },
+      {
+        "component": "aem-content",
+        "name": "buttonlink",
+        "label": "Button link URL"
+      }
+    ]
+  },
+  {
+    "id": "ulta-category-purchase",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Block Title"
+      }
+    ]
+  },
+  {
+    "id": "ulta-category-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "categoryName",
+        "label": "Category name"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "categoryImage",
+        "label": "Category image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "categoryImageAlt",
+        "label": "Category image Alt"
+      },
+      {
+        "component": "aem-content",
+        "name": "linkurl",
+        "label": "Category link URL"
+      }
+    ]
+  },
+  {
+    "id": "ulta-cookies",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "cookiesColor",
+        "label": "Cookies background Color (Hex Code)"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Cookies Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttontext",
+        "label": "Button text",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "buttonlink",
+        "label": "Button link URL"
+      }
+    ]
+  },
+  {
+    "id": "ulta-corporate-commitments",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Block Title"
+      }
+    ]
+  },
+  {
+    "id": "ulta-corporate-commitment",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "corporateCommitmentImage",
+        "label": "corporate commitment image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "corporateCommitmentImageAlt",
+        "label": "Corporate commitment image Alt"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Corporate commitment title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Corporate commitment description"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttontext",
+        "label": "Button text",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "buttonlink",
+        "label": "Button link URL"
+      }
+    ]
+  },
+  {
+    "id": "ulta-discount-headband",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "textoDescuento",
+        "label": "Texto descuento",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "colorTexto",
+        "label": "Color de texto",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "textCode",
+        "label": "Texto del Codigo",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "textoLink",
+        "label": "Texto del Link",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Link",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "textoFondo",
+        "label": "Texto del Color de Fondo",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "ulta-main-banner-img",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "ulta-main-banner-text",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "tagline",
         "value": "",
-        "label": "Marquee text",
-        "description": "The text you want shown in your marquee"
+        "label": "Tagline",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
       },
       {
         "component": "select",
-        "name": "classes",
-        "value": "",
-        "label": "Background Color",
-        "description": "The marquee background color",
-        "valueType": "string",
+        "name": "style-text-content",
+        "label": "Style",
         "options": [
           {
-            "name": "Red",
-            "value": "bg-red"
+            "name": "Content Top",
+            "value": "ulta-banner-content-top"
           },
           {
-            "name": "Green",
-            "value": "bg-green"
+            "name": "Content middle",
+            "value": "ulta-banner-content-middle"
           },
           {
-            "name": "Blue",
-            "value": "bg-blue"
+            "name": "Content bottom",
+            "value": "ulta-banner-content-bottom"
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "ulta-main-banner-button",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttontext",
+        "label": "Button text",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "buttonlink",
+        "label": "Button link URL"
+      }
+    ]
+  },
+  {
+    "id": "ulta-promotions-carousel",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Block Title"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttontext",
+        "label": "Button text",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "buttonlink",
+        "label": "Button link URL"
+      }
+    ]
+  },
+  {
+    "id": "ulta-promotion-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "promotionImage",
+        "label": "Promotion image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "promotionImageAlt",
+        "label": "Promotion image Alt"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "brandName",
+        "label": "Brand name"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Promotion title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Promotion description"
+      },
+      {
+        "component": "aem-content",
+        "name": "promotionLinkUrl",
+        "label": "Promotion link URL"
+      }
+    ]
+  },
+  {
+    "id": "ulta-promotion-code",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Titulo",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "description",
+        "label": "Descripción",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "linkurl",
+        "label": "Link URL"
+      }
+    ]
+  },
+  {
+    "id": "ulta-separator",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "heightDesktop",
+        "label": "Separator Height (Desktop)",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "heightMobile",
+        "label": "Separator Height (Mobile)",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "separatorColor",
+        "label": "Separator Color (Hex Code)"
+      }
+    ]
+  },
+  {
+    "id": "ulta-test-learning",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Block Title"
+      }
+    ]
+  },
+  {
+    "id": "ulta-title",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Ulta Title"
       }
     ]
   }

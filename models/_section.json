@@ -50,7 +50,21 @@
         "hero",
         "cards",
         "columns",
-        "fragment"
+        "fragment",
+        "ulta-separator",
+        "ulta-promotions-headband",
+        "ulta-main-banner",
+        "ulta-category-purchase",
+        "ulta-promotions-carousel",
+        "ulta-banner-daily-offers",
+        "ulta-beauty-trends",
+        "ulta-corporate-commitments",
+        "ulta-cookies",
+        "ulta-learning",
+        "ulta-discount-headband",
+        "ulta-title",
+        "ulta-category-blogs",
+        "ulta-breadcrumb"
       ]
     }
   ]

@@ -1,0 +1,47 @@
+{
+    "definitions": [
+        {
+            "title": "ulta-separator",
+            "id": "ulta-separator",
+            "plugins": {
+                "xwalk": {
+                    "page": {
+                        "resourceType": "core/franklin/components/block/v1/block",
+                        "template": {
+                            "name": "ulta-separator",
+                            "model": "ulta-separator"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "models": [
+        {
+            "id": "ulta-separator",
+            "fields": [
+                {
+                    "component": "text",
+                    "valueType": "string",
+                    "name": "heightDesktop",
+                    "label": "Separator Height (Desktop)",
+                    "value": ""
+                },
+                {
+                    "component": "text",
+                    "valueType": "string",
+                    "name": "heightMobile",
+                    "label": "Separator Height (Mobile)",
+                    "value": ""
+                },
+                {
+                    "component": "text",
+                    "valueType": "string",
+                    "name": "separatorColor",
+                    "label": "Separator Color (Hex Code)"
+                }
+            ]
+        }
+    ],
+    "filters": []
+}

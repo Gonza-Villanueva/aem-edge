@@ -1,0 +1,85 @@
+{
+    "definitions": [
+        {
+            "title": "ulta-category-purchase",
+            "id": "ulta-category-purchase",
+            "plugins": {
+                "xwalk": {
+                    "page": {
+                        "resourceType": "core/franklin/components/block/v1/block",
+                        "template": {
+                            "name": "ulta-category-purchase",
+                            "model": "ulta-category-purchase",
+                            "filter": "ulta-category-purchase"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "title": "ulta-category-item",
+            "id": "ulta-category-item",
+            "plugins": {
+                "xwalk": {
+                    "page": {
+                        "resourceType": "core/franklin/components/block/v1/block/item",
+                        "template": {
+                            "name": "ulta-category-item",
+                            "model": "ulta-category-item"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "models": [
+        {
+            "id": "ulta-category-purchase",
+            "fields": [
+                {
+                    "component": "text",
+                    "valueType": "string",
+                    "name": "title",
+                    "label": "Block Title"
+                }
+            ]
+        },
+        {
+            "id": "ulta-category-item",
+            "fields": [
+                {
+                    "component": "text",
+                    "valueType": "string",
+                    "name": "categoryName",
+                    "label": "Category name"
+                },
+                {
+                    "component": "reference",
+                    "valueType": "string",
+                    "name": "categoryImage",
+                    "label": "Category image",
+                    "multi": false
+                },
+                {
+                    "component": "text",
+                    "valueType": "string",
+                    "name": "categoryImageAlt",
+                    "label": "Category image Alt"
+                },
+                {
+                    "component": "aem-content",
+                    "name": "linkurl",
+                    "label": "Category link URL"
+                }
+            ]
+        }
+    ],
+    "filters": [
+        {
+            "id": "ulta-category-purchase",
+            "components": [
+                "ulta-category-item"
+            ]
+        }
+    ]
+}

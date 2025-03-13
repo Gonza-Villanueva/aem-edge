@@ -1,0 +1,156 @@
+.ulta-promotions-carousel {
+    position: relative;
+    width: 100%;
+}
+
+.ulta-promotions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.ulta-promotions-header h2 {
+    font-size: 24px;
+    letter-spacing: 0.72px;
+    line-height: 28px;
+    color: #000;
+    margin: 0;
+}
+
+.ulta-promotions-view-all {
+    font-size: 14px;
+    letter-spacing: 0.35px;
+    line-height: 20px;
+    color: #0d0d0d;
+    text-decoration: underline;
+}
+
+.ulta-promotions-swiper {
+    width: 100%;
+}
+
+.ulta-promotions-wrapper {
+    display: flex;
+}
+
+.ulta-promotions-slide {
+    width: 328px;
+}
+
+.ulta-promotions-item {
+    background: #fff;
+}
+
+.ulta-promotions-link {
+    text-decoration: none;
+}
+
+.ulta-promotions-image {
+    height: 328px;
+}
+
+.ulta-promotions-info {
+    margin-top: 16px;
+    max-width: 320px;
+}
+
+.ulta-promotions-info h3,
+p {
+    margin: 0;
+}
+
+.ulta-promotions-brand {
+    font-size: 12px;
+    letter-spacing: 0.12px;
+    line-height: 16px;
+    color: #0d0d0d;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.ulta-promotions-title {
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 28px;
+    color: #000;
+    margin-bottom: 4px !important;
+}
+
+.ulta-promotions-description {
+    font-size: 14px;
+    letter-spacing: 0.35px;
+    line-height: 20px;
+    color: #0d0d0d;
+}
+
+.ulta-promotions-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    z-index: 10;
+    opacity: 1 !important;
+}
+
+.ulta-promotions-button-prev .ulta-promotions-arrow {
+    transform: rotate(180deg);
+}
+
+.ulta-promotions-button-prev {
+    left: -20px;
+}
+
+.ulta-promotions-button-next {
+    right: -20px;
+}
+
+.ulta-promotions-button img {
+    width: 16px;
+    height: 14.65px;
+    padding: 12px;
+}
+
+.ulta-promotions-button.swiper-button-disabled {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+@media (width <= 450px) {
+    .ulta-promotions-header h2 {
+        font-size: 20px;
+        letter-spacing: 0.3px;
+        line-height: 24px;
+    }
+
+    .ulta-promotions-button {
+        display: none;
+    }
+
+    .ulta-promotions-slide {
+        width: 224px;
+    }
+
+    .ulta-promotions-image {
+        height: 224px;
+    }
+
+    .ulta-promotions-info {
+        max-width: 216px;
+    }
+    
+    .ulta-promotions-title {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}

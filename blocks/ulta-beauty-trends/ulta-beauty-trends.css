@@ -1,0 +1,157 @@
+.ulta-beauty-trends-carousel {
+    position: relative;
+    width: 100%;
+}
+
+.ulta-beauty-trends-header {
+    margin-bottom: 24px;
+}
+
+.ulta-beauty-trends-header h2 {
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 28px;
+    color: #000;
+    margin: 0 0 4px;
+}
+
+.ulta-beauty-trends-swiper {
+    width: 100%;
+}
+
+.ulta-beauty-trends-wrapper {
+    display: flex;
+}
+
+.ulta-beauty-trend-slide {
+    width: 328px;
+}
+
+.ulta-beauty-trend-item {
+    background: #fff;
+}
+
+.ulta-beauty-trend-link {
+    text-decoration: none;
+}
+
+.ulta-beauty-trend-image {
+    height: 264px;
+}
+
+.ulta-beauty-trend-info {
+    margin-top: 16px;
+    max-width: 320px;
+}
+
+.ulta-beauty-trend-info h3, p {
+    margin: 0;
+}
+
+.ulta-beauty-trends-header  p {
+    font-size: 14px;
+    letter-spacing: 0.35px;
+    line-height: 20px;
+    color: #000;
+}
+
+.ulta-beauty-trend-brand {
+    font-size: 12px;
+    letter-spacing: 0.12px;
+    line-height: 16px;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.ulta-beauty-trend-title {
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 28px;
+    color: #000;
+}
+
+.ulta-beauty-trend-description {
+    font-size: 14px;
+    letter-spacing: 0.35px;
+    line-height: 20px;
+    color: #0d0d0d;
+}
+
+/* Botones de navegación */
+.ulta-beauty-trends-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    z-index: 10;
+    opacity: 1 !important;
+}
+
+.ulta-beauty-trends-button-prev .ulta-beauty-trends-arrow {
+    transform: rotate(180deg);
+}
+
+.ulta-beauty-trends-button-prev {
+    left: -20px;
+}
+
+.ulta-beauty-trends-button-next {
+    right: -20px;
+}
+
+.ulta-beauty-trends-button img {
+    width: 16px;
+    height: 14.65px;
+    padding: 12px;
+}
+
+/* Ocultar botones cuando estén desactivados */
+.ulta-beauty-trends-button.swiper-button-disabled {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Estilos responsivos */
+@media (width <= 450px) {
+    .ulta-beauty-trends-header h2 {
+        font-size: 20px;
+        letter-spacing: 0.3px;
+        line-height: 24px;
+    }
+
+    .ulta-beauty-trends-header p {
+        letter-spacing: 0;
+    }
+
+    .ulta-beauty-trends-button {
+        display: none;
+    }
+
+    .ulta-beauty-trend-slide {
+        width: 224px;
+    }
+
+    .ulta-beauty-trend-image {
+        height: 180px;
+    }
+
+    .ulta-beauty-trend-info {
+        max-width: 216px;
+    }
+    
+    .ulta-beauty-trend-title {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}

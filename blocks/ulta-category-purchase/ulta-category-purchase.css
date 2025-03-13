@@ -1,0 +1,170 @@
+/* Bloque principal */
+.ulta-category-purchase {
+    position: relative;
+    max-width: 100%;
+}
+
+/* Título */
+.ulta-category-purchase-title {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.ulta-category-purchase-title h2 {
+    font-size: 32px;
+    line-height: 32px;
+    margin: 0;
+    letter-spacing: 0;
+    min-height: 32px;
+}
+
+/* Swiper */
+.ulta-category-purchase-swiper {
+    overflow: hidden;
+}
+
+.ulta-category-purchase-wrapper-carrousel {
+    display: flex;
+    align-items: center;
+}
+
+/* Slides */
+.ulta-category-purchase-slide {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 122px;
+}
+
+/* Elemento categoría */
+.ulta-category-purchase-item {
+    text-decoration: none;
+    color: black;
+}
+
+/* Imagen */
+.ulta-category-purchase-image {
+    width: 122px;
+    height: 122px;
+}
+
+/* Nombre de la categoría */
+.ulta-category-purchase-name {
+    margin-top: 8px;
+    font-size: 12px;
+    letter-spacing: 0.36px;
+    line-height: 16px;
+}
+
+/* Botones de navegación */
+.ulta-category-purchase-button {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    z-index: 10;
+    opacity: 1 !important;
+}
+
+/* Flechas de navegación */
+.ulta-category-purchase-arrow {
+    width: 16px;
+    height: 14.65px;
+    padding: 12px;
+}
+
+.ulta-category-purchase-button-prev .ulta-category-purchase-arrow {
+    transform: rotate(180deg);
+}
+
+.ulta-category-purchase-button-prev {
+    left: -20px;
+}
+
+.ulta-category-purchase-button-next {
+    right: -20px;
+}
+
+.ulta-category-purchase-button::after {
+    display: none;
+}
+
+.ulta-category-purchase-button.swiper-button-disabled {
+    display: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* RESPONSIVE */
+
+@media (width <= 450px) {
+    .ulta-category-purchase-wrapper {
+        padding: 0 16px !important;
+    }
+
+    .ulta-category-purchase-title h2 {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .ulta-category-purchase-button {
+        display: none !important;
+    }
+
+    .ulta-category-purchase-swiper {
+        overflow: visible;
+    }
+
+    .ulta-category-purchase-wrapper-carrousel {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px 8px;
+        transform: none !important;
+    }
+
+    .ulta-category-purchase-slide {
+        width: calc(25% - 8px);
+        max-width: 76px;
+        text-align: center;
+        margin-right: 0 !important;
+    }
+
+    .ulta-category-purchase-image {
+        width: 76px;
+        height: 76px;
+    }
+
+    .ulta-category-purchase-name {
+        font-size: 10px;
+        line-height: 14px;
+        margin-top: 8px;
+    }
+}
+
+@media (width <= 360px) {
+    .ulta-category-purchase-slide {
+        width: calc(33.33% - 8px);
+    }
+}
+
+@media (width <= 280px) {
+    .ulta-category-purchase-slide {
+        width: calc(50% - 8px);
+    }
+}
+
+@media (width <= 200px) {
+    .ulta-category-purchase-slide {
+        width: 100%;
+    }
+}

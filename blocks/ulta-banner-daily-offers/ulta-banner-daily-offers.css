@@ -1,0 +1,282 @@
+/* Estilos generales del banner */
+.ulta-banner-daily-offers {
+  position: relative;
+  width: 100%;
+}
+
+/* Encabezado del banner */
+.ulta-banner-daily-offers-header {
+  margin-bottom: 20px;
+}
+
+.ulta-banner-daily-offers-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  margin: 0 0 0 115px;
+}
+
+/* Contenedor principal del slider */
+.ulta-banner-daily-offers-swiper {
+  width: 100%;
+}
+
+.ulta-banner-daily-offers-wrapper {
+  display: flex;
+}
+
+/* Estilos de cada slide */
+.ulta-banner-daily-offers-slide {
+  display: flex;
+  align-items: center;
+  width: 1130px;
+  padding: 64px;
+  background: #f5f5f5;
+  box-sizing: border-box;
+}
+
+/* Contenedor de la oferta */
+.ulta-banner-daily-offers-item {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+/* Imagen de la oferta */
+.ulta-banner-daily-offers-image img {
+  width: 396px;
+}
+
+/* Información del producto */
+.ulta-banner-daily-offers-info {
+  max-width: 546px;
+  padding: 4px;
+}
+
+/* Asegurar márgenes adecuados en los textos */
+.ulta-banner-daily-offers-info > h3,
+p {
+  margin: 0;
+}
+
+/* Etiqueta destacada de la oferta */
+.ulta-banner-daily-offers-tagline {
+  font-size: 12px;
+  letter-spacing: 0.12px;
+  line-height: 16px;
+  color: #fff;
+  background: #cc0058;
+  padding: 4px;
+  margin-bottom: 8px;
+  width: fit-content;
+}
+
+/* Categoría de la oferta */
+.ulta-banner-daily-offers-category {
+  font-size: 12px;
+  letter-spacing: 0.12px;
+  line-height: 16px;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+/* Título de la oferta */
+.ulta-banner-daily-offers-title {
+  font-size: 32px;
+  letter-spacing: 0.96px;
+  line-height: 32px;
+  color: #000;
+  margin-bottom: 8px !important;
+}
+
+/* Descripción de la oferta */
+.ulta-banner-daily-offers-description {
+  font-size: 14px;
+  letter-spacing: 0.35px;
+  line-height: 20px;
+  color: #000;
+  margin-bottom: 24px;
+}
+
+/* Botón de la oferta */
+.ulta-banner-daily-offers-button {
+  font-size: 14px;
+  letter-spacing: 0.35px;
+  line-height: 20px;
+  color: #0d0d0d;
+  text-decoration: underline;
+}
+
+/* Botones de navegación del carrusel */
+.ulta-banner-daily-offers-button-prev,
+.ulta-banner-daily-offers-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  z-index: 10;
+  opacity: 1 !important;
+}
+
+/* Flecha izquierda */
+.ulta-banner-daily-offers-button-prev .ulta-banner-daily-offers-arrow {
+  transform: rotate(180deg);
+}
+
+.ulta-banner-daily-offers-button-prev {
+  left: -20px;
+}
+
+/* Flecha derecha */
+.ulta-banner-daily-offers-button-next {
+  right: -20px;
+}
+
+/* Tamaño de las flechas */
+.ulta-banner-daily-offers-button img {
+  width: 16px;
+  height: 14px;
+  padding: 12px;
+}
+
+/* Ocultar flechas cuando no se puedan usar */
+.ulta-banner-daily-offers-button.swiper-button-disabled {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Paginación del slider */
+.ulta-banner-daily-offers-pagination {
+  display: none;
+}
+
+/* Media queries para ajustes en pantallas pequeñas */
+@media (width <= 1190px) {
+  /* Ajustar margen del título */
+  .ulta-banner-daily-offers-header h2 {
+      margin: 0;
+  }
+
+  /* Reducir espacio entre elementos */
+  .ulta-banner-daily-offers-item {
+      gap: 16px;
+  }
+
+  /* Reducir padding del slide */
+  .ulta-banner-daily-offers-slide {
+      padding: 32px;
+  }
+
+  /* Ajustar padding del texto */
+  .ulta-banner-daily-offers-info {
+      padding-right: 20px;
+  }
+}
+
+@media (width <= 1090px) {
+  /* Reducir el ancho del texto en pantallas más pequeñas */
+  .ulta-banner-daily-offers-info {
+      max-width: 500px;
+  }
+}
+
+@media (width <= 1024px) {
+  /* Eliminar padding en pantallas más pequeñas */
+  .ulta-banner-daily-offers-wrapper {
+      padding: 0 !important;
+  }
+
+  /* Aumentar espacio entre encabezado y slider */
+  .ulta-banner-daily-offers-header {
+      margin-bottom: 24px;
+  }
+
+  /* Ajustar margen del título */
+  .ulta-banner-daily-offers-header h2 {
+      margin: 0 0 0 16px;
+  }
+
+  /* Asegurar que el contenedor del slider no tenga márgenes extra */
+  .ulta-banner-daily-offers-container-swiper {
+      margin-left: 0;
+  }
+
+  /* Reducir el tamaño del slide en pantallas más pequeñas */
+  .ulta-banner-daily-offers-slide {
+      max-width: 310px;
+      padding: 32px;
+  }
+
+  /* Apilar los elementos en columna */
+  .ulta-banner-daily-offers-item {
+      flex-direction: column;
+      gap: 16px;
+  }
+
+  /* Ajustar la altura de la imagen */
+  .ulta-banner-daily-offers-image {
+      height: 246px;
+  }
+
+  /* Reducir el tamaño del título */
+  .ulta-banner-daily-offers-title {
+      font-size: 24px;
+      letter-spacing: 0.72px;
+      line-height: 28px;
+      color: #000;
+  }
+
+  /* Ajustar márgenes de la descripción */
+  .ulta-banner-daily-offers-description {
+      margin-bottom: 16px;
+  }
+
+  /* Botón en pantallas más pequeñas */
+  .ulta-banner-daily-offers-button {
+      font-size: 14px;
+      letter-spacing: 0.35px;
+      line-height: 20px;
+      color: #0d0d0d;
+      text-decoration: underline;
+  }
+
+  /* Ocultar flechas de navegación en móviles */
+  .ulta-banner-daily-offers-button-prev,
+  .ulta-banner-daily-offers-button-next {
+      display: none !important;
+  }
+
+  /* Mostrar paginación en móviles */
+  .ulta-banner-daily-offers-pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+  }
+}
+
+/* Estilos para las bolitas de paginación */
+.ulta-banner-daily-offers-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  opacity: 1;
+  margin: 0 4px;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+/* Estilo de la bolita activa */
+.ulta-banner-daily-offers-pagination .swiper-pagination-bullet-active {
+  background-color: #000;
+}

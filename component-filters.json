@@ -16,8 +16,20 @@
       "cards",
       "columns",
       "fragment",
-      "quote",
-      "simple-marquee"
+      "ulta-separator",
+      "ulta-promotions-headband",
+      "ulta-main-banner",
+      "ulta-category-purchase",
+      "ulta-promotions-carousel",
+      "ulta-banner-daily-offers",
+      "ulta-beauty-trends",
+      "ulta-corporate-commitments",
+      "ulta-cookies",
+      "ulta-learning",
+      "ulta-discount-headband",
+      "ulta-title",
+      "ulta-category-blogs",
+      "ulta-breadcrumb"
     ]
   },
   {
@@ -39,6 +51,62 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "ulta-article-list",
+    "components": [
+      "ulta-article-list-block"
+    ]
+  },
+  {
+    "id": "ulta-banner-daily-offers",
+    "components": [
+      "ulta-daily-offer"
+    ]
+  },
+  {
+    "id": "ulta-beauty-trends",
+    "components": [
+      "ulta-beauty-trend"
+    ]
+  },
+  {
+    "id": "ulta-category-blogs",
+    "components": [
+      "ulta-category-blog"
+    ]
+  },
+  {
+    "id": "ulta-category-purchase",
+    "components": [
+      "ulta-category-item"
+    ]
+  },
+  {
+    "id": "ulta-corporate-commitments",
+    "components": [
+      "ulta-corporate-commitment"
+    ]
+  },
+  {
+    "id": "ulta-main-banner",
+    "components": [
+      "ulta-main-banner-img",
+      "ulta-main-banner-text",
+      "ulta-main-banner-button"
+    ]
+  },
+  {
+    "id": "ulta-promotions-carousel",
+    "components": [
+      "ulta-promotion-item"
+    ]
+  },
+  {
+    "id": "ulta-promotions-headband",
+    "components": [
+      "ulta-promotion-code"
     ]
   }
 ]
