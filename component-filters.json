@@ -29,7 +29,8 @@
       "ulta-discount-headband",
       "ulta-title",
       "ulta-category-blogs",
-      "ulta-breadcrumb"
+      "ulta-breadcrumb",
+      "ulta-products-carousel"
     ]
   },
   {
@@ -95,6 +96,12 @@
       "ulta-main-banner-img",
       "ulta-main-banner-text",
       "ulta-main-banner-button"
+    ]
+  },
+  {
+    "id": "ulta-products-carousel",
+    "components": [
+      "ulta-products-carousel-items"
     ]
   },
   {
