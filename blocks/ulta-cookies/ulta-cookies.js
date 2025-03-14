@@ -1,7 +1,7 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  console.log('Decorating ulta-cookies block', block);
+  // console.log('Decorating ulta-cookies block', block);
 
   const items = Array.from(block.children);
 

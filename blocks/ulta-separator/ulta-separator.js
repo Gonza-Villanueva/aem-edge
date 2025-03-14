@@ -1,5 +1,5 @@
 export default function decorate(block) {
-  console.log('Decorating ulta-separator block', block);
+  // console.log('Decorating ulta-separator block', block);
   const paragraphs = block.querySelectorAll('p');
 
   const heightDesktop = paragraphs[0]?.textContent.trim() || '20px';

@@ -1,7 +1,7 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  console.log('Decorating ulta-discount-headband block', block);
+  // console.log('Decorating ulta-discount-headband block', block);
 
   const items = Array.from(block.children);
 
