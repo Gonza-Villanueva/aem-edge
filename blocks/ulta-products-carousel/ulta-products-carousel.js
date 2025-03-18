@@ -9,7 +9,7 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 // URL of the products JSON (this will change when connected to GraphQL)
-const jsonURL = '../../blocks/ulta-products-carousel/products.json';
+const jsonURL = '../../scripts/products.json';
 
 /**
  * Creates an element with a specific type and transfers the content from the original.
