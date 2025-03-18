@@ -78,7 +78,7 @@
                     "valueType": "string",
                     "name": "buttontext",
                     "label": "Button label",
-                    "value": "AGREGAR A LA BOLSA"
+                    "value": ""
                 }
             ]
         }

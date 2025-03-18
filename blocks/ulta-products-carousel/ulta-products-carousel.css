@@ -1,0 +1,317 @@
+/**
+* Copyright © infinite All rights reserved.
+*/
+
+/**
+header
+----------------------------------- */
+.ulta-products-carousel-header {
+    margin: 0 0 24px;
+
+    h2 {
+        font-size: clamp(1.25rem, 1.083rem + 0.741vw, 1.5rem); /* 20px - 24px */
+        letter-spacing: calc(clamp(-0.019rem, -0.031rem + 0.056vw, 0rem) * -1); /* 0.3 - 0 */
+        line-height: clamp(1.5rem, 1.333rem + 0.741vw, 1.75rem); /* 28px - 24px */
+        color: var(--black);
+        margin: 0;
+    }
+
+    p {
+        font-size: 14px;
+        letter-spacing: clamp(0rem, -0.015rem + 0.065vw, 0.022rem); /* 0 - 0.35px */
+        line-height: 20px;
+        color: var(--black);
+    }
+
+    span {
+        display: block;
+        font-size: 14px;
+        letter-spacing: 0.35px;
+        line-height: 20px;
+        color: var(--gray-600);
+        margin: 4px 0 0;
+    }
+}
+
+/**
+Content Slider
+----------------------------------- */
+
+.ulta-products-carousel.block {
+    width: 100%;
+    position: relative;
+}
+
+.ulta-products-carousel-button {
+    position: absolute;
+    top: calc(72px + 50%);
+    transform: translateY(-50%);
+    background-color: var(--gray-0);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    z-index: 10;
+    opacity: 1 !important;
+
+    &.swiper-button-disabled {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+.ulta-products-carousel-button-prev .ulta-products-carousel-arrow {
+    transform: rotate(180deg);
+}
+
+.ulta-products-carousel-button-prev {
+    left: -20px;
+}
+
+.ulta-products-carousel-button-next {
+    right: -20px;
+}
+
+@media (width <= 450px) {
+    .ulta-products-carousel-button {
+        display: none;
+    }
+}
+
+/**
+Content products image
+----------------------------------- */
+.ulta-products-slide {
+    width: clamp(13.875rem, 9.458rem + 19.63vw, 20.5rem);
+    height: auto;
+
+    .ulta-product {
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+    }
+
+    .ulta-product-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: clamp(13.875rem, 9.458rem + 19.63vw, 20.5rem); /* 222px - 328px */
+        height: clamp(15.875rem, 12.125rem + 16.667vw, 21.5rem); /* 254px - 344px */
+        background-color: var(--gray-50);
+        transition: all 0.1s;
+
+        .ulta-product-img {
+            width: clamp(10.875rem, 7.125rem + 16.667vw, 16.5rem); /* 174px - 264px */
+            height: clamp(10.875rem, 7.125rem + 16.667vw, 16.5rem); /* 174px - 264px */
+            object-fit: cover;
+        }
+
+        .ulta-product-badge {
+            position: absolute;
+            width: clamp(6.25rem, 5.417rem + 3.704vw, 7.5rem); /* 100px - 120px */
+            height: clamp(6.125rem, 5.292rem + 3.704vw, 7.375rem); /* 98px - 118px */
+            object-fit: cover;
+            right: 0;
+            bottom: 8px;
+        }
+
+        .ulta-tag-container {
+            position: absolute;
+            top: 12px;
+            left: clamp(1rem, 0.667rem + 1.481vw, 1.5rem); /* 16px - 24px */
+
+            .ulta-tag {
+                font-size: 12px;
+                letter-spacing: 0.36px;
+                line-height: 16px;
+                color: var(--black);
+                text-decoration: none;
+            }
+        }
+
+        .ulta-color-variation {
+            position: absolute;
+            bottom: 8px;
+            left: clamp(1rem, 0.667rem + 1.481vw, 1.5rem); /* 16px - 24px */
+            font-size: 12px;
+            letter-spacing: 0.36px;
+            line-height: 16px;
+            color: var(--gray-550);
+            text-decoration: none;
+        }
+
+        .ulta-product-wishlist-button {
+            position: absolute;
+            top: 11px;
+            right: 23px;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            background-image: url('../../icons/icon-heart-empty.svg');
+            background-size: cover;
+            transition: background-image .3s ease;
+
+            &:hover {
+                background-image: url('../../icons/icon-heart-full.svg');
+            }
+
+            &.remove {
+                background-image: url('../../icons/icon-heart-full.svg');
+
+                &:hover {
+                    background-image: url('../../icons/icon-heart-empty.svg');
+                }
+            }
+        }
+    }
+}
+
+/**
+Content products info
+----------------------------------- */
+.ulta-products-slide .ulta-product-info {
+    padding: 8px 8px 0;
+    flex-grow: 1;
+
+    .ulta-product-brand {
+        font-size: 14px;
+        letter-spacing: 0.35px;
+        line-height: 20px;
+        color: var(--gray-550);
+        margin: 0 0 2px;
+    }
+
+    .ulta-product-name {
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+        letter-spacing: 0.35px;
+        line-height: 20px;
+        color: var(--black);
+        text-decoration: none;
+    }
+
+    .ulta-product-stars-wrapper {
+        display: flex;
+        margin: 2px 0 0;
+        gap: 4px;
+        align-items: center;
+        flex-flow: row;
+
+        .ulta-product-stars {
+            display: inline-block;
+            position: relative;
+            font-size: 12px;
+            line-height: 1;
+
+            &::before {
+                content: "\e901 \e901 \e901 \e901 \e901";
+                font-family: Stars, sans-serif;
+            }
+
+            &::after {
+                content: "\e900 \e900 \e900 \e900 \e900";
+                font-family: Stars, sans-serif;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: var(--rating, 0%);
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }
+
+        .ulta-product-stars-points {
+            font-size: 12px;
+            letter-spacing: 0.36px;
+            line-height: 16px;
+            color: var(--black);
+        }
+
+        .ulta-product-stars-comments {
+            font-size: 12px;
+            letter-spacing: 0.36px;
+            line-height: 16px;
+            color: var(--gray-550);
+        }
+    }
+
+    .ulta-product-price {
+        display: flex;
+        flex-flow: row;
+        gap: 8px;
+        margin: 4px 0 0;
+
+        .ulta-product-price-normal {
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.35px;
+            color: var(--black);
+        }
+
+        .ulta-product-price-special {
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.35px;
+            color: var(--secondary-500);
+        }
+
+        &:has(.ulta-product-price-special) .ulta-product-price-normal {
+            font-size: 12px;
+            font-weight: 300;
+            text-decoration: line-through;
+            line-height: 20px;
+            letter-spacing: 0.35px;
+            color: var(--gray-550);
+        }
+    }
+
+    .ulta-product-promo {
+        font-size: 12px;
+        letter-spacing: 0.36px;
+        line-height: 16px;
+        color: var(--secondary-500);
+        margin: 4px 0 0;
+        padding: 0 4px;
+        height: 15px;
+        width: fit-content;
+        background-color: var(--secondary-50);
+    }
+}
+
+.ulta-products-slide .ulta-product-button {
+    display: flex;
+    color: var(--gray-0);
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    max-width: fit-content;
+    height: 40px;
+    background-color: var(--black);
+    font-size: 12px;
+    letter-spacing: 0.36px;
+    line-height: 16px;
+    text-align: center;
+    margin: 8px 8px 0;
+    padding: 0 24.5px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: var(--gray-900);
+    }
+
+    &:disabled {
+        background-color: var(--gray-400);
+    }
+}

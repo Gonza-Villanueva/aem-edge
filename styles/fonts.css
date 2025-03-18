@@ -62,3 +62,15 @@
   font-display: swap;
   src: url('../fonts/CircularStd-BlackItalic.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: Stars;
+  src:  url('../fonts/stars.eot?zhzgvh');
+  src:  url('../fonts/stars.eot?zhzgvh#iefix') format('embedded-opentype'),
+    url('../fonts/stars.ttf?zhzgvh') format('truetype'),
+    url('../fonts/stars.woff?zhzgvh') format('woff'),
+    url('../fonts/stars.svg?zhzgvh#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
