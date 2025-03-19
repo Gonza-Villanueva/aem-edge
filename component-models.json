@@ -656,9 +656,10 @@
         "label": "Block Description"
       },
       {
-        "component": "chips",
+        "component": "text",
+        "valueType": "array",
         "name": "tags",
-        "label": "Enter custom tags"
+        "label": "Enter tags"
       }
     ]
   },
