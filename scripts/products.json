@@ -16,7 +16,7 @@
             "addToCartLink": "https://example.com/cart/add/product-new-1",
             "sku": "SKU-N-001",
             "colorVariation": 3,
-            "badge": "../../icons/allure_badge.png",
+            "badge": "https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/allure_badge.png",
             "promo": "Compra 2, lleva 1 gratis"
         },
         {
@@ -35,7 +35,7 @@
             "addToCartLink": "https://example.com/cart/add/product-new-2",
             "sku": "SKU-N-002",
             "colorVariation": 0,
-            "badge": "../../icons/allure_badge.png",
+            "badge": "https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/allure_badge.png",
             "promo": ""
         },
         {
@@ -92,7 +92,7 @@
             "addToCartLink": "https://example.com/cart/add/product-new-5",
             "sku": "SKU-N-005",
             "colorVariation": 0,
-            "badge": "../../icons/allure_badge.png",
+            "badge": "https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/allure_badge.png",
             "promo": ""
         },
         {
@@ -111,7 +111,7 @@
             "addToCartLink": "https://example.com/cart/add/product-new-6",
             "sku": "SKU-N-006",
             "colorVariation": 2,
-            "badge": "../../icons/allure_badge.png",
+            "badge": "https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/allure_badge.png",
             "promo": "Compra 2, lleva 1 gratis"
         },
         {
@@ -130,7 +130,7 @@
             "addToCartLink": "https://example.com/cart/add/product-exclusive-1",
             "sku": "SKU-E-001",
             "colorVariation": 2,
-            "badge": "../../icons/allure_badge.png",
+            "badge": "https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/allure_badge.png",
             "promo": "Compra 2, lleva 1 gratis"
         },
         {
@@ -168,7 +168,7 @@
             "addToCartLink": "https://example.com/cart/add/product-exclusive-3",
             "sku": "SKU-E-003",
             "colorVariation": 1,
-            "badge": "../../icons/allure_badge.png",
+            "badge": "https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/allure_badge.png",
             "promo": ""
         },
         {
@@ -282,7 +282,7 @@
             "addToCartLink": "https://example.com/cart/add/product-exclusive-cf-3",
             "sku": "SKU-ECF-003",
             "colorVariation": 1,
-            "badge": "../../icons/allure_badge.png",
+            "badge": "https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/allure_badge.png",
             "promo": ""
         },
         {
