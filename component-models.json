@@ -661,38 +661,14 @@
         "name": "tag",
         "label": "Enter tags",
         "placeholder": "Enter tags separated by commas"
-      }
-    ]
-  },
-  {
-    "id": "ulta-products-carousel-items",
-    "fields": [
-      {
-        "component": "multiselect",
-        "name": "tag",
-        "label": "Select tag to populate",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Nuevos",
-            "value": "Nuevos"
-          },
-          {
-            "name": "Exclusivo",
-            "value": "Exclusivo"
-          },
-          {
-            "name": "Cruelty Free",
-            "value": "Cruelty Free"
-          }
-        ]
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "buttontext",
         "label": "Button label",
-        "value": ""
+        "value": "",
+        "placeholder": "ex: Add to Cart"
       }
     ]
   },

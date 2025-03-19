@@ -99,12 +99,6 @@
     ]
   },
   {
-    "id": "ulta-products-carousel",
-    "components": [
-      "ulta-products-carousel-items"
-    ]
-  },
-  {
     "id": "ulta-promotions-carousel",
     "components": [
       "ulta-promotion-item"

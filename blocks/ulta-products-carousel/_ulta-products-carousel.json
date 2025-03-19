@@ -15,21 +15,6 @@
                     }
                 }
             }
-        },
-        {
-        "title": "ulta-products-carousel-items",
-        "id": "ulta-products-carousel-items",
-        "plugins": {
-            "xwalk": {
-                "page": {
-                    "resourceType": "core/franklin/components/block/v1/block/item",
-                    "template": {
-                        "name": "ulta-products-carousel-items",
-                        "model": "ulta-products-carousel-items"
-                    }
-                }
-            }
-        }
         }
     ],
     "models": [
@@ -47,48 +32,24 @@
                     "valueType": "string",
                     "name": "description",
                     "label": "Block Description"
-                }
-            ]
-        },
-        {
-            "id": "ulta-products-carousel-items",
-            "fields": [
-                {
-                    "component": "multiselect",
-                    "name": "tag",
-                    "label": "Select tag to populate",
-                    "valueType": "string",
-                    "options": [
-                        {
-                            "name": "Nuevos",
-                            "value": "Nuevos"
-                        },
-                        {
-                            "name": "Exclusivo",
-                            "value": "Exclusivo"
-                        },
-                        {
-                            "name": "Cruelty Free",
-                            "value": "Cruelty Free"
-                        }
-                    ]
                 },
                 {
-                    "component": "text",
-                    "valueType": "string",
-                    "name": "buttontext",
-                    "label": "Button label",
-                    "value": ""
+                  "component": "text",
+                  "valueType": "array",
+                  "name": "tag",
+                  "label": "Enter tags",
+                  "placeholder": "Enter tags separated by commas"
+                },
+                {
+                  "component": "text",
+                  "valueType": "string",
+                  "name": "buttontext",
+                  "label": "Button label",
+                  "value": "",
+                  "placeholder": "ex: Add to Cart"
                 }
             ]
         }
     ],
-    "filters": [
-        {
-            "id": "ulta-products-carousel",
-            "components": [
-                "ulta-products-carousel-items"
-            ]
-        }
-    ]
+    "filters": []
 }

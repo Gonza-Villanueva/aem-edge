@@ -478,21 +478,6 @@
           }
         },
         {
-          "title": "ulta-products-carousel-items",
-          "id": "ulta-products-carousel-items",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "ulta-products-carousel-items",
-                  "model": "ulta-products-carousel-items"
-                }
-              }
-            }
-          }
-        },
-        {
           "title": "ulta-promotions-carousel",
           "id": "ulta-promotions-carousel",
           "plugins": {
