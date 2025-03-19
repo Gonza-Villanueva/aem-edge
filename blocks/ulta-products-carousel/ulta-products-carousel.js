@@ -9,7 +9,7 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 // URL of the products JSON (this will change when connected to GraphQL)
-// const jsonURL = '../../scripts/products.json'; // Local JSON
+// const jsonURL = '../../blocks/ulta-products-carousel/products.json'; // Local JSON
 const jsonURL = 'https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/json/products.json';
 
 /**
