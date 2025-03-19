@@ -658,8 +658,9 @@
       {
         "component": "text",
         "valueType": "array",
-        "name": "tags",
-        "label": "Enter tags"
+        "name": "tag",
+        "label": "Enter tags",
+        "placeholder": "Enter tags separated by commas"
       }
     ]
   },
