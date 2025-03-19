@@ -1,6 +1,8 @@
 {
   "mappings": [
-    "/content/learning-aem-edge/:/",
+    "/content/learning-aem-edge/:/"
+  ],
+  "includes": [
     "/content/learning-aem-edge/scripts:/products.json"
   ]
 }
