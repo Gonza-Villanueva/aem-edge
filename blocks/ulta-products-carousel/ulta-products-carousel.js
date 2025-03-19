@@ -11,26 +11,6 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 // URL of the products JSON (this will change when connected to GraphQL)
 const jsonURL = '../../scripts/products.json';
 
-async function fetchProducts() {
-  try {
-      const response = await fetch(jsonURL);
-      
-      // Verifica si la respuesta es un HTML en lugar de JSON
-      const contentType = response.headers.get("content-type");
-      if (!response.ok || !contentType.includes("application/json")) {
-          throw new Error(`Error al cargar JSON. Tipo de respuesta: ${contentType}`);
-      }
-
-      const data = await response.json();
-      console.log("Productos cargados:", data);
-      return data;
-  } catch (error) {
-      console.error("Error al cargar los productos:", error);
-  }
-}
-
-fetchProducts();
-
 /**
  * Creates an element with a specific type and transfers the content from the original.
  *
