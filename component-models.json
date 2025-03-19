@@ -659,7 +659,7 @@
         "component": "text",
         "valueType": "array",
         "name": "tag",
-        "label": "Enter tags to add filtered products",
+        "label": "Enter tags",
         "placeholder": "Enter tags separated by commas"
       },
       {

@@ -43,7 +43,7 @@
                 {
                   "component": "text",
                   "valueType": "string",
-                  "name": "buttontext",
+                  "name": "button-text",
                   "label": "Button label",
                   "value": "",
                   "placeholder": "ex: Add to Cart"

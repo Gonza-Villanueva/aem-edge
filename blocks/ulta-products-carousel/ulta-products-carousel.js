@@ -38,6 +38,7 @@ export default async function decorate(block) {
   const titleElement = items.shift();
   const descriptionElement = items.shift();
   const tagsElement = items.shift();
+  const ButtonElement = items.shift();
 
   // extract tags
   const dataTags = Array.from(tagsElement.querySelectorAll('p'));
@@ -49,10 +50,7 @@ export default async function decorate(block) {
     selectedTags = dataTags[0].textContent.trim().split(',').map((tag) => tag.trim());
   }
 
-  // If there is a second <p>, that is the button and only takes the text
-  if (dataTags.length > 1) {
-    blockButtonText = dataTags[1].textContent.trim();
-  }
+  blockButtonText = ButtonElement.textContent.trim();
 
   // Create the header container
   const headerContainer = document.createElement('div');
