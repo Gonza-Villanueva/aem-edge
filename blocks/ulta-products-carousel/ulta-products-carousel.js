@@ -9,7 +9,20 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 // URL of the products JSON (this will change when connected to GraphQL)
-const jsonURL = '../../scripts/products.json';
+const jsonURL2 = '../../scripts/products.json';
+const jsonURL = 'https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/json/products.json';
+
+fetch('https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/json/products.json', {
+  credentials: 'include'
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+  return response.json();
+})
+.then(data => console.log(data))
+.catch(error => console.error('Error fetching the JSON:', error));
 
 /**
  * Creates an element with a specific type and transfers the content from the original.
