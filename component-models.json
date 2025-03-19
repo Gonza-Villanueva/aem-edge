@@ -654,6 +654,11 @@
         "valueType": "string",
         "name": "description",
         "label": "Block Description"
+      },
+      {
+        "component": "chips",
+        "name": "tags",
+        "label": "Enter custom tags"
       }
     ]
   },
