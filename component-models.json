@@ -657,18 +657,18 @@
       },
       {
         "component": "text",
+        "valueType": "array",
+        "name": "tag",
+        "label": "Enter tags to add filtered products",
+        "placeholder": "Enter tags separated by commas"
+      },
+      {
+        "component": "text",
         "valueType": "string",
         "name": "buttontext",
         "label": "Button label",
         "value": "",
         "placeholder": "ex: Add to Cart"
-      },
-      {
-        "component": "text",
-        "valueType": "array",
-        "name": "tag",
-        "label": "Enter tags",
-        "placeholder": "Enter tags separated by commas"
       }
     ]
   },
