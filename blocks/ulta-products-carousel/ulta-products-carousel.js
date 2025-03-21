@@ -19,14 +19,20 @@ const jsonURL = 'https://author-p34631-e1321407.adobeaemcloud.com/content/dam/le
  * @param {HTMLElement} originalElement - Original element from which the content will be extracted.
  * @returns {HTMLElement} - New element with the transferred content.
  */
-function createElementWithContent(tag, originalElement) {
+function createElementWithContent(tag, originalElement, classgroup = []) {
   const newElement = document.createElement(tag);
+
   if (originalElement) {
     if (originalElement.textContent.trim()) {
       newElement.textContent = originalElement.textContent.trim();
     }
     moveInstrumentation(originalElement, newElement);
   }
+
+  if (Array.isArray(classgroup) && classgroup.length > 0) {
+    newElement.classList.add(...classgroup);
+  }
+
   return newElement;
 }
 
