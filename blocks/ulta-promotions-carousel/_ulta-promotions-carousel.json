@@ -105,6 +105,21 @@
                 "ulta-promotion-item",
                 "columns"
             ]
+        },
+        {
+            "id": "columns",
+            "components": [
+                "column"
+            ]
+        },
+        {
+            "id": "column",
+            "components": [
+                "text",
+                "image",
+                "button",
+                "title"
+            ]
         }
     ]
 }
