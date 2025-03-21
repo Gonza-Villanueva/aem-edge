@@ -16,7 +16,6 @@
       "cards",
       "columns",
       "fragment",
-      "carousel",
       "ulta-separator",
       "ulta-promotions-headband",
       "ulta-main-banner",
@@ -38,12 +37,6 @@
     "id": "cards",
     "components": [
       "card"
-    ]
-  },
-  {
-    "id": "carousel",
-    "components": [
-      "carousel-slide"
     ]
   },
   {
@@ -108,7 +101,8 @@
   {
     "id": "ulta-promotions-carousel",
     "components": [
-      "ulta-promotion-item"
+      "ulta-promotion-item",
+      "columns"
     ]
   },
   {
