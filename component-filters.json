@@ -95,7 +95,9 @@
     "id": "block-carousel",
     "components": [
       "cards",
-      "columns"
+      "columns",
+      "card",
+      "column"
     ]
   },
   {
