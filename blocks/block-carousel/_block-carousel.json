@@ -41,10 +41,7 @@
   "filters": [
     {
       "id": "block-carousel",
-      "components": [
-        "cards",
-        "columns"
-      ]
+      "components": null
     }
   ]
 }
