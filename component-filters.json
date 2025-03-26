@@ -93,7 +93,10 @@
   },
   {
     "id": "block-carousel",
-    "components": null
+    "components": [
+      "cards",
+      "columns"
+    ]
   },
   {
     "id": "cards",
