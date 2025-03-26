@@ -499,6 +499,7 @@ function decorateSections(main) {
         }
       });
       sectionMeta.parentNode.remove();
+      sectionMeta.childNodes.remove();
     }
   });
 }
