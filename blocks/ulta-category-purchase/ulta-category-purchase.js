@@ -54,11 +54,16 @@ export default function decorate(block) {
     swiperWrapper.appendChild(slide);
   });
 
+  // Si hay 9 o menos items, centramos los elementos
+  if (items.length <= 9) {
+    swiperWrapper.classList.add('center-items');
+  }
+
   // Botones de navegación
   const createNavButton = (className, imgAlt) => {
     const button = document.createElement('div');
     button.classList.add('ulta-category-purchase-button', className, `swiper-button-${className.split('-')[2]}`);
-    button.innerHTML = `<img src="https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/icons/arrow.svg" alt="${imgAlt}" class="ulta-category-purchase-arrow">`;
+    button.innerHTML = `<img src="../../icons/arrow.svg" alt="${imgAlt}" class="ulta-category-purchase-arrow">`;
     return button;
   };
 

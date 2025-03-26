@@ -1,0 +1,20 @@
+{
+    "definitions": [
+        {
+            "title": "ulta-review-list",
+            "id": "ulta-review-list",
+            "plugins": {
+                "xwalk": {
+                    "page": {
+                        "resourceType": "core/franklin/components/block/v1/block",
+                        "template": {
+                            "name": "ulta-review-list"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "models": [],
+    "filters":[]
+}

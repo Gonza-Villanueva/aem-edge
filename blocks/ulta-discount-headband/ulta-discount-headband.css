@@ -67,7 +67,7 @@
 
     .ulta-discount-headband {
         flex-direction: column;
-        gap: 0;
+        gap: 0px;
         align-items: flex-start;
         padding-block: 8px;
         padding-inline: 8px;

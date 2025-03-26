@@ -1,0 +1,26 @@
+.ulta-block-text {
+    font-size: 12px;
+}
+
+.ulta-block-text p {
+    margin: 16px 0;
+}
+
+.ulta-block-text ul {
+    margin: 12px 0;
+    padding-left: 0; /* Elimina el padding adicional para pegar los puntos al margen izquierdo */
+    list-style-position: inside; /* Alinea los puntos con el texto */
+}
+
+.ulta-block-text ul li::marker {
+    font-size: 8px; /* Hacer los puntos más pequeños */
+}
+
+.ulta-block-text p + ul {
+    margin: 12px 0;
+}
+
+/* Estilo de los enlaces */
+.ulta-block-text a {
+    color: #000;
+}

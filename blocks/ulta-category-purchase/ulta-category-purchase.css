@@ -26,6 +26,12 @@
 .ulta-category-purchase-wrapper-carrousel {
     display: flex;
     align-items: center;
+    justify-content: flex-start; /* Predeterminado a la izquierda */
+}
+
+/* Cuando hay 9 o menos items, centramos los slides */
+.ulta-category-purchase-wrapper-carrousel.center-items {
+    justify-content: center; /* Centramos los elementos */
 }
 
 /* Slides */
@@ -53,6 +59,7 @@
 .ulta-category-purchase-name {
     margin-top: 8px;
     font-size: 12px;
+    font-weight: var(--font-weight-book);
     letter-spacing: 0.36px;
     line-height: 16px;
 }

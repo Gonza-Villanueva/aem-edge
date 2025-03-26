@@ -8,11 +8,17 @@
 }
 
 .ulta-beauty-trends-header h2 {
-    font-size: 24px;
     letter-spacing: 0;
     line-height: 28px;
     color: #000;
     margin: 0 0 4px;
+}
+
+.ulta-beauty-trends-header p {
+    font-size: 14px;
+    font-weight: var(--font-weight-book);
+    letter-spacing: 0.35px;
+    line-height: 20px;
 }
 
 .ulta-beauty-trends-swiper {
@@ -57,6 +63,7 @@
 
 .ulta-beauty-trend-brand {
     font-size: 12px;
+    font-weight: var(--font-weight-book);
     letter-spacing: 0.12px;
     line-height: 16px;
     color: #000;
@@ -66,6 +73,7 @@
 
 .ulta-beauty-trend-title {
     font-size: 24px;
+    font-weight: var(--font-weight-medium);
     letter-spacing: 0;
     line-height: 28px;
     color: #000;

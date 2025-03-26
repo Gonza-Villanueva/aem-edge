@@ -1,0 +1,79 @@
+/* Estilo principal para el banner del carrito de compras */
+.ulta-banner-shopping-cart {
+    max-width: 902px;
+}
+
+.cart-purchase-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 16px;
+}
+
+.cart-purchase-banner-image-description-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Estilo para la imagen del banner */
+.cart-purchase-banner-image {
+    width: 24px;
+    height: 24px;
+}
+
+/* Estilo para la descripción del banner */
+.cart-purchase-banner-description {
+    font-size: 16px;
+    color: #000000;
+    letter-spacing: 0.4px;
+    font: normal normal normal 16px/20px Circular Std;
+}
+
+.cart-purchase-banner-description p {
+    margin: 0;
+}
+
+/* Estilo para el enlace (botón o link) */
+.cart-purchase-banner-link {
+    display: flex;
+    font-size: 14px;
+    color: #0D0D0D;
+    text-decoration: none;
+    align-items: center;
+}
+
+/* Estilo para la imagen de la flecha */
+.cart-purchase-banner-arrow {
+    width: 12px;
+    height: 12px;
+    margin-left: 10px;
+}
+
+.cart-purchase-banner-link p {
+    margin: 0;
+}
+
+@media (width <=760px) {
+
+    .cart-purchase-banner {
+        padding: 16px 16px;
+        flex-direction: column;
+        gap: 12px;
+        align-items: normal;
+    }
+
+    .cart-purchase-banner-image-description-container {
+        align-items: flex-start;
+    }
+
+    .cart-purchase-banner-link {
+        margin-left: 32px;
+    }
+}
+
+@media (width <=1025px) {
+    .ulta-banner-shopping-cart {
+        max-width: 100%;
+    }
+}

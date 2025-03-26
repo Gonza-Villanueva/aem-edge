@@ -10,8 +10,8 @@
 }
 
 .ulta-banner-daily-offers-header h2 {
-  font-size: 24px;
-  font-weight: bold;
+  letter-spacing: 0.36px;
+  line-height: 28px;
   color: #000;
   margin: 0 0 0 115px;
 }
@@ -62,6 +62,7 @@ p {
 /* Etiqueta destacada de la oferta */
 .ulta-banner-daily-offers-tagline {
   font-size: 12px;
+  font-weight: var(--font-weight-book);
   letter-spacing: 0.12px;
   line-height: 16px;
   color: #fff;
@@ -74,6 +75,7 @@ p {
 /* Categoría de la oferta */
 .ulta-banner-daily-offers-category {
   font-size: 12px;
+  font-weight: var(--font-weight-book);
   letter-spacing: 0.12px;
   line-height: 16px;
   color: #000;
@@ -83,6 +85,7 @@ p {
 /* Título de la oferta */
 .ulta-banner-daily-offers-title {
   font-size: 32px;
+  font-weight: var(--font-weight-medium);
   letter-spacing: 0.96px;
   line-height: 32px;
   color: #000;
@@ -92,6 +95,7 @@ p {
 /* Descripción de la oferta */
 .ulta-banner-daily-offers-description {
   font-size: 14px;
+  font-weight: var(--font-weight-book);
   letter-spacing: 0.35px;
   line-height: 20px;
   color: #000;
@@ -101,6 +105,7 @@ p {
 /* Botón de la oferta */
 .ulta-banner-daily-offers-button {
   font-size: 14px;
+  font-weight: var(--font-weight-book);
   letter-spacing: 0.35px;
   line-height: 20px;
   color: #0d0d0d;

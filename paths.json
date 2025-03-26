@@ -1,5 +1,11 @@
 {
   "mappings": [
-    "/content/learning-aem-edge/:/"
-  ]
+    "/content/learning-aem-edge/:/",
+    "/content/learning-aem-edge/headers:/.helix/headers.json",
+    "/content/learning-aem-edge/configs:/configs.json",
+    "/content/learning-aem-edge/configs-stage:/configs-stage.json",
+    "/content/learning-aem-edge/configs-dev:/configs-dev.json",
+    "/content/learning-aem-edge/placeholders:/placeholders.json"
+  ],
+  "includes": ["/content/learning-aem-edge/"]
 }

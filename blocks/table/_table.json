@@ -1,0 +1,25 @@
+{
+    "definitions": [
+      {
+        "title": "table",
+        "id": "table",
+        "plugins": {
+          "xwalk": {
+            "page": {
+              "resourceType": "core/franklin/components/block/v1/block",
+              "template": {
+                "name": "table",
+                "filter": "table"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "models": [
+   
+    ],
+    "filters": [
+   
+    ]
+  }

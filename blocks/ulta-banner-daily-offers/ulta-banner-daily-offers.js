@@ -47,7 +47,7 @@ export default function decorate(block) {
         <div class="ulta-banner-daily-offers-info">
           <div class="ulta-banner-daily-offers-tagline">${offerTagline}</div>
           <p class="ulta-banner-daily-offers-category">${offerCategory}</p>
-          <h3 class="ulta-banner-daily-offers-title">${offerTitle}</h3>
+          <p class="ulta-banner-daily-offers-title">${offerTitle}</p>
           <p class="ulta-banner-daily-offers-description">${offerDescription}</p>
           <a href="${linkUrl}" class="ulta-banner-daily-offers-button">${buttonText}</a>
         </div>
@@ -63,7 +63,7 @@ export default function decorate(block) {
   const createNavButton = (className, imgAlt) => {
     const button = document.createElement('div');
     button.classList.add('ulta-banner-daily-offers-button', className, `swiper-button-${className.split('-')[2]}`);
-    button.innerHTML = `<img src="https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/icons/arrow.svg" alt="${imgAlt}" class="ulta-banner-daily-offers-arrow">`;
+    button.innerHTML = `<img src="../../icons/arrow.svg" alt="${imgAlt}" class="ulta-banner-daily-offers-arrow">`;
     return button;
   };
 

@@ -1,19 +1,19 @@
 .ulta-category-title div p{
     text-align: center;
     letter-spacing: 0.42px;
-    color: #000;
+    color: #000000;
     opacity: 1;
     font-size: 28px;
     line-height: 32px;
     margin: 0;
-    margin-bottom: 16px;
+    margin-bottom: 16px; 
 }
 
 .ulta-category-subtitle div p {
     text-align: center;
-    font: normal normal normal 20px/24px "Chronicle Deck", serif;
+    font: normal normal normal 20px/24px Chronicle Deck;
     letter-spacing: 0.5px;
-    color: #000;
+    color: #000000;
     opacity: 1;
     line-height: 24px;
     font-size: 20px;
@@ -52,10 +52,9 @@
 }
 
 /* Estilos diferenciados para el título del servicio */
-/* stylelint-disable-next-line no-descending-specificity */
 .ulta-category-card-title p {
     text-align: left;
-    color: #000;
+    color: #000000;
     opacity: 1;
     line-height: 20px;
     font-size: 16px;
@@ -64,12 +63,11 @@
 }
 
 /* Estilos diferenciados para la descripción */
-/* stylelint-disable-next-line no-descending-specificity */
-.ulta-category-card-description p {
+.ulta-category-card-description p{
     text-align: left;
-    font: normal normal normal 14px/20px "Circular Std", sans-serif;
+    font: normal normal normal 14px/20px Circular Std;
     letter-spacing: 0.14px;
-    color: #000;
+    color: #000000;
     opacity: 1;
     line-height: 20px;
     font-size: 14px;
@@ -81,7 +79,7 @@
 .ulta-category-cta {
     text-align: left;
     text-decoration: underline;
-    font: normal normal normal 14px/20px "Circular Std", sans-serif;
+    font: normal normal normal 14px/20px Circular Std;
     letter-spacing: 0.35px;
     color: #0D0D0D;
     opacity: 1;
@@ -90,35 +88,34 @@
 }
 
 @media (width <= 1024px) {
-    .ulta-category-title div p {
+    .ulta-category-title div p{
         font-size: 20px;
         letter-spacing: 0.30px;
         line-height: 24px;
     }
 
-    .ulta-category-subtitle div p {
+    .ulta-category-subtitle div p{
         margin-bottom: 24px;
         font-size: 14px;
         letter-spacing: 0.35px;
         line-height: 20px;
     }
 
-    .ulta-category-container {
+    .ulta-category-container{
         gap: 24px;
         flex-direction: column;
     }
 
-    .ulta-category-card {
+    .ulta-category-card{
         max-width: 100%;
     }
 
-    .ulta-category-image img {
+    .ulta-category-image img{
         width: 100%;
         height: auto;
     }
 
-    /* stylelint-disable-next-line no-descending-specificity */
-    .ulta-category-card-description p {
+    .ulta-category-card-description p{
         margin-bottom: 16px;
 
     }

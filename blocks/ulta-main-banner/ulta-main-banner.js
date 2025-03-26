@@ -44,25 +44,12 @@ export default function decorate(block) {
 
     contentElements.forEach((element, index) => {
       if (element.isConnected) {
-        const text = element.textContent.trim();
         if (index === 0) {
           element.classList.add('ulta-banner-tagline');
-          // Limitar a 50 caracteres el tagline
-          if (text.length > 20) {
-            element.textContent = `${text.substring(0, 20)}...`;
-          }
         } else if (index === 1) {
           element.classList.add('ulta-banner-title');
-          // Limitar a 100 caracteres el título
-          if (text.length > 20) {
-            element.textContent = `${text.substring(0, 20)}...`;
-          }
         } else if (index === 2) {
           element.classList.add('ulta-banner-description');
-          // Limitar a 200 caracteres la descripción
-          if (text.length > 20) {
-            element.textContent = `${text.substring(0, 20)}...`;
-          }
         }
         textsContainer.appendChild(element);
       }
@@ -80,14 +67,6 @@ export default function decorate(block) {
     const button = document.createElement('a');
     button.href = buttonHref || '#';
     button.className = 'ulta-banner-button';
-
-    let buttonText = textElement.textContent.trim();
-    // Limitar el texto del botón a 20 caracteres
-    if (buttonText.length > 15) {
-      buttonText = `${buttonText.substring(0, 15)}...`;
-    }
-
-    textElement.textContent = buttonText;
 
     textElement.classList.add('ulta-button-text');
     button.appendChild(textElement);

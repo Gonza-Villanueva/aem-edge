@@ -141,7 +141,9 @@ function setup() {
     try {
       const scriptURL = new URL(scriptEl.src, window.location);
       if (scriptURL.host === window.location.host) {
-        [window.hlx.codeBasePath] = scriptURL.pathname.split('/scripts/scripts.js');
+        [window.hlx.codeBasePath] = scriptURL.pathname.split(
+          '/scripts/scripts.js',
+        );
       } else {
         [window.hlx.codeBasePath] = scriptURL.href.split('/scripts/scripts.js');
       }
@@ -372,16 +374,6 @@ function wrapTextNodes(block) {
   const wrap = (el) => {
     const wrapper = document.createElement('p');
     wrapper.append(...el.childNodes);
-    [...el.attributes]
-      // move the instrumentation from the cell to the new paragraph, also keep the class
-      // in case the content is a buttton and the cell the button-container
-      .filter(({ nodeName }) => nodeName === 'class'
-        || nodeName.startsWith('data-aue')
-        || nodeName.startsWith('data-richtext'))
-      .forEach(({ nodeName, nodeValue }) => {
-        wrapper.setAttribute(nodeName, nodeValue);
-        el.removeAttribute(nodeName);
-      });
     el.append(wrapper);
   };
 
@@ -474,14 +466,14 @@ function decorateIcons(element, prefix = '') {
  * @param {Element} main The container element
  */
 function decorateSections(main) {
-  main.querySelectorAll(':scope > div:not([data-section-status])').forEach((section) => {
+  main.querySelectorAll(':scope > div').forEach((section) => {
     const wrappers = [];
     let defaultContent = false;
     [...section.children].forEach((e) => {
-      if ((e.tagName === 'DIV' && e.className) || !defaultContent) {
+      if (e.tagName === 'DIV' || !defaultContent) {
         const wrapper = document.createElement('div');
         wrappers.push(wrapper);
-        defaultContent = e.tagName !== 'DIV' || !e.className;
+        defaultContent = e.tagName !== 'DIV';
         if (defaultContent) wrapper.classList.add('default-content-wrapper');
       }
       wrappers[wrappers.length - 1].append(e);
@@ -518,27 +510,52 @@ function decorateSections(main) {
  */
 // eslint-disable-next-line import/prefer-default-export
 async function fetchPlaceholders(prefix = 'default') {
+  const overrides = getMetadata('placeholders') || '';
+  const [fallback, override] = overrides.split('\n');
   window.placeholders = window.placeholders || {};
   if (!window.placeholders[prefix]) {
     window.placeholders[prefix] = new Promise((resolve) => {
-      fetch(`${prefix === 'default' ? '' : prefix}/placeholders.json`)
-        .then((resp) => {
+      const url = fallback || `${prefix === 'default' ? '' : prefix}/placeholders.json`;
+      Promise.all([fetch(url), override ? fetch(override) : Promise.resolve()])
+        .then(async ([resp, oResp]) => {
           if (resp.ok) {
-            return resp.json();
+            if (oResp?.ok) {
+              return Promise.all([resp.json(), await oResp.json()]);
+            }
+            return Promise.all([resp.json(), {}]);
           }
           return {};
         })
-        .then((json) => {
+
+        .then(([json, oJson]) => {
           const placeholders = {};
-          json.data
-            .filter((placeholder) => placeholder.Key)
-            .forEach((placeholder) => {
-              placeholders[toCamelCase(placeholder.Key)] = placeholder.Text;
-            });
+          // build placeholders object
+          json.data.forEach(({ Key, Value }) => {
+            // check for overrides
+            if (oJson?.data) {
+              const overrideItem = oJson.data.find((item) => item.Key === Key);
+              if (overrideItem) {
+                // eslint-disable-next-line no-param-reassign
+                Value = overrideItem.Value;
+              }
+            }
+            if (Key) {
+              const keys = Key.split('.');
+              const lastKey = keys.pop();
+              const target = keys.reduce((obj, key) => {
+                obj[key] = obj[key] || {};
+                return obj[key];
+              }, placeholders);
+              target[lastKey] = Value;
+            }
+          });
+          // cache placeholders
           window.placeholders[prefix] = placeholders;
+          // return placeholders
           resolve(window.placeholders[prefix]);
         })
-        .catch(() => {
+        .catch((error) => {
+          console.error('error loading placeholders', error);
           // error loading placeholders
           window.placeholders[prefix] = {};
           resolve(window.placeholders[prefix]);
@@ -622,7 +639,7 @@ async function loadBlock(block) {
  */
 function decorateBlock(block) {
   const shortBlockName = block.classList[0];
-  if (shortBlockName && !block.dataset.blockStatus) {
+  if (shortBlockName) {
     block.classList.add('block');
     block.dataset.blockName = shortBlockName;
     block.dataset.blockStatus = 'initialized';
@@ -631,8 +648,6 @@ function decorateBlock(block) {
     blockWrapper.classList.add(`${shortBlockName}-wrapper`);
     const section = block.closest('.section');
     if (section) section.classList.add(`${shortBlockName}-container`);
-    // eslint-disable-next-line no-use-before-define
-    decorateButtons(block);
   }
 }
 

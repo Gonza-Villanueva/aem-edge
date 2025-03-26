@@ -1,0 +1,224 @@
+.ulta-beauty-register-cdc-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* ====================
+   Overlay de registro CDC
+   ==================== */
+.ulta-beauty-register-cdc-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none; /* Oculto por defecto */
+}
+
+.ulta-beauty-register-cdc-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 420px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 6px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.ulta-beauty-register-cdc-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 22px;
+}
+
+.ulta-beauty-register-cdc-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+.ulta-beauty-register-cdc-close img {
+    max-width: none;
+    width: 24px;
+    height: 24px;
+}
+
+/* ====================
+     Header General
+     ==================== */
+
+/* Contenedor global (por ejemplo, generado por AEM) */
+.ulta-header-container .ulta-header-wrapper {
+    width: 100%;
+    max-width: unset;
+    padding: 0;
+    margin: 0 auto;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* === TOPBAR (FULL WIDTH) === */
+.ulta-header-topbar {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    font-size: 12px;
+}
+
+.ulta-header-topbar-inner {
+    max-width: 1360px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 19px;
+    box-sizing: border-box;
+}
+
+.ulta-header-topbar-shipping {
+    background-color: #fbf1f3;
+}
+
+.ulta-header-topbar-shipping span {
+    color: #bb2759;
+    padding: 4px;
+}
+
+.ulta-header-topbar-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 16px;
+}
+
+.ulta-header-topbar-links a {
+    text-decoration: none;
+    color: #7d7d7d;
+}
+
+.ulta-header-topbar-links a:hover {
+    text-decoration: underline;
+}
+
+/* === CONTENEDOR INTERNO PRINCIPAL (1360px) === */
+.ulta-header-inner {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal del header */
+.ulta-header-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 23px 0;
+    gap: 16px;
+}
+
+/* Logo */
+.ulta-header-logo img {
+    max-height: 40px;
+    display: block;
+}
+
+/* Navegación principal */
+.ulta-header-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+.ulta-header-nav a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Buscador */
+.ulta-header-search {
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+    border-bottom: 1px solid #ccc;
+    flex: 1;
+    max-width: 280px;
+    font-size: 14px;
+}
+
+.ulta-header-search input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    padding: 0 8px;
+    font-size: inherit;
+    color: #000;
+}
+
+.ulta-header-search input::placeholder {
+    color: #7d7d7d;
+}
+
+.ulta-header-search button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.ulta-header-search button img {
+    width: 16px;
+    height: 16px;
+}
+
+/* Íconos (favoritos, cuenta, bolsa) */
+.ulta-header-icons {
+    display: flex;
+    gap: 26px;
+    font-size: 12px;
+}
+
+.ulta-header-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .ulta-header-main {
+        flex-wrap: wrap;
+    }
+
+    .ulta-header-search {
+        order: 3;
+        width: 100%;
+        max-width: none;
+        margin-top: 8px;
+    }
+
+    .ulta-header-nav {
+        order: 2;
+    }
+
+    .ulta-header-icons {
+        order: 4;
+        margin-top: 8px;
+    }
+}

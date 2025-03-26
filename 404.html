@@ -3,13 +3,22 @@
 
 <head>
   <title>Page not found</title>
+  <script type="importmap">
+    {
+        "imports": {
+            "@dropins/tools/": "/scripts/__dropins__/tools/",
+            "@dropins/storefront-cart/": "/scripts/__dropins__/storefront-cart/",
+            "@dropins/storefront-auth/": "/scripts/__dropins__/storefront-auth/"
+        }
+    }
+  </script>
   <script type="text/javascript">
     window.isErrorPage = true;
     window.errorCode = '404';
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="Page not found">
-  <script src="/scripts/scripts.js" type="module" crossorigin="use-credentials"></script>
+  <script src="/scripts/scripts.js" type="module"></script>
   <script type="module">
     window.addEventListener('load', () => {
       if (document.referrer) {
@@ -33,9 +42,13 @@
   <link rel="stylesheet" href="/styles/styles.css">
   <style>
     main.error {
-      min-height: calc(100vh - var(--nav-height));
-      display: flex;
       align-items: center;
+      display: flex;
+      margin: 0 auto;
+      max-width: var(--desktop-width);
+      min-height: calc(100vh - var(--nav-height));
+      padding: 0 40px;
+      width: 100%;
     }
 
     main.error .error-number {

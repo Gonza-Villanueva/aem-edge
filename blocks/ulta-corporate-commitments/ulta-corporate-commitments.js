@@ -15,7 +15,7 @@ export default function decorate(block) {
   const titleContainer = document.createElement('div');
   titleContainer.classList.add('ulta-corporate-commitments-header');
 
-  const titleH2 = document.createElement('h2');
+  const titleH2 = document.createElement('h3');
   titleH2.innerHTML = blockTitleText;
   moveInstrumentation(titleElement, titleH2);
   titleContainer.appendChild(titleH2);

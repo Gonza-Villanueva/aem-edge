@@ -1,5 +1,5 @@
 export default function decorate(block) {
-  // console.log('Decorating block:', block);
+  console.log('Decorating block:', block);
 
   // Agregar clase al bloque principal
   block.classList.add('ulta-category-blogs');

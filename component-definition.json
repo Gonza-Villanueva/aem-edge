@@ -83,6 +83,37 @@
       "id": "blocks",
       "components": [
         {
+          "title": "accordion",
+          "id": "accordion",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "accordion",
+                  "filter": "accordion"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Block-carousel",
+          "id": "block-carousel",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "block-carousel",
+                  "model": "block-carousel",
+                  "filter": "block-carousel"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Cards",
           "id": "cards",
           "plugins": {
@@ -113,6 +144,21 @@
           }
         },
         {
+          "title": "carousel",
+          "id": "carousel",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "carousel",
+                  "filter": "carousel"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Columns",
           "id": "columns",
           "plugins": {
@@ -122,6 +168,456 @@
                 "template": {
                   "columns": "2",
                   "rows": "1"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-account-header",
+          "id": "commerce-account-header",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-account-header",
+                  "filter": "commerce-account-header"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-account-sidebar",
+          "id": "commerce-account-sidebar",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-account-sidebar",
+                  "filter": "commerce-account-sidebar"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-addresses",
+          "id": "commerce-addresses",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-addresses",
+                  "filter": "commerce-addresses"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-cart",
+          "id": "commerce-cart",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-cart",
+                  "filter": "commerce-cart"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-checkout",
+          "id": "commerce-checkout",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-checkout",
+                  "filter": "commerce-checkout"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-confirm-account",
+          "id": "commerce-confirm-account",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-confirm-account",
+                  "filter": "commerce-confirm-account"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-create-account",
+          "id": "commerce-create-account",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-create-account",
+                  "filter": "commerce-create-account"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-create-password",
+          "id": "commerce-create-password",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-create-password",
+                  "filter": "commerce-create-password"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-create-return",
+          "id": "commerce-create-return",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-create-return",
+                  "filter": "commerce-create-return"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-customer-details",
+          "id": "commerce-customer-details",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-customer-details",
+                  "filter": "commerce-customer-details"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-customer-information",
+          "id": "commerce-customer-information",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-customer-information",
+                  "filter": "commerce-customer-information"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-forgot-password",
+          "id": "commerce-forgot-password",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-forgot-password",
+                  "filter": "commerce-forgot-password"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-gift-options",
+          "id": "commerce-gift-options",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-gift-options",
+                  "filter": "commerce-gift-options"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-login",
+          "id": "commerce-login",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-login",
+                  "filter": "commerce-login"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-mini-cart",
+          "id": "commerce-mini-cart",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-mini-cart",
+                  "filter": "commerce-mini-cart"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-order-cost-summary",
+          "id": "commerce-order-cost-summary",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-order-cost-summary",
+                  "filter": "commerce-order-cost-summary"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-order-header",
+          "id": "commerce-order-header",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-order-header",
+                  "filter": "commerce-order-header"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-order-product-list",
+          "id": "commerce-order-product-list",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-order-product-list",
+                  "filter": "commerce-order-product-list"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-order-returns",
+          "id": "commerce-order-returns",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-order-returns",
+                  "filter": "commerce-order-returns"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-order-status",
+          "id": "commerce-order-status",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-order-status",
+                  "filter": "commerce-order-status"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-orders-list",
+          "id": "commerce-orders-list",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-orders-list",
+                  "filter": "commerce-orders-list"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-return-header",
+          "id": "commerce-return-header",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-return-header",
+                  "filter": "commerce-return-header"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-returns-list",
+          "id": "commerce-returns-list",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-returns-list",
+                  "filter": "commerce-returns-list"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-search-order",
+          "id": "commerce-search-order",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-search-order",
+                  "filter": "commerce-search-order"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "commerce-shipping-status",
+          "id": "commerce-shipping-status",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "commerce-shipping-status",
+                  "filter": "commerce-shipping-status"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "dynamic-block",
+          "id": "dynamic-block",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "dynamic-block",
+                  "filter": "dynamic-block"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "embed",
+          "id": "embed",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "embed",
+                  "filter": "embed"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "enrichment",
+          "id": "enrichment",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "enrichment",
+                  "filter": "enrichment"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "footer",
+          "id": "footer",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "footer",
+                  "filter": "footer"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "form",
+          "id": "form",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "form",
+                  "filter": "form"
                 }
               }
             }
@@ -143,6 +639,21 @@
           }
         },
         {
+          "title": "header",
+          "id": "header",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "header",
+                  "filter": "header"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Hero",
           "id": "hero",
           "plugins": {
@@ -158,6 +669,171 @@
           }
         },
         {
+          "title": "product-details",
+          "id": "product-details",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "product-details",
+                  "filter": "product-details"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "product-list-page-custom",
+          "id": "product-list-page-custom",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "product-list-page-custom",
+                  "filter": "product-list-page-custom"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "product-list-page",
+          "id": "product-list-page",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "product-list-page",
+                  "filter": "product-list-page"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "product-recommendations",
+          "id": "product-recommendations",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "product-recommendations",
+                  "filter": "product-recommendations"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "product-teaser",
+          "id": "product-teaser",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "product-teaser",
+                  "filter": "product-teaser"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "quote",
+          "id": "quote",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "quote",
+                  "filter": "quote"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "search",
+          "id": "search",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "search",
+                  "filter": "search"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "table",
+          "id": "table",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "table",
+                  "filter": "table"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "tabs",
+          "id": "tabs",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "tabs",
+                  "filter": "tabs"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "targeted-block",
+          "id": "targeted-block",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "targeted-block",
+                  "filter": "targeted-block"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "ulta-404",
+          "id": "ulta-404",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "ulta-404",
+                  "model": "ulta-404"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Ulta-Article-List",
           "id": "ulta-article-list",
           "plugins": {
@@ -166,6 +842,7 @@
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
                   "name": "Ulta-Article-List",
+                  "model": "ulta-article-list",
                   "filter": "ulta-article-list"
                 }
               }
@@ -219,6 +896,111 @@
           }
         },
         {
+          "title": "ulta-banner-shopping-cart",
+          "id": "ulta-banner-shopping-cart",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "ulta-banner-shopping-cart",
+                  "model": "ulta-banner-shopping-cart"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "ulta-beauty-change-password-cdc",
+          "id": "ulta-beauty-change-password-cdc",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "ulta-beauty-change-password-cdc",
+                  "filter": "ulta-beauty-change-password-cdc"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "ulta-beauty-login-cdc",
+          "id": "ulta-beauty-login-cdc",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "ulta-beauty-login-cdc",
+                  "filter": "ulta-beauty-login-cdc"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "ulta-beauty-login-horizontal-cdc",
+          "id": "ulta-beauty-login-horizontal-cdc",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "ulta-beauty-login-horizontal-cdc",
+                  "filter": "ulta-beauty-login-horizontal-cdc"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "ulta-beauty-newsletter-cdc",
+          "id": "ulta-beauty-newsletter-cdc",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "ulta-beauty-newsletter-cdc",
+                  "filter": "ulta-beauty-newsletter-cdc"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "ulta-beauty-register-cdc",
+          "id": "ulta-beauty-register-cdc",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "ulta-beauty-register-cdc",
+                  "filter": "ulta-beauty-register-cdc"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "ulta-beauty-reset-password-cdc",
+          "id": "ulta-beauty-reset-password-cdc",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "ulta-beauty-reset-password-cdc",
+                  "filter": "ulta-beauty-reset-password-cdc"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "ulta-beauty-trends",
           "id": "ulta-beauty-trends",
           "plugins": {
@@ -244,6 +1026,67 @@
                 "template": {
                   "name": "ulta-beauty-trend",
                   "model": "ulta-beauty-trend"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "ulta-beauty-update-profile-cdc",
+          "id": "ulta-beauty-update-profile-cdc",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "ulta-beauty-update-profile-cdc",
+                  "filter": "ulta-beauty-update-profile-cdc"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "ulta-block-text",
+          "id": "ulta-block-text",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "ulta-block-text",
+                  "model": "ulta-block-text"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "ulta-brands",
+          "id": "ulta-brands",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "ulta-brands",
+                  "model": "ulta-brands",
+                  "filter": "ulta-brands"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "ulta-brands-item",
+          "id": "ulta-brands-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "ulta-brands-item",
+                  "model": "ulta-brands-item"
                 }
               }
             }
@@ -335,21 +1178,6 @@
                 "template": {
                   "name": "ulta-cookies",
                   "model": "ulta-cookies"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "ulta-daily-offer",
-          "id": "ulta-daily-offer",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "ulta-daily-offer",
-                  "model": "ulta-daily-offer"
                 }
               }
             }
@@ -539,6 +1367,34 @@
           }
         },
         {
+          "title": "ulta-review-form",
+          "id": "ulta-review-form",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "ulta-review-form"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "ulta-review-list",
+          "id": "ulta-review-list",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "ulta-review-list"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "ulta-separator",
           "id": "ulta-separator",
           "plugins": {
@@ -554,21 +1410,6 @@
           }
         },
         {
-          "title": "ulta-test-learning",
-          "id": "ulta-test-learning",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "ulta-test-learning",
-                  "model": "ulta-test-learning"
-                }
-              }
-            }
-          }
-        },
-        {
           "title": "ulta-title",
           "id": "ulta-title",
           "plugins": {
@@ -578,6 +1419,21 @@
                 "template": {
                   "name": "ulta-title",
                   "model": "ulta-title"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "video",
+          "id": "video",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "video",
+                  "filter": "video"
                 }
               }
             }

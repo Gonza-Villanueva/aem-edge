@@ -105,10 +105,34 @@
         "description": "The label shown for this section in the Content Tree"
       },
       {
-        "component": "text",
-        "valueType": "array",
+        "component": "multiselect",
         "name": "style",
-        "label": "Style"
+        "label": "Style",
+        "options": [
+          {
+            "name": "Highlight",
+            "value": "highlight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "block-carousel",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "spaceBetween",
+        "label": "Space Between",
+        "placeholder": "ex: 16"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "slidesPerView",
+        "label": "Slides Per View",
+        "placeholder": "ex: auto or number"
       }
     ]
   },
@@ -187,13 +211,54 @@
     ]
   },
   {
+    "id": "ulta-404",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "ulta404Img",
+        "label": "Image 404",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ulta404ImgAlt",
+        "label": "Image 404 Alt"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title404",
+        "label": "Title 404"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text404",
+        "label": "Text 404"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonText404",
+        "label": "Button text 404",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "buttonLink404",
+        "label": "Button link URL 404"
+      }
+    ]
+  },
+  {
     "id": "ulta-article-list",
     "fields": [
       {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
+        "component": "text",
+        "name": "title",
+        "label": "Title",
         "valueType": "string"
       }
     ]
@@ -274,6 +339,49 @@
     ]
   },
   {
+    "id": "ulta-banner-shopping-cart",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "imageBanner",
+        "label": "Logo del Banner",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "colorTexto",
+        "label": "Color de Background"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "descripcion",
+        "label": "Descripción del Banner"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "textoLink",
+        "label": "Texto del Link"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Link"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "logoFlecha",
+        "label": "Imagen del Logo de Flecha",
+        "multi": false
+      }
+    ]
+  },
+  {
     "id": "ulta-beauty-trends",
     "fields": [
       {
@@ -323,6 +431,68 @@
         "component": "aem-content",
         "name": "trendLinkUrl",
         "label": "Trend link URL"
+      }
+    ]
+  },
+  {
+    "id": "ulta-block-text",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "maxwidth",
+        "label": "max-width"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Text"
+      }
+    ]
+  },
+  {
+    "id": "ulta-brands",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Block Title",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "ulta-brands-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "brandName",
+        "label": "Brand name",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "brandImage",
+        "label": "Brand image",
+        "multi": false,
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "brandImageAlt",
+        "label": "Brand image Alt",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "linkurl",
+        "label": "Brand link URL",
+        "value": ""
       }
     ]
   },
@@ -777,17 +947,6 @@
         "valueType": "string",
         "name": "separatorColor",
         "label": "Separator Color (Hex Code)"
-      }
-    ]
-  },
-  {
-    "id": "ulta-test-learning",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "label": "Block Title"
       }
     ]
   },

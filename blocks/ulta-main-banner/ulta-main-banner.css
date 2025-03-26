@@ -73,6 +73,7 @@
 
 .ulta-banner-tagline p {
     font-size: 12px;
+    font-weight: var(--font-weight-medium);
     letter-spacing: 0.3px;
     color: black;
 }

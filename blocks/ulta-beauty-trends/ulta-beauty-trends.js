@@ -44,7 +44,7 @@ export default function decorate(block) {
           </div>
           <div class="ulta-beauty-trend-info">
             <p class="ulta-beauty-trend-brand">${trendCategory}</p>
-            <h3 class="ulta-beauty-trend-title">${trendTitle}</h3>
+            <p class="ulta-beauty-trend-title">${trendTitle}</p>
           </div>
         </a>
       </div>
@@ -59,7 +59,7 @@ export default function decorate(block) {
   const createNavButton = (className, imgAlt) => {
     const button = document.createElement('div');
     button.classList.add('ulta-beauty-trends-button', className, `swiper-button-${className.split('-')[2]}`);
-    button.innerHTML = `<img src="https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/icons/arrow.svg" alt="${imgAlt}" class="ulta-beauty-trends-arrow">`;
+    button.innerHTML = `<img src="../../icons/arrow.svg" alt="${imgAlt}" class="ulta-beauty-trends-arrow">`;
     return button;
   };
 

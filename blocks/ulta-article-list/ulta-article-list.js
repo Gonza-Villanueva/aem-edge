@@ -1,3 +1,6 @@
-export default function decorate() {
-  // console.log('block', block);
+/* eslint-disable padded-blocks */
+export default function decorate(block) {
+
+  console.log('block', block);
+
 }

@@ -102,8 +102,7 @@
         {
             "id": "ulta-promotions-carousel",
             "components": [
-                "ulta-promotion-item",
-                "columns"
+                "ulta-promotion-item"
             ]
         }
     ]

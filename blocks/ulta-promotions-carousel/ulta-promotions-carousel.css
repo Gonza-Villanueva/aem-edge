@@ -11,7 +11,6 @@
 }
 
 .ulta-promotions-header h2 {
-    font-size: 24px;
     letter-spacing: 0.72px;
     line-height: 28px;
     color: #000;
@@ -20,6 +19,7 @@
 
 .ulta-promotions-view-all {
     font-size: 14px;
+    font-weight: var(--font-weight-book);
     letter-spacing: 0.35px;
     line-height: 20px;
     color: #0d0d0d;
@@ -62,6 +62,7 @@ p {
 
 .ulta-promotions-brand {
     font-size: 12px;
+    font-weight: var(--font-weight-book);
     letter-spacing: 0.12px;
     line-height: 16px;
     color: #0d0d0d;
@@ -71,6 +72,7 @@ p {
 
 .ulta-promotions-title {
     font-size: 24px;
+    font-weight: var(--font-weight-medium);
     letter-spacing: 0;
     line-height: 28px;
     color: #000;
@@ -79,6 +81,7 @@ p {
 
 .ulta-promotions-description {
     font-size: 14px;
+    font-weight: var(--font-weight-book);
     letter-spacing: 0.35px;
     line-height: 20px;
     color: #0d0d0d;
