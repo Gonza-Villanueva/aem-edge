@@ -19,7 +19,7 @@
       "text",
       "image",
       "block-image",
-      "block-columns",
+      "block-accordion",
       "button",
       "title",
       "hero",
@@ -90,12 +90,6 @@
       "ulta-beauty-register-cdc",
       "ulta-beauty-reset-password-cdc",
       "ulta-beauty-update-profile-cdc"
-    ]
-  },
-  {
-    "id": "block-accordion",
-    "components": [
-      "text"
     ]
   },
   {

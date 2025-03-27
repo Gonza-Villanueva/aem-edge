@@ -54,7 +54,7 @@
         "text",
         "image",
         "block-image",
-        "block-columns",
+        "block-accordion",
         "button",
         "title",
         "hero",
