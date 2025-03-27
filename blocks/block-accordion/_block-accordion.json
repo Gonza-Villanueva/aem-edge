@@ -28,7 +28,7 @@
             "template": {
               "name": "block-accordion-text",
               "model": "block-accordion-text",
-              "text": "<ul><li><a>Example 1</li><li>Example 2</li><li>Example 3</li></ul>"
+              "text": "<ul><li><a>Example 1</a></li><li><a>Example 2</a></li><li><a>Example 3</a></li></ul>"
             }
           }
         }
