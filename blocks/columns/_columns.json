@@ -65,11 +65,10 @@
           ]
         },
         {
-          "component": "text",
-          "name": "separator1",
-          "label": "────────── Carousel Options ──────────",
-          "valueType": "string",
-          "readonly": true
+          "component": "note",
+          "name": "spacer-carousel",
+          "label": "",
+          "text": "--- Opciones para Carrusel ---"
         },
         {
           "component": "text",
