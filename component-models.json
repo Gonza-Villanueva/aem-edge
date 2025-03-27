@@ -171,6 +171,60 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
+      },
+      {
+        "component": "select",
+        "name": "type",
+        "label": "Type",
+        "options": [
+          {
+            "name": "Default",
+            "value": "default"
+          },
+          {
+            "name": "Carousel",
+            "value": "carousel"
+          },
+          {
+            "name": "Accordion",
+            "value": "accordion"
+          }
+        ]
+      },
+      {
+        "component": "group",
+        "name": "carouselOptions",
+        "label": "Carousel Options",
+        "conditional": {
+          "field": "type",
+          "equals": "carousel"
+        },
+        "fields": [
+          {
+            "component": "text",
+            "name": "spaceBetween",
+            "label": "Space Between",
+            "valueType": "number",
+            "placeholder": "ej: 16"
+          },
+          {
+            "component": "text",
+            "name": "slidesPerView",
+            "label": "Slides Per View",
+            "placeholder": "ej: auto o número"
+          }
+        ]
+      },
+      {
+        "component": "multiselect",
+        "name": "style",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Highlight",
+            "value": "highlight"
+          }
+        ]
       }
     ]
   },
