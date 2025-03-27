@@ -65,9 +65,10 @@
           ]
         },
         {
-          "component": "text",
-          "label": "────────── Carousel Options ──────────",
-          "readonly": true
+          "component": "group",
+          "name": "divider-carousel",
+          "label": "🎯 Carousel Options",
+          "fields": []
         },
         {
           "component": "text",
