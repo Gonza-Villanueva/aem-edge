@@ -174,7 +174,7 @@
       },
       {
         "component": "select",
-        "name": "type",
+        "name": "Type",
         "label": "Type",
         "options": [
           {
@@ -198,8 +198,8 @@
         "valueType": "number",
         "placeholder": "ej: 16",
         "conditional": {
-          "field": "type",
-          "equals": "carousel"
+          "field": "Type",
+          "equals": "Carousel"
         }
       },
       {
@@ -208,8 +208,8 @@
         "label": "Slides Per View",
         "placeholder": "ej: auto o número",
         "conditional": {
-          "field": "type",
-          "equals": "carousel"
+          "field": "Type",
+          "equals": "Carousel"
         }
       },
       {
