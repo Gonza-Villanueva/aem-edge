@@ -1,3 +1,3 @@
-export default function decorateSections(block) {
-  console.log('block-carousel', block);
+export default function decorate(block) {
+  console.log('block-accordion', block);
 }
