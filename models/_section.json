@@ -54,6 +54,7 @@
         "text",
         "image",
         "block-image",
+        "block-columns",
         "button",
         "title",
         "hero",
