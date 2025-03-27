@@ -162,6 +162,12 @@
     "id": "block-accordion-text",
     "fields": [
       {
+        "component": "text",
+        "name": "title",
+        "label": "Title",
+        "description": "Accordion Title"
+      },
+      {
         "component": "richtext",
         "name": "text",
         "label": "Text",
