@@ -94,7 +94,7 @@
   {
     "id": "block-accordion",
     "components": [
-      "text"
+      "block-accordion-text"
     ]
   },
   {

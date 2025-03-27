@@ -159,7 +159,7 @@
     ]
   },
   {
-    "id": "text",
+    "id": "block-accordion-text",
     "fields": [
       {
         "component": "richtext",

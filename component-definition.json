@@ -119,15 +119,16 @@
           }
         },
         {
-          "title": "text",
-          "id": "text",
+          "title": "Text",
+          "id": "block-accordion-text",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "name": "text",
-                  "model": "text"
+                  "name": "block-accordion-text",
+                  "model": "block-accordion-text",
+                  "text": "<ul><li><a>Example 1</li><li>Example 2</li><li>Example 3</li></ul>"
                 }
               }
             }
