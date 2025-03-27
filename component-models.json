@@ -173,6 +173,17 @@
         "label": "Rows"
       },
       {
+        "component": "multiselect",
+        "name": "style",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Highlight",
+            "value": "highlight"
+          }
+        ]
+      },
+      {
         "component": "select",
         "name": "type",
         "label": "Type",
@@ -192,20 +203,9 @@
         ]
       },
       {
-        "component": "multiselect",
-        "name": "style",
-        "label": "Style",
-        "options": [
-          {
-            "name": "Highlight",
-            "value": "highlight"
-          }
-        ]
-      },
-      {
         "component": "container",
         "label": "Type Carousel",
-        "name": "container",
+        "name": "containerCarousel",
         "valueType": "string",
         "collapsible": true,
         "condition": {
@@ -229,6 +229,39 @@
             "name": "slidesPerView",
             "label": "Slides Per View",
             "placeholder": "ej: auto o número"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "label": "Type Accordion",
+        "name": "containerAccordion",
+        "valueType": "string",
+        "collapsible": true,
+        "condition": {
+          "===": [
+            {
+              "var": "type"
+            },
+            "accordion"
+          ]
+        },
+        "fields": [
+          {
+            "component": "multiselect",
+            "name": "mediaAccordion",
+            "label": "Avalible Media",
+            "valueType": "string",
+            "options": [
+              {
+                "name": "Desktop",
+                "value": "desktop"
+              },
+              {
+                "name": "Mobile",
+                "value": "mobile"
+              }
+            ]
           }
         ]
       }
