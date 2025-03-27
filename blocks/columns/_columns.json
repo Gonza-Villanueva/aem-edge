@@ -65,24 +65,26 @@
           ]
         },
         {
-          "component": "text",
-          "name": "carousel-note",
-          "label": "🎯 Carousel Options",
-          "value": "Estas opciones solo aplican si elegiste 'Carousel' en el campo 'Type'.",
-          "readonly": true
-        },
-        {
-          "component": "text",
-          "name": "spaceBetween",
-          "label": "Space Between",
-          "valueType": "number",
-          "placeholder": "ej: 16"
-        },
-        {
-          "component": "text",
-          "name": "slidesPerView",
-          "label": "Slides Per View",
-          "placeholder": "ej: auto o número"
+          "component": "container",
+          "label": "Type Carousel",
+          "name": "container",
+          "valueType": "string",
+          "collapsible": true,
+          "fields": [
+            {
+              "component": "text",
+              "name": "spaceBetween",
+              "label": "Space Between",
+              "valueType": "number",
+              "placeholder": "ej: 16"
+            },
+            {
+              "component": "text",
+              "name": "slidesPerView",
+              "label": "Slides Per View",
+              "placeholder": "ej: auto o número"
+            }
+          ]
         }
       ]
     }
