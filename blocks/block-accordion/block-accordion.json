@@ -11,8 +11,7 @@
               "name": "block-accordion",
               "model": "block-accordion",
               "filter": "block-accordion",
-              "style": "Default",
-              "mediaAccordion": ["desktop","mobile"]
+              "style": "Default"
             }
           }
         }
