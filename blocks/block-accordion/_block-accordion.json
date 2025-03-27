@@ -11,6 +11,7 @@
               "name": "block-accordion",
               "model": "block-accordion",
               "filter": "block-accordion",
+              "blockName": "block-accordion",
               "style": "Default",
               "mediaAccordion": ["desktop", "mobile"]
             }
@@ -39,6 +40,12 @@
     {
       "id": "block-accordion",
       "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "blockName",
+          "hidden": true
+        },
         {
           "component": "multiselect",
           "name": "style",

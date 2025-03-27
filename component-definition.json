@@ -108,6 +108,7 @@
                   "name": "block-accordion",
                   "model": "block-accordion",
                   "filter": "block-accordion",
+                  "blockName": "block-accordion",
                   "style": "Default",
                   "mediaAccordion": [
                     "desktop",

@@ -1,4 +1,7 @@
-export default function decorate(block) {
+import decorateBlockAccordion from '../block-accordion/block-accordion.js';
+
+export default async function decorate(block) {
+  console.log(block);
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
 
@@ -12,6 +15,12 @@ export default function decorate(block) {
           // picture is only content in column
           picWrapper.classList.add("columns-img-col");
         }
+      }
+
+      // Decorate block-accordion if present
+      const blockAccordion = col.querySelector('.block-accordion');
+      if (blockAccordion) {
+        decorateBlockAccordion(blockAccordion);
       }
     });
   });
