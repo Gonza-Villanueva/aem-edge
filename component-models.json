@@ -118,79 +118,16 @@
     ]
   },
   {
-    "id": "block-columns",
+    "id": "block-accordion",
     "fields": [
-      {
-        "component": "text",
-        "valueType": "number",
-        "name": "columns",
-        "value": "",
-        "label": "Columns"
-      },
-      {
-        "component": "text",
-        "valueType": "number",
-        "name": "rows",
-        "value": "",
-        "label": "Rows"
-      },
       {
         "component": "multiselect",
         "name": "style",
         "label": "Style",
         "options": [
           {
-            "name": "Highlight",
-            "value": "highlight"
-          }
-        ]
-      },
-      {
-        "component": "select",
-        "name": "type",
-        "label": "Type",
-        "options": [
-          {
             "name": "Default",
             "value": "default"
-          },
-          {
-            "name": "Carousel",
-            "value": "carousel"
-          },
-          {
-            "name": "Accordion",
-            "value": "accordion"
-          }
-        ]
-      },
-      {
-        "component": "container",
-        "label": "Type Carousel",
-        "name": "containerCarousel",
-        "valueType": "string",
-        "collapsible": true,
-        "condition": {
-          "===": [
-            {
-              "var": "type"
-            },
-            "carousel"
-          ]
-        },
-        "fields": [
-          {
-            "component": "text",
-            "name": "spaceBetween",
-            "label": "Space Between",
-            "valueType": "number",
-            "placeholder": "ej: 16"
-          },
-          {
-            "component": "text",
-            "name": "slidesPerView",
-            "label": "Slides Per View",
-            "placeholder": "ej: auto o número"
           }
         ]
       },
@@ -199,15 +136,7 @@
         "label": "Type Accordion",
         "name": "containerAccordion",
         "valueType": "string",
-        "collapsible": true,
-        "condition": {
-          "===": [
-            {
-              "var": "type"
-            },
-            "accordion"
-          ]
-        },
+        "collapsible": false,
         "fields": [
           {
             "component": "multiselect",

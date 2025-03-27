@@ -93,18 +93,9 @@
     ]
   },
   {
-    "id": "block-columns",
+    "id": "block-accordion",
     "components": [
-      "block-column"
-    ]
-  },
-  {
-    "id": "block-column",
-    "components": [
-      "text",
-      "image",
-      "button",
-      "title"
+      "text"
     ]
   },
   {
