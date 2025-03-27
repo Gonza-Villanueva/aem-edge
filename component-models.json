@@ -203,10 +203,9 @@
         ]
       },
       {
-        "component": "note",
-        "name": "spacer-carousel",
-        "label": "",
-        "text": "--- Opciones para Carrusel ---"
+        "component": "text",
+        "label": "────────── Carousel Options ──────────",
+        "readonly": true
       },
       {
         "component": "text",
