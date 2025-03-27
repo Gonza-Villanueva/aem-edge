@@ -98,16 +98,33 @@
           }
         },
         {
-          "title": "Block-carousel",
-          "id": "block-carousel",
+          "title": "Block-columns",
+          "id": "block-columns",
           "plugins": {
             "xwalk": {
               "page": {
-                "resourceType": "core/franklin/components/section/v1/section",
+                "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
-                  "name": "block-carousel",
-                  "model": "block-carousel",
-                  "filter": "block-carousel"
+                  "name": "block-columns",
+                  "model": "block-columns",
+                  "filter": "block-columns",
+                  "columns": "2",
+                  "rows": "1"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "block-column",
+          "id": "block-column",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "block-column",
+                  "model": "block-column"
                 }
               }
             }

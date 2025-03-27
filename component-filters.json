@@ -92,10 +92,18 @@
     ]
   },
   {
-    "id": "block-carousel",
+    "id": "block-columns",
     "components": [
-      "cards",
-      "columns"
+      "block-column"
+    ]
+  },
+  {
+    "id": "block-column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
     ]
   },
   {
