@@ -54,27 +54,6 @@
           ]
         },
         {
-          "component": "text",
-          "name": "spaceBetween",
-          "label": "Space Between",
-          "valueType": "number",
-          "placeholder": "ej: 16",
-          "conditional": {
-            "field": "Type",
-            "equals": "Carousel"
-          }
-        },
-        {
-          "component": "text",
-          "name": "slidesPerView",
-          "label": "Slides Per View",
-          "placeholder": "ej: auto o número",
-          "conditional": {
-            "field": "Type",
-            "equals": "Carousel"
-          }
-        },
-        {
           "component": "multiselect",
           "name": "style",
           "label": "Style",
@@ -84,6 +63,26 @@
               "value": "highlight"
             }
           ]
+        },
+        {
+          "component": "text",
+          "name": "separator1",
+          "label": "────────── Carousel Options ──────────",
+          "valueType": "string",
+          "readonly": true
+        },
+        {
+          "component": "text",
+          "name": "spaceBetween",
+          "label": "Space Between",
+          "valueType": "number",
+          "placeholder": "ej: 16"
+        },
+        {
+          "component": "text",
+          "name": "slidesPerView",
+          "label": "Slides Per View",
+          "placeholder": "ej: auto o número"
         }
       ]
     }
