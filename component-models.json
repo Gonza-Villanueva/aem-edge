@@ -159,6 +159,17 @@
     ]
   },
   {
+    "id": "text",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Text",
+        "description": "Use list to create the accordion"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
