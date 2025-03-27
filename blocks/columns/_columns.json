@@ -54,28 +54,25 @@
           ]
         },
         {
-          "component": "group",
-          "name": "carouselOptions",
-          "label": "Carousel Options",
+          "component": "text",
+          "name": "spaceBetween",
+          "label": "Space Between",
+          "valueType": "number",
+          "placeholder": "ej: 16",
           "conditional": {
             "field": "type",
             "equals": "carousel"
-          },
-          "fields": [
-            {
-              "component": "text",
-              "name": "spaceBetween",
-              "label": "Space Between",
-              "valueType": "number",
-              "placeholder": "ej: 16"
-            },
-            {
-              "component": "text",
-              "name": "slidesPerView",
-              "label": "Slides Per View",
-              "placeholder": "ej: auto o número"
-            }
-          ]
+          }
+        },
+        {
+          "component": "text",
+          "name": "slidesPerView",
+          "label": "Slides Per View",
+          "placeholder": "ej: auto o número",
+          "conditional": {
+            "field": "type",
+            "equals": "carousel"
+          }
         },
         {
           "component": "multiselect",
