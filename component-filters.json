@@ -93,6 +93,12 @@
     ]
   },
   {
+    "id": "block-accordion",
+    "components": [
+      "text"
+    ]
+  },
+  {
     "id": "cards",
     "components": [
       "card"

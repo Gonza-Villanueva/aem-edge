@@ -118,6 +118,47 @@
     ]
   },
   {
+    "id": "block-accordion",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "style",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Default",
+            "value": "default"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "label": "Type Accordion",
+        "name": "containerAccordion",
+        "valueType": "string",
+        "collapsible": false,
+        "fields": [
+          {
+            "component": "multiselect",
+            "name": "mediaAccordion",
+            "label": "Avalible Media",
+            "valueType": "string",
+            "options": [
+              {
+                "name": "Desktop",
+                "value": "desktop"
+              },
+              {
+                "name": "Mobile",
+                "value": "mobile"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
