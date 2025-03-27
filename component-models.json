@@ -203,10 +203,11 @@
         ]
       },
       {
-        "component": "group",
-        "name": "divider-carousel",
+        "component": "text",
+        "name": "carousel-note",
         "label": "🎯 Carousel Options",
-        "fields": []
+        "value": "Estas opciones solo aplican si elegiste 'Carousel' en el campo 'Type'.",
+        "readonly": true
       },
       {
         "component": "text",
