@@ -174,20 +174,20 @@
       },
       {
         "component": "select",
-        "name": "Type",
+        "name": "type",
         "label": "Type",
         "options": [
           {
             "name": "Default",
-            "value": "Default"
+            "value": "default"
           },
           {
             "name": "Carousel",
-            "value": "Carousel"
+            "value": "carousel"
           },
           {
             "name": "Accordion",
-            "value": "Accordion"
+            "value": "accordion"
           }
         ]
       },
