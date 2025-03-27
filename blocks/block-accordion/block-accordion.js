@@ -1,3 +1,3 @@
-export default function decorate(block) {
+export default async function decorate(block) {
   console.log('block-accordion', block);
 }
