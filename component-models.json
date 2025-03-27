@@ -208,6 +208,14 @@
         "name": "container",
         "valueType": "string",
         "collapsible": true,
+        "condition": {
+          "===": [
+            {
+              "var": "type"
+            },
+            "carousel"
+          ]
+        },
         "fields": [
           {
             "component": "text",
