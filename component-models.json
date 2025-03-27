@@ -179,15 +179,15 @@
         "options": [
           {
             "name": "Default",
-            "value": "default"
+            "value": "Default"
           },
           {
             "name": "Carousel",
-            "value": "carousel"
+            "value": "Carousel"
           },
           {
             "name": "Accordion",
-            "value": "accordion"
+            "value": "Accordion"
           }
         ]
       },
