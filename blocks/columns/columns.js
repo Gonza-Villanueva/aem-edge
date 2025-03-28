@@ -17,6 +17,7 @@ export default async function decorate(block) {
       }
 
       const colChildren = [...col.children];
+      console.log(colChildren);
       const blockAccordion = 'block-accordion';
       // Decorate block-accordion if present
       const startIndex = colChildren.findIndex((el) => el.tagName === 'P' && el.textContent.trim().toLowerCase() === blockAccordion);
