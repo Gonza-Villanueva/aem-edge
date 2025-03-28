@@ -1,7 +1,23 @@
+/**
+ * @author    infinite Team
+ * @copyright Copyright(c) 2025 infinite
+ * @module    block/block-accordion
+ */
+
 import { h, render } from '@dropins/tools/preact.js';
 import htm from '../../scripts/htm.js';
 
 const html = htm.bind(h);
+
+/**
+ * Preact component to render the accordion structure
+ * @param {Object} props
+ * @param {string} props.accordionClass - Class names for additional styling
+ * @param {string} props.accordionType - Type of accordion (e.g., desktop, mobile)
+ * @param {HTMLElement|null} props.accordionTextUl - The <ul> element with accordion items
+ * @returns {JSX.Element}
+ */
+
 const accordionBlock = ({ accordionClass, accordionType, accordionTextUl }) => html`
   <div class="accordion ${accordionClass} ${accordionType}">
     <div class="accordion-content">
@@ -10,14 +26,29 @@ const accordionBlock = ({ accordionClass, accordionType, accordionTextUl }) => h
   </div>
 `;
 
+/**
+ * Utility function to extract and normalize text content from an element
+ * Converts to lowercase and replaces commas with spaces
+ * @param {Element} el
+ * @returns {string}
+ */
 function getTextContent(el) {
   return el?.textContent?.trim().toLowerCase().replace(/,/g, ' ') || '';
 }
 
+/**
+ * Utility to find the first <ul> element from a given container
+ * @param {Element} container
+ * @returns {HTMLUListElement|null}
+ */
 function findFirstUl(container) {
   return container?.querySelector?.('ul') || (container?.tagName === 'UL' ? container : null);
 }
 
+/**
+ * Main decorator function executed by Edge Delivery Services to render the accordion block
+ * @param {HTMLElement} block - The DOM element representing the accordion block
+ */
 export default async function decorate(block) {
   const items = Array.from(block.children);
   const blockName = getTextContent(items.shift());

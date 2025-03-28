@@ -1,3 +1,13 @@
+/**
+ * @author    infinite Team
+ * @copyright Copyright(c) 2025 infinite
+ * @module    block/columns
+ */
+
+/**
+ * Main decorator function for the "columns" block
+ * @param {HTMLElement} block - The DOM element representing the columns block
+ */
 import decorateBlockAccordion from '../block-accordion/block-accordion.js';
 
 export default async function decorate(block) {
@@ -20,7 +30,7 @@ export default async function decorate(block) {
       const blockAccordion = 'block-accordion';
       // Decorate block-accordion if present
       const startIndex = colChildren.findIndex((el) => el.tagName === 'P' && el.textContent.trim().toLowerCase() === blockAccordion);
-
+      // Case 1: Detect accordion block declared via <p> with text "block-accordion"
       if (startIndex !== -1) {
         const ulIndex = colChildren.findIndex((el, i) => el.tagName === 'UL' && i > startIndex);
 
@@ -39,6 +49,7 @@ export default async function decorate(block) {
           decorateBlockAccordion(innerWrapper);
         }
       } else {
+        // Case 2: Already structured accordion block without wrapper
         const accordionBlockEl = col.querySelector(`.${blockAccordion}`);
         if (accordionBlockEl && !accordionBlockEl.closest('.block-accordion-wrapper')) {
           const wrapper = document.createElement('div');
