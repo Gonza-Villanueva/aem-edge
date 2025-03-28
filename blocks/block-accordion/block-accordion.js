@@ -10,20 +10,34 @@ const accordionBlock = ({ accordionClass, accordionType, accordionTextUl }) => h
   </div>
 `;
 
+function getTextContent(el) {
+  return el?.textContent?.trim().toLowerCase().replace(/,/g, ' ') || '';
+}
+
+function findFirstUl(container) {
+  return container?.querySelector?.('ul') || (container?.tagName === 'UL' ? container : null);
+}
+
 export default async function decorate(block) {
   const items = Array.from(block.children);
-  const accordionClass = items.shift().textContent.trim().toLowerCase().replace(/,/g, ' ');
-  const accordionType = items.shift().textContent.trim().toLowerCase().replace(/,/g, ' ');
+  const blockName = getTextContent(items.shift());
+  const accordionClass = getTextContent(items.shift());
+  const accordionType = getTextContent(items.shift());
   const accordionTextHtml = items.shift();
-  const accordionTextelement = accordionTextHtml.querySelector('ul');
+  const accordionTextelement = findFirstUl(accordionTextHtml);
   const accordionTextUl = accordionTextelement?.cloneNode(true);
 
   block.innerHTML = '';
 
   const blockWrapperCloses = block.closest('.block-accordion-wrapper');
-  const heading = blockWrapperCloses?.previousElementSibling?.querySelector('h1, h2, h3, h4, h5, h6');
+  let heading = blockWrapperCloses?.previousElementSibling;
+
+  if (!heading.tagName?.match(/^H[1-6]$/)) {
+    heading = heading.querySelector?.('h1, h2, h3, h4, h5, h6');
+  }
+
   if (heading) {
-    heading.classList = 'accordion__heading';
+    heading.classList = 'accordion-heading';
     heading.addEventListener('click', () => {
       blockWrapperCloses.classList.toggle('open');
     });
@@ -32,6 +46,7 @@ export default async function decorate(block) {
   const app = html`
   <${accordionBlock}
   block=${block}
+  blockName=${blockName}
   accordionClass=${accordionClass}
   accordionType=${accordionType}
   accordionTextUl=${accordionTextUl}
