@@ -20,6 +20,7 @@ export default async function decorate(block) {
       // Decorate block-accordion if present
       const blockAccordion = col.querySelector('.block-accordion');
       if (blockAccordion) {
+        console.log('hola?');
         decorateBlockAccordion(blockAccordion);
       }
     });

@@ -4,7 +4,9 @@ import htm from '../../scripts/htm.js';
 const html = htm.bind(h);
 const accordionBlock = ({ accordionClass, accordionType, accordionTextUl }) => html`
   <div class="accordion ${accordionClass} ${accordionType}">
-    <div class="accordion__content" dangerouslySetInnerHTML=${{ __html: accordionTextUl.outerHTML }}></div>
+    <div class="accordion__content">
+      ${accordionTextUl ? html`<ul dangerouslySetInnerHTML=${{ __html: accordionTextUl.innerHTML }} />` : ''}
+    </div>
   </div>
 `;
 
@@ -14,7 +16,7 @@ export default async function decorate(block) {
   const accordionType = items.shift().textContent.trim().toLowerCase().replace(/,/g, ' ');
   const accordionTextHtml = items.shift();
   const accordionTextelement = accordionTextHtml.querySelector('ul');
-  const accordionTextUl = accordionTextelement ? accordionTextelement.cloneNode(true) : null;
+  const accordionTextUl = accordionTextelement?.cloneNode(true);
 
   block.innerHTML = '';
 
