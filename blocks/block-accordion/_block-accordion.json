@@ -12,7 +12,7 @@
               "model": "block-accordion",
               "blockName": "block-accordion",
               "style": "Default",
-              "mediaAccordion": ["desktop", "mobile"],
+              "mediaAccordion": ["desktop", "mobile", "open"],
               "text": "<ul><li><a>Example 1</a></li><li><a>Example 2</a></li><li><a>Example 3</a></li></ul>"
             }
           }
@@ -51,11 +51,12 @@
             {
               "component": "multiselect",
               "name": "mediaAccordion",
-              "label": "Avalible Media",
+              "label": "Avalible Options",
               "valueType": "string",
               "options": [
                 { "name": "Desktop", "value": "desktop" },
-                { "name": "Mobile", "value": "mobile" }
+                { "name": "Mobile", "value": "mobile" },
+                { "name": "Open accordion", "value": "open" }
               ]
             }
           ]

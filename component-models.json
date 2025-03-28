@@ -147,7 +147,7 @@
           {
             "component": "multiselect",
             "name": "mediaAccordion",
-            "label": "Avalible Media",
+            "label": "Avalible Options",
             "valueType": "string",
             "options": [
               {
@@ -157,6 +157,10 @@
               {
                 "name": "Mobile",
                 "value": "mobile"
+              },
+              {
+                "name": "Open accordion",
+                "value": "open"
               }
             ]
           }

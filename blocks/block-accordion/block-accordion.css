@@ -1,4 +1,116 @@
-/* empty tamplate */
 .accordion-heading {
-    color: lightblue;
+    position: relative;
+
+    &.desktop {
+        padding: 0 16px 0 0;
+        cursor: pointer;
+
+        &::after {
+            display: block;
+        }
+    }
+
+    &::after {
+        background-image: url('../../icons/icon-accordion-plus.svg');
+        display: none;
+        position: absolute;
+        content: '';
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        background-size: cover;
+        transition: background-image .3s ease;
+    }
+
+    &.open::after {
+        background-image: url('../../icons/icon-accordion-minus.svg');
+    }
+}
+
+.block-accordion-wrapper {
+    .block-accordion.block {
+        display: grid;
+        transition: grid-template-rows .3s ease;
+
+        &:has(.desktop) {
+            grid-template-rows: 0fr;
+        }
+
+        &:has(.open) {
+            grid-template-rows: 1fr;
+        }
+    }
+
+
+    .accordion {
+        transition: opacity .3s ease;
+        overflow: hidden;
+
+        &.desktop {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        &.open {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+
+@media (width <= 900px) {
+    .accordion-heading {
+        &.desktop {
+            cursor: auto;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        &.mobile {
+            padding: 0 16px 0 0;
+            cursor: pointer;
+
+            &::after {
+                display: block;
+            }
+        }
+    }
+
+    .block-accordion-wrapper {
+        .block-accordion.block {
+            &:has(.desktop) {
+                grid-template-rows: 1fr;
+            }
+
+            &:has(.mobile) {
+                grid-template-rows: 0fr;
+            }
+
+            &:has(.mobile.open) {
+                grid-template-rows: 1fr;
+            }
+        }
+
+        .accordion {
+            &.desktop {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            &.mobile {
+                visibility: hidden;
+                opacity: 0;
+            }
+
+            &.mobile.open {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
 }
