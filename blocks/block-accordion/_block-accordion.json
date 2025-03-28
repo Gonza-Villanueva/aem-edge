@@ -12,7 +12,8 @@
               "model": "block-accordion",
               "blockName": "block-accordion",
               "style": "Default",
-              "mediaAccordion": ["desktop", "mobile"]
+              "mediaAccordion": ["desktop", "mobile"],
+              "text": "<ul><li><a>Example 1</a></li><li><a>Example 2</a></li><li><a>Example 3</a></li></ul>"
             }
           }
         }
