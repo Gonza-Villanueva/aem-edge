@@ -161,12 +161,7 @@
             ]
           }
         ]
-      }
-    ]
-  },
-  {
-    "id": "block-accordion-text",
-    "fields": [
+      },
       {
         "component": "richtext",
         "name": "text",

@@ -107,29 +107,12 @@
                 "template": {
                   "name": "block-accordion",
                   "model": "block-accordion",
-                  "filter": "block-accordion",
                   "blockName": "block-accordion",
                   "style": "Default",
                   "mediaAccordion": [
                     "desktop",
                     "mobile"
                   ]
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Text",
-          "id": "block-accordion-text",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "block-accordion-text",
-                  "model": "block-accordion-text",
-                  "text": "<ul><li><a>Example 1</a></li><li><a>Example 2</a></li><li><a>Example 3</a></li></ul>"
                 }
               }
             }
