@@ -209,13 +209,27 @@
         "component": "number",
         "label": "Width",
         "name": "width",
-        "description": "0 = auto"
+        "description": "0 = auto",
+        "value": 0,
+        "required": true,
+        "placeholder": null,
+        "validation": {
+          "numberMin": 0,
+          "customErrorMsg": "must be greater than 0"
+        }
       },
       {
         "component": "number",
         "label": "Height",
         "name": "Height",
-        "description": "0 = auto"
+        "description": "0 = auto",
+        "value": 0,
+        "required": true,
+        "placeholder": null,
+        "validation": {
+          "numberMin": 0,
+          "customErrorMsg": "must be greater than 0"
+        }
       },
       {
         "component": "text",
