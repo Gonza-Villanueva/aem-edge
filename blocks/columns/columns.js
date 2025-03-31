@@ -9,7 +9,7 @@
  * @param {HTMLElement} block - The DOM element representing the columns block
  */
 import decorateBlockAccordion from '../block-accordion/block-accordion.js';
-import decorateBlockimage from '../block-image/block-image.js';
+import decorateBlockImage from '../block-image/block-image.js';
 
 export default async function decorate(block) {
   const cols = [...block.firstElementChild.children];
@@ -28,6 +28,8 @@ export default async function decorate(block) {
       }
 
       const colChildren = [...col.children];
+
+      // block-accordion
       const blockAccordion = 'block-accordion';
       // Decorate block-accordion if present
       const startIndexAccordion = colChildren.findIndex((el) => el.tagName === 'P' && el.textContent.trim().toLowerCase() === blockAccordion);
@@ -38,7 +40,7 @@ export default async function decorate(block) {
         if (ulIndex !== -1) {
           const accordionNodes = colChildren.slice(startIndexAccordion, ulIndex + 1);
 
-          // Crear wrapper externo
+          // Create wrapper
           const outerWrapper = document.createElement('div');
           outerWrapper.classList.add(`${blockAccordion}-wrapper`);
           const innerWrapper = document.createElement('div');
@@ -59,6 +61,33 @@ export default async function decorate(block) {
           wrapper.appendChild(accordionBlockEl);
 
           decorateBlockAccordion(accordionBlockEl);
+        }
+      }
+
+      // block-image
+      const blockImage = 'block-image';
+      const startIndexImage = colChildren.findIndex((el) => el.tagName === 'P' && el.textContent.trim().toLowerCase() === blockImage);
+      // Case 1: Detect image block declared via <p> with text "block-image"
+      if (startIndexImage !== -1) {
+        const imageNodes = colChildren.slice(startIndexImage);
+        const outerWrapper = document.createElement('div');
+        outerWrapper.classList.add(`${blockImage}-wrapper`);
+        const innerWrapper = document.createElement('div');
+        innerWrapper.classList.add(blockImage, 'block');
+        imageNodes.forEach((node) => innerWrapper.appendChild(node.cloneNode(true)));
+        outerWrapper.appendChild(innerWrapper);
+        imageNodes[0].before(outerWrapper);
+        imageNodes.forEach((node) => node.remove());
+        decorateBlockImage(innerWrapper);
+      } else {
+        // Case 2: Already structured image block without wrapper
+        const imageBlockEl = col.querySelector(`.${blockImage}`);
+        if (imageBlockEl && !imageBlockEl.closest('.block-image-wrapper')) {
+          const wrapper = document.createElement('div');
+          wrapper.classList.add('block-image-wrapper');
+          imageBlockEl.before(wrapper);
+          wrapper.appendChild(imageBlockEl);
+          decorateBlockImage(imageBlockEl);
         }
       }
     });
