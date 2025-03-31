@@ -17,7 +17,6 @@ export default async function decorate(block) {
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
 
-  // setup image columns
   [...block.children].forEach((row) => {
     [...row.children].forEach((col) => {
       let colChildren = [...col.children];
@@ -56,8 +55,20 @@ export default async function decorate(block) {
       // block-image
       const blockImage = 'block-image';
       const blockImageEnd = 'block-image-end';
-      let i = 0;
 
+      // Case 1: Universal Editor - blocks already structured with class .block-image
+      [...col.querySelectorAll(`.${blockImage}`)].forEach((blockEl) => {
+        if (!blockEl.closest(`.${blockImage}-wrapper`)) {
+          const wrapper = document.createElement('div');
+          wrapper.classList.add(`${blockImage}-wrapper`);
+          blockEl.before(wrapper);
+          wrapper.appendChild(blockEl);
+          decorateBlockImage(blockEl);
+        }
+      });
+
+      // Case 2: Plain HTML (direct editing)
+      let i = 0;
       while (i < colChildren.length) {
         const currentIndex = i;
         const startIndex = colChildren.findIndex(
@@ -85,12 +96,10 @@ export default async function decorate(block) {
 
           decorateBlockImage(innerWrapper);
 
-          // Actualizar colChildren después de manipular el DOM
           colChildren = [...col.children];
-          // Continuar desde donde quedó el wrapper insertado
           i = colChildren.indexOf(outerWrapper) + 1;
         } else {
-          break; // Si ya no encuentra más pares, corta el loop
+          break;
         }
       }
     });
