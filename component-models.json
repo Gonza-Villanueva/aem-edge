@@ -191,23 +191,13 @@
       },
       {
         "component": "text",
-        "label": "Alt Text (Desktop)",
+        "label": "Alt Text",
         "name": "desktopAlt"
-      },
-      {
-        "component": "text",
-        "label": "Alt Text (Mobile)",
-        "name": "mobileAlt"
       },
       {
         "component": "aem-content",
         "label": "Image Link (Desktop)",
         "name": "desktopUrl"
-      },
-      {
-        "component": "aem-content",
-        "label": "Image Link (Mobile)",
-        "name": "mobileUrl"
       }
     ]
   },
