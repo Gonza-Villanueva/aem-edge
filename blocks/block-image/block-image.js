@@ -13,14 +13,14 @@ export default async function decorate(block) {
 
   if (mobileImage) {
     const source = document.createElement('source');
-    source.setAttribute('media', '(max-width: 768px)');
+    source.setAttribute('media', '(max-width: 900px)');
     source.setAttribute('srcset', mobileImage);
     picture.appendChild(source);
   }
 
   const img = document.createElement('img');
   img.setAttribute('src', desktopImage || mobileImage || '');
-  img.setAttribute('alt', window.innerWidth <= 768 ? mobileAlt : desktopAlt);
+  img.setAttribute('alt', window.innerWidth <= 900 ? mobileAlt : desktopAlt);
   picture.appendChild(img);
 
   const wrapper = desktopUrl || mobileUrl
@@ -28,7 +28,7 @@ export default async function decorate(block) {
     : document.createElement('div');
 
   wrapper.classList.add('block-image-wrapper');
-  if (window.innerWidth <= 768 && mobileUrl) {
+  if (window.innerWidth <= 900 && mobileUrl) {
     wrapper.setAttribute('href', mobileUrl);
   } else if (desktopUrl) {
     wrapper.setAttribute('href', desktopUrl);

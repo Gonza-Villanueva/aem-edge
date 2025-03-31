@@ -175,6 +175,41 @@
     ]
   },
   {
+    "id": "block-accordion",
+    "fields": [
+      {
+        "component": "resource",
+        "label": "Desktop Image",
+        "name": "desktopImage"
+      },
+      {
+        "component": "resource",
+        "label": "Mobile Image",
+        "name": "mobileImage"
+      },
+      {
+        "component": "text",
+        "label": "Alt Text (Desktop)",
+        "name": "desktopAlt"
+      },
+      {
+        "component": "text",
+        "label": "Alt Text (Mobile)",
+        "name": "mobileAlt"
+      },
+      {
+        "component": "aem-content",
+        "label": "Image Link (Desktop)",
+        "name": "desktopUrl"
+      },
+      {
+        "component": "aem-content",
+        "label": "Image Link (Mobile)",
+        "name": "mobileUrl"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
