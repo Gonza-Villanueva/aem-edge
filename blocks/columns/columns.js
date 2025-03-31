@@ -31,7 +31,6 @@ export default async function decorate(block) {
 
       // block-accordion
       const blockAccordion = 'block-accordion';
-      // Decorate block-accordion if present
       const startIndexAccordion = colChildren.findIndex((el) => el.tagName === 'P' && el.textContent.trim().toLowerCase() === blockAccordion);
       // Case 1: Detect accordion block declared via <p> with text "block-accordion"
       if (startIndexAccordion !== -1) {
@@ -39,8 +38,6 @@ export default async function decorate(block) {
 
         if (ulIndex !== -1) {
           const accordionNodes = colChildren.slice(startIndexAccordion, ulIndex + 1);
-
-          // Create wrapper
           const outerWrapper = document.createElement('div');
           outerWrapper.classList.add(`${blockAccordion}-wrapper`);
           const innerWrapper = document.createElement('div');
@@ -59,7 +56,6 @@ export default async function decorate(block) {
           wrapper.classList.add('block-accordion-wrapper');
           accordionBlockEl.before(wrapper);
           wrapper.appendChild(accordionBlockEl);
-
           decorateBlockAccordion(accordionBlockEl);
         }
       }
