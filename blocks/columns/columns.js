@@ -62,9 +62,10 @@ export default async function decorate(block) {
 
       // block-image
       const blockImage = 'block-image';
-      const startIndexImage = colChildren.findIndex((el) => el.tagName === 'P' && el.textContent.trim().toLowerCase() === blockImage);
+      const startIndexImage = colChildren.findIndex((el) => el.textContent.trim().toLowerCase() === blockImage);
       // Case 1: Detect image block declared via <p> with text "block-image"
       if (startIndexImage !== -1) {
+        console.log('hola?');
         const imageNodes = colChildren.slice(startIndexImage);
         const outerWrapper = document.createElement('div');
         outerWrapper.classList.add(`${blockImage}-wrapper`);
@@ -77,6 +78,7 @@ export default async function decorate(block) {
         decorateBlockImage(innerWrapper);
       } else {
         // Case 2: Already structured image block without wrapper
+        console.log('hola?2');
         const imageBlockEl = col.querySelector(`.${blockImage}`);
         if (imageBlockEl && !imageBlockEl.closest('.block-image-wrapper')) {
           const wrapper = document.createElement('div');
