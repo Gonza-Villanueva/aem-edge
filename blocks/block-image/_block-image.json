@@ -18,7 +18,7 @@
   ],
   "models": [
     {
-      "id": "block-accordion",
+      "id": "block-image",
       "fields": [
         {
           "component": "resource",
