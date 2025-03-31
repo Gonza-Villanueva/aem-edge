@@ -36,7 +36,7 @@
 }
 
 .block-accordion-wrapper {
-    .block-accordion.block {
+    .block-accordion {
         display: grid;
         transition: grid-template-rows .3s ease;
 
