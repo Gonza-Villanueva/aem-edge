@@ -78,14 +78,14 @@ export default async function decorate(block) {
         // decorateBlockImage(innerWrapper);
       } else {
         // Case 2: Already structured image block without wrapper
-        console.log('hola?2');
         const imageBlockEl = col.querySelector(`.${blockImage}`);
         if (imageBlockEl && !imageBlockEl.closest('.block-image-wrapper')) {
-          const wrapper = document.createElement('div');
-          wrapper.classList.add('block-image-wrapper');
-          imageBlockEl.before(wrapper);
-          wrapper.appendChild(imageBlockEl);
-          decorateBlockImage(imageBlockEl);
+          console.log('hola?2');
+          // const wrapper = document.createElement('div');
+          // wrapper.classList.add('block-image-wrapper');
+          // imageBlockEl.before(wrapper);
+          // wrapper.appendChild(imageBlockEl);
+          // decorateBlockImage(imageBlockEl);
         }
       }
     });
