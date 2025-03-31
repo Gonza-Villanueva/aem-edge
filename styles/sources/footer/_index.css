@@ -1,8 +1,10 @@
-/* file imports */
-@import url('default.css');
+/**
+ * Copyright © infinite, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
 
-/* block styles export */
-@import url('../../../block-accordion/block-accordion.css');
+/* file imports default styles */
+@import url('default.css');
 
 /* Common */
 @import url('_common.css');

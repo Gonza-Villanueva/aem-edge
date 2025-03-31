@@ -1,2 +1,10 @@
+/**
+ * Copyright © infinite, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
 /* Importing styles from index */
 @import url('../../styles/sources/footer/_index.css');
+
+/* block styles export not auto inherited from block */
+@import url('../../blocks/block-accordion/block-accordion.css');
