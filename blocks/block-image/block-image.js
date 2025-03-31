@@ -86,6 +86,8 @@ export default async function decorate(block) {
     blockHref = false;
   }
 
+  const blockEnd = getTextContent(items.shift());
+
   block.innerHTML = '';
 
   const app = html`
@@ -96,6 +98,7 @@ export default async function decorate(block) {
   blockImageMobile=${blockImageMobile}
   blockAltImage=${blockAltImage}
   blockHref=${blockHref}
+  blockEnd=${blockEnd}
   />`;
 
   render(app, block);

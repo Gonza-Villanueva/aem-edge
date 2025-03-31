@@ -10,7 +10,8 @@
             "template": {
               "name": "block-image",
               "model": "block-image",
-              "blockName": "block-image"
+              "blockName": "block-image",
+              "blockend": "block-image-end"
             }
           }
         }
@@ -53,6 +54,12 @@
           "component": "aem-content",
           "label": "Image Link",
           "name": "desktopUrl"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "blockend",
+          "hidden": true
         }
       ]
     }

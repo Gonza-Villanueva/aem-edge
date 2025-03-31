@@ -18,16 +18,8 @@ export default async function decorate(block) {
   // setup image columns
   [...block.children].forEach((row) => {
     [...row.children].forEach((col) => {
-      const pic = col.querySelector('picture');
-      if (pic) {
-        const picWrapper = pic.closest('div');
-        if (picWrapper && picWrapper.children.length === 1) {
-          // picture is only content in column
-          picWrapper.classList.add('columns-img-col');
-        }
-      }
-
       const colChildren = [...col.children];
+      console.log(colChildren);
 
       // block-accordion
       const blockAccordion = 'block-accordion';
