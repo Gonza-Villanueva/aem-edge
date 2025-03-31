@@ -71,7 +71,7 @@ export default async function decorate(block) {
   const blockImageDesktop = getSrcOnWebply(items.shift());
 
   let blockImageMobile = items.shift();
-  if (isAImg(blockImageMobile) !== null) {
+  if (blockImageMobile && isAImg(blockImageMobile) !== null) {
     blockImageMobile = getSrcOnWebply(blockImageMobile);
   } else {
     blockImageMobile = false;
@@ -80,7 +80,7 @@ export default async function decorate(block) {
   const blockAltImage = getTextContent(items.shift());
 
   let blockHref = items.shift();
-  if (isAHref(blockHref) !== null) {
+  if (blockHref && isAHref(blockHref) !== null) {
     blockHref = getHrefFromButton(blockHref);
   } else {
     blockHref = false;

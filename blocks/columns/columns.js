@@ -4,6 +4,8 @@
  * @module    block/columns
  */
 
+/* eslint-disable max-len */
+
 /**
  * Main decorator function for the "columns" block
  * @param {HTMLElement} block - The DOM element representing the columns block
@@ -18,8 +20,7 @@ export default async function decorate(block) {
   // setup image columns
   [...block.children].forEach((row) => {
     [...row.children].forEach((col) => {
-      const colChildren = [...col.children];
-      console.log(colChildren);
+      let colChildren = [...col.children];
 
       // block-accordion
       const blockAccordion = 'block-accordion';
@@ -54,30 +55,42 @@ export default async function decorate(block) {
 
       // block-image
       const blockImage = 'block-image';
-      const startIndexImage = colChildren.findIndex((el) => el.textContent.trim().toLowerCase() === blockImage);
-      // Case 1: Detect image block declared via <p> with text "block-image"
-      if (startIndexImage !== -1) {
-        console.log('hola?');
-        // const imageNodes = colChildren.slice(startIndexImage);
-        // const outerWrapper = document.createElement('div');
-        // outerWrapper.classList.add(`${blockImage}-wrapper`);
-        // const innerWrapper = document.createElement('div');
-        // innerWrapper.classList.add(blockImage, 'block');
-        // imageNodes.forEach((node) => innerWrapper.appendChild(node.cloneNode(true)));
-        // outerWrapper.appendChild(innerWrapper);
-        // imageNodes[0].before(outerWrapper);
-        // imageNodes.forEach((node) => node.remove());
-        // decorateBlockImage(innerWrapper);
-      } else {
-        // Case 2: Already structured image block without wrapper
-        const imageBlockEl = col.querySelector(`.${blockImage}`);
-        if (imageBlockEl && !imageBlockEl.closest('.block-image-wrapper')) {
-          console.log('hola?2');
-          // const wrapper = document.createElement('div');
-          // wrapper.classList.add('block-image-wrapper');
-          // imageBlockEl.before(wrapper);
-          // wrapper.appendChild(imageBlockEl);
-          // decorateBlockImage(imageBlockEl);
+      const blockImageEnd = 'block-image-end';
+      let i = 0;
+
+      while (i < colChildren.length) {
+        const currentIndex = i;
+        const startIndex = colChildren.findIndex(
+          (el, idx) => idx >= currentIndex && el.textContent.trim().toLowerCase() === blockImage,
+        );
+
+        const endIndex = colChildren.findIndex(
+          (el, idx) => idx > startIndex && el.textContent.trim().toLowerCase() === blockImageEnd,
+        );
+
+        if (startIndex !== -1 && endIndex !== -1) {
+          const imageNodes = colChildren.slice(startIndex, endIndex + 1);
+
+          const outerWrapper = document.createElement('div');
+          outerWrapper.classList.add(`${blockImage}-wrapper`);
+
+          const innerWrapper = document.createElement('div');
+          innerWrapper.classList.add(blockImage, 'block');
+
+          imageNodes.forEach((node) => innerWrapper.appendChild(node.cloneNode(true)));
+          outerWrapper.appendChild(innerWrapper);
+
+          colChildren[startIndex].before(outerWrapper);
+          imageNodes.forEach((node) => node.remove());
+
+          decorateBlockImage(innerWrapper);
+
+          // Actualizar colChildren después de manipular el DOM
+          colChildren = [...col.children];
+          // Continuar desde donde quedó el wrapper insertado
+          i = colChildren.indexOf(outerWrapper) + 1;
+        } else {
+          break; // Si ya no encuentra más pares, corta el loop
         }
       }
     });
