@@ -115,11 +115,11 @@
           },
           {
             "name": "button-white",
-            "value": "highlight"
+            "value": "button-white"
           },
           {
-            "name": "banner-type1",
-            "value": "highlight"
+            "name": "banner-type",
+            "value": "banner-type"
           }
         ]
       }
