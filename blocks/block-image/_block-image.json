@@ -21,12 +21,12 @@
       "id": "block-image",
       "fields": [
         {
-          "component": "resource",
+          "component": "reference",
           "label": "Desktop Image",
           "name": "desktopImage"
         },
         {
-          "component": "resource",
+          "component": "reference",
           "label": "Mobile Image",
           "name": "mobileImage"
         },
