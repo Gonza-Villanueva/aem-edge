@@ -23,12 +23,14 @@
         {
           "component": "reference",
           "label": "Desktop Image",
-          "name": "desktopImage"
+          "name": "desktopImage",
+          "multi": false
         },
         {
           "component": "reference",
           "label": "Mobile Image",
-          "name": "mobileImage"
+          "name": "mobileImage",
+          "multi": false
         },
         {
           "component": "text",
