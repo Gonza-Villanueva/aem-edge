@@ -17,15 +17,15 @@ const imageBlock = ({
 }) => html`
 ${blockHref
     ? html`
-<a href="${blockHref}">
+<a href="${blockHref}" aria-label="${blockAltImage}">
 <picture>
   ${blockImageMobile
     ? html`
         <source type="image/webp" media="(max-width: 900px)" srcset="${blockImageMobile}" />`
     : html`
-        <source type="image/webp" media="(max-width: 900px)" srcset="${blockImageDesktop}" />`}
-  <source type="image/webp" srcset="${blockImageDesktop}" />
-  <img loading="lazy" src="${blockImageDesktop}" alt="${blockAltImage}" />
+        <source type="image/webp" media="(max-width: 900px)" srcset="${blockImageDesktop.src}" />`}
+  <source type="image/webp" srcset="${blockImageDesktop.src}" />
+  <img loading="lazy" src="${blockImageDesktop.src}" alt="${blockAltImage}" />
 </picture>
 </a>`
     : html`
@@ -34,15 +34,26 @@ ${blockHref
     ? html`
         <source type="image/webp" media="(max-width: 900px)" srcset="${blockImageMobile}" />`
     : html`
-        <source type="image/webp" media="(max-width: 900px)" srcset="${blockImageDesktop}" />`}
-  <source type="image/webp" srcset="${blockImageDesktop}" />
-  <img loading="lazy" src="${blockImageDesktop}" alt="${blockAltImage}" />
+        <source type="image/webp" media="(max-width: 900px)" srcset="${blockImageDesktop.src}" />`}
+  <source type="image/webp" srcset="${blockImageDesktop.src}" />
+  <img loading="lazy" src="${blockImageDesktop.src}" alt="${blockAltImage}" width="${blockImageDesktop.width}" height="${blockImageDesktop.height}" />
 </picture>`}
 `;
 
 function isAImg(elem) {
   const image = elem.querySelector('div picture img');
   return image;
+}
+
+function getImageData(elem) {
+  const img = elem.querySelector('div picture img');
+  if (!img) return null;
+
+  return {
+    src: img.getAttribute('src')?.replace('format=png', 'format=webply'),
+    width: img.getAttribute('width') || '',
+    height: img.getAttribute('height') || '',
+  };
 }
 
 function getSrcOnWebply(elem) {
@@ -67,10 +78,12 @@ function getHrefFromButton(elem) {
 
 export default async function decorate(block) {
   const items = Array.from(block.children);
+  console.log(items);
   const blockName = getTextContent(items.shift());
-  const blockImageDesktop = getSrcOnWebply(items.shift());
+  const blockImageDesktop = getImageData(items.shift());
 
   let blockImageMobile = items.shift();
+  console.log(blockImageMobile);
   if (blockImageMobile && isAImg(blockImageMobile) !== null) {
     blockImageMobile = getSrcOnWebply(blockImageMobile);
   } else {

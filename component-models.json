@@ -202,12 +202,14 @@
         "component": "reference",
         "label": "Mobile Image",
         "name": "mobileImage",
+        "value": "",
         "multi": false
       },
       {
         "component": "text",
         "label": "Alt Text",
         "name": "desktopAlt",
+        "value": "",
         "required": true,
         "validation": {
           "minLength": 3
@@ -216,7 +218,8 @@
       {
         "component": "aem-content",
         "label": "Image Link",
-        "name": "desktopUrl"
+        "name": "desktopUrl",
+        "value": ""
       },
       {
         "component": "text",
