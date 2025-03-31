@@ -25,7 +25,7 @@ ${blockHref
     : html`
         <source type="image/webp" media="(max-width: 900px)" srcset="${blockImageDesktop.src}" />`}
   <source type="image/webp" srcset="${blockImageDesktop.src}" />
-  <img loading="lazy" src="${blockImageDesktop.src}" alt="${blockAltImage}" />
+  <img loading="lazy" src="${blockImageDesktop.src}" alt="${blockAltImage}" width="${blockImageDesktop.width}" height="${blockImageDesktop.height}"/>
 </picture>
 </a>`
     : html`
@@ -78,28 +78,27 @@ function getHrefFromButton(elem) {
 
 export default async function decorate(block) {
   const items = Array.from(block.children);
-  console.log(items);
   const blockName = getTextContent(items.shift());
   const blockImageDesktop = getImageData(items.shift());
 
-  let blockImageMobile = items.shift();
-  console.log(blockImageMobile);
-  if (blockImageMobile && isAImg(blockImageMobile) !== null) {
-    blockImageMobile = getSrcOnWebply(blockImageMobile);
-  } else {
-    blockImageMobile = false;
+  let blockImageMobile = null;
+  let blockAltImage = '';
+  let blockHref = null;
+  let blockEnd = '';
+
+  while (items.length) {
+    const nextItem = items[0];
+
+    if (isAImg(nextItem)) {
+      blockImageMobile = getSrcOnWebply(items.shift());
+    } else if (isAHref(nextItem)) {
+      blockHref = getHrefFromButton(items.shift());
+    } else if (getTextContent(nextItem) === 'block-image-end') {
+      blockEnd = getTextContent(items.shift());
+    } else {
+      blockAltImage = getTextContent(items.shift());
+    }
   }
-
-  const blockAltImage = getTextContent(items.shift());
-
-  let blockHref = items.shift();
-  if (blockHref && isAHref(blockHref) !== null) {
-    blockHref = getHrefFromButton(blockHref);
-  } else {
-    blockHref = false;
-  }
-
-  const blockEnd = getTextContent(items.shift());
 
   block.innerHTML = '';
 

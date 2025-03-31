@@ -131,7 +131,9 @@
                   "name": "block-image",
                   "model": "block-image",
                   "blockName": "block-image",
-                  "blockend": "block-image-end"
+                  "blockend": "block-image-end",
+                  "width": "auto",
+                  "height": "auto"
                 }
               }
             }

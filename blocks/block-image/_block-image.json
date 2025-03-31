@@ -11,7 +11,9 @@
               "name": "block-image",
               "model": "block-image",
               "blockName": "block-image",
-              "blockend": "block-image-end"
+              "blockend": "block-image-end",
+              "width": "auto",
+              "height": "auto"
             }
           }
         }
@@ -41,6 +43,16 @@
           "name": "mobileImage",
           "value": "",
           "multi": false
+        },
+        {
+          "component": "number",
+          "label": "Width",
+          "name": "width"
+        },
+        {
+          "component": "number",
+          "label": "Height",
+          "name": "Height"
         },
         {
           "component": "text",

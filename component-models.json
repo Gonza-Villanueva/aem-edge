@@ -206,6 +206,16 @@
         "multi": false
       },
       {
+        "component": "number",
+        "label": "Width",
+        "name": "width"
+      },
+      {
+        "component": "number",
+        "label": "Height",
+        "name": "Height"
+      },
+      {
         "component": "text",
         "label": "Alt Text",
         "name": "desktopAlt",
