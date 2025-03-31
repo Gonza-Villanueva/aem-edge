@@ -9,14 +9,35 @@ import htm from '../../scripts/htm.js';
 
 const html = htm.bind(h);
 
-const imageBlock = ({ blockImageDesktop, blockImageMobile, blockAltImage }) => html`
-    <picture>
-      ${blockImageMobile ? html`
-        <source type="image/webp" media="(min-width: 900px)" srcset="${blockImageMobile}" />` : html`
-        <source type="image/webp" media="(min-width: 900px)" srcset="${blockImageDesktop}" />`}
-      <source type="image/webp" srcset="${blockImageDesktop}" />
-      <img loading="lazy" src="${blockImageDesktop}" alt="${blockAltImage}" />
-    </picture>
+const imageBlock = ({
+  blockImageDesktop,
+  blockImageMobile,
+  blockAltImage,
+  blockHref,
+}) => html`
+${blockHref
+    ? html`
+<a href="${blockHref}">
+<picture>
+  ${blockImageMobile
+    ? html`
+        <source type="image/webp" media="(max-width: 900px)" srcset="${blockImageMobile}" />`
+    : html`
+        <source type="image/webp" media="(max-width: 900px)" srcset="${blockImageDesktop}" />`}
+  <source type="image/webp" srcset="${blockImageDesktop}" />
+  <img loading="lazy" src="${blockImageDesktop}" alt="${blockAltImage}" />
+</picture>
+</a>`
+    : html`
+<picture>
+  ${blockImageMobile
+    ? html`
+        <source type="image/webp" media="(max-width: 900px)" srcset="${blockImageMobile}" />`
+    : html`
+        <source type="image/webp" media="(max-width: 900px)" srcset="${blockImageDesktop}" />`}
+  <source type="image/webp" srcset="${blockImageDesktop}" />
+  <img loading="lazy" src="${blockImageDesktop}" alt="${blockAltImage}" />
+</picture>`}
 `;
 
 function isAImg(elem) {
@@ -64,11 +85,6 @@ export default async function decorate(block) {
     blockHref = false;
   }
 
-  console.log(blockImageDesktop);
-  console.log(blockImageMobile);
-  console.log(blockAltImage);
-  console.log(blockHref);
-
   block.innerHTML = '';
 
   const app = html`
@@ -77,6 +93,7 @@ export default async function decorate(block) {
   blockImageDesktop=${blockImageDesktop}
   blockImageMobile=${blockImageMobile}
   blockAltImage=${blockAltImage}
+  blockHref=${blockHref}
   />`;
 
   render(app, block);

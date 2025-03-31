@@ -37,7 +37,10 @@
           "component": "text",
           "label": "Alt Text",
           "name": "desktopAlt",
-          "required": true
+          "required": true,
+          "validation": {
+            "minLength": 3
+          }
         },
         {
           "component": "aem-content",
