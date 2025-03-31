@@ -87,7 +87,7 @@
     }
 
     .block-accordion-wrapper {
-        .block-accordion.block {
+        .block-accordion {
             &:has(.desktop) {
                 grid-template-rows: 1fr;
             }
