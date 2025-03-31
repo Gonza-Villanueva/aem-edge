@@ -208,12 +208,14 @@
       {
         "component": "number",
         "label": "Width",
-        "name": "width"
+        "name": "width",
+        "description": "0 = auto"
       },
       {
         "component": "number",
         "label": "Height",
-        "name": "Height"
+        "name": "Height",
+        "description": "0 = auto"
       },
       {
         "component": "text",
