@@ -24,7 +24,8 @@
           "component": "reference",
           "label": "Desktop Image",
           "name": "desktopImage",
-          "multi": false
+          "multi": false,
+          "required": true
         },
         {
           "component": "reference",
@@ -35,7 +36,8 @@
         {
           "component": "text",
           "label": "Alt Text",
-          "name": "desktopAlt"
+          "name": "desktopAlt",
+          "required": true
         },
         {
           "component": "aem-content",
