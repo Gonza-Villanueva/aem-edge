@@ -1,0 +1,8 @@
+/* file imports */
+@import url('default.css');
+
+/* block styles export */
+@import url('../../../block-accordion/block-accordion.css');
+
+/* Common */
+@import url('_common.css');
