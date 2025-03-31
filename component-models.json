@@ -190,10 +190,7 @@
         "label": "Desktop Image",
         "name": "desktopImage",
         "multi": false,
-        "required": true,
-        "validation": {
-          "minLength": 1
-        }
+        "required": true
       },
       {
         "component": "reference",
