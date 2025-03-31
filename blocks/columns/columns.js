@@ -9,6 +9,7 @@
  * @param {HTMLElement} block - The DOM element representing the columns block
  */
 import decorateBlockAccordion from '../block-accordion/block-accordion.js';
+import decorateBlockimage from '../block-image/block-image.js';
 
 export default async function decorate(block) {
   const cols = [...block.firstElementChild.children];
@@ -29,13 +30,13 @@ export default async function decorate(block) {
       const colChildren = [...col.children];
       const blockAccordion = 'block-accordion';
       // Decorate block-accordion if present
-      const startIndex = colChildren.findIndex((el) => el.tagName === 'P' && el.textContent.trim().toLowerCase() === blockAccordion);
+      const startIndexAccordion = colChildren.findIndex((el) => el.tagName === 'P' && el.textContent.trim().toLowerCase() === blockAccordion);
       // Case 1: Detect accordion block declared via <p> with text "block-accordion"
-      if (startIndex !== -1) {
-        const ulIndex = colChildren.findIndex((el, i) => el.tagName === 'UL' && i > startIndex);
+      if (startIndexAccordion !== -1) {
+        const ulIndex = colChildren.findIndex((el, i) => el.tagName === 'UL' && i > startIndexAccordion);
 
         if (ulIndex !== -1) {
-          const accordionNodes = colChildren.slice(startIndex, ulIndex + 1);
+          const accordionNodes = colChildren.slice(startIndexAccordion, ulIndex + 1);
 
           // Crear wrapper externo
           const outerWrapper = document.createElement('div');

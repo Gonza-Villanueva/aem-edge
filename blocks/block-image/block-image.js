@@ -67,6 +67,7 @@ function getHrefFromButton(elem) {
 
 export default async function decorate(block) {
   const items = Array.from(block.children);
+  const blockName = getTextContent(items.shift());
   const blockImageDesktop = getSrcOnWebply(items.shift());
 
   let blockImageMobile = items.shift();
@@ -90,6 +91,7 @@ export default async function decorate(block) {
   const app = html`
   <${imageBlock}
   block=${block}
+  blockName=${blockName}
   blockImageDesktop=${blockImageDesktop}
   blockImageMobile=${blockImageMobile}
   blockAltImage=${blockAltImage}

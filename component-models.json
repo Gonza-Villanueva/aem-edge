@@ -186,6 +186,12 @@
     "id": "block-image",
     "fields": [
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
         "component": "reference",
         "label": "Desktop Image",
         "name": "desktopImage",
