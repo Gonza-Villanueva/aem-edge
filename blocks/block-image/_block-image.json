@@ -39,7 +39,7 @@
         },
         {
           "component": "aem-content",
-          "label": "Image Link (Desktop)",
+          "label": "Image Link",
           "name": "desktopUrl"
         }
       ]

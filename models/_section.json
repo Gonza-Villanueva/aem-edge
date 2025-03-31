@@ -33,6 +33,14 @@
             {
               "name": "Highlight",
               "value": "highlight"
+            },
+            {
+              "name": "button-white",
+              "value": "highlight"
+            },
+            {
+              "name": "banner-type1",
+              "value": "highlight"
             }
           ]
         }

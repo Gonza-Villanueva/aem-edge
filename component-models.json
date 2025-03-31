@@ -112,6 +112,14 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "button-white",
+            "value": "highlight"
+          },
+          {
+            "name": "banner-type1",
+            "value": "highlight"
           }
         ]
       }
@@ -196,7 +204,7 @@
       },
       {
         "component": "aem-content",
-        "label": "Image Link (Desktop)",
+        "label": "Image Link",
         "name": "desktopUrl"
       }
     ]

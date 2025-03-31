@@ -9,9 +9,10 @@ import htm from '../../scripts/htm.js';
 
 const html = htm.bind(h);
 
-const imageBlock = ({ blockImageDesktop }) => html`
+const imageBlock = ({ blockImageDesktop, blockImageMobile }) => html`
   <picture>
-    <source type="image/webp" media="(max-width: 900px)" srcset="${blockImageDesktop}">
+    ${blockImageMobile ? html`<source type="image/webp" media="(min-width: 900px)" srcset="${blockImageDesktop}">` : ''}
+    <source type="image/webp" srcset="${blockImageDesktop}">
     <img loading="lazy" src="${blockImageDesktop}" alt="">
   </picture>
   -----------
@@ -28,11 +29,13 @@ export default async function decorate(block) {
   console.log(items);
   const blockImageDesktop = getSrcOnWebply(items.shift());
   console.log(blockImageDesktop);
+  const blockImageMobile = getSrcOnWebply(items.shift());
 
   const app = html`
   <${imageBlock}
   block=${block}
   blockImageDesktop=${blockImageDesktop}
+  blockImageMobile=${blockImageMobile}
   />`;
 
   render(app, block);
