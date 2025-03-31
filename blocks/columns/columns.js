@@ -66,16 +66,16 @@ export default async function decorate(block) {
       // Case 1: Detect image block declared via <p> with text "block-image"
       if (startIndexImage !== -1) {
         console.log('hola?');
-        const imageNodes = colChildren.slice(startIndexImage);
-        const outerWrapper = document.createElement('div');
-        outerWrapper.classList.add(`${blockImage}-wrapper`);
-        const innerWrapper = document.createElement('div');
-        innerWrapper.classList.add(blockImage, 'block');
-        imageNodes.forEach((node) => innerWrapper.appendChild(node.cloneNode(true)));
-        outerWrapper.appendChild(innerWrapper);
-        imageNodes[0].before(outerWrapper);
-        imageNodes.forEach((node) => node.remove());
-        decorateBlockImage(innerWrapper);
+        // const imageNodes = colChildren.slice(startIndexImage);
+        // const outerWrapper = document.createElement('div');
+        // outerWrapper.classList.add(`${blockImage}-wrapper`);
+        // const innerWrapper = document.createElement('div');
+        // innerWrapper.classList.add(blockImage, 'block');
+        // imageNodes.forEach((node) => innerWrapper.appendChild(node.cloneNode(true)));
+        // outerWrapper.appendChild(innerWrapper);
+        // imageNodes[0].before(outerWrapper);
+        // imageNodes.forEach((node) => node.remove());
+        // decorateBlockImage(innerWrapper);
       } else {
         // Case 2: Already structured image block without wrapper
         console.log('hola?2');
