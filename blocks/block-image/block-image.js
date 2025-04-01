@@ -52,8 +52,8 @@ function getImageData(elem) {
 
   return {
     src: img.getAttribute('src')?.replace('format=png', 'format=webply'),
-    width: img.getAttribute('width') || '',
-    height: img.getAttribute('height') || '',
+    width: img.getAttribute('width') || img.naturalWidth || '',
+    height: img.getAttribute('height') || img.naturalHeight || '',
   };
 }
 
