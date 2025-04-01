@@ -12,8 +12,8 @@
               "model": "block-image",
               "blockName": "block-image",
               "blockend": "block-image-end",
-              "width": 0,
-              "Height": 0
+              "blockWidth": 0,
+              "blockHeight": 0
             }
           }
         }
@@ -46,8 +46,8 @@
         },
         {
           "component": "number",
-          "label": "Width",
-          "name": "width",
+          "label": "IMG Width",
+          "name": "blockWidth",
           "description": "0 = auto",
           "value": 0,
           "required": true,
@@ -59,8 +59,8 @@
         },
         {
           "component": "number",
-          "label": "Height",
-          "name": "Height",
+          "label": "IMG Height",
+          "name": "blockHeight",
           "description": "0 = auto",
           "value": 0,
           "required": true,
