@@ -109,8 +109,14 @@ export default async function decorate(block) {
     }
   }
 
+  console.log('custom-width', customWidth);
+  console.log('custom-height', customHeight);
+
   if (customWidth !== 0) blockImageDesktop.width = customWidth;
   if (customHeight !== 0) blockImageDesktop.height = customHeight;
+
+  console.log('block-width', blockImageDesktop.width);
+  console.log('block-height', blockImageDesktop.height);
 
   block.innerHTML = '';
 
