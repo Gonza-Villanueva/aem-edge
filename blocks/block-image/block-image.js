@@ -47,6 +47,7 @@ function isAImg(elem) {
 
 function getImageData(elem) {
   const img = elem.querySelector('div picture img');
+  console.log(img);
   if (!img) return null;
 
   return {
