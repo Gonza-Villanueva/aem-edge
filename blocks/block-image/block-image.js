@@ -82,6 +82,8 @@ export default async function decorate(block) {
   const blockImageDesktop = getImageData(items.shift());
 
   let blockImageMobile = null;
+  let customWidth = 0;
+  let customHeight = 0;
   let blockAltImage = '';
   let blockHref = null;
   let blockEnd = '';
@@ -95,10 +97,20 @@ export default async function decorate(block) {
       blockHref = getHrefFromButton(items.shift());
     } else if (getTextContent(nextItem) === 'block-image-end') {
       blockEnd = getTextContent(items.shift());
+    } else if (!Number.isNaN(parseInt(getTextContent(nextItem), 10))) {
+      const num = parseInt(getTextContent(items.shift()), 10);
+      if (!customWidth) {
+        customWidth = num;
+      } else {
+        customHeight = num;
+      }
     } else {
       blockAltImage = getTextContent(items.shift());
     }
   }
+
+  if (customWidth > 0) blockImageDesktop.width = customWidth;
+  if (customHeight > 0) blockImageDesktop.height = customHeight;
 
   block.innerHTML = '';
 
