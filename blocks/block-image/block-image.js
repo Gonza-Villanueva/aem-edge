@@ -47,7 +47,6 @@ function isAImg(elem) {
 
 function getImageData(elem) {
   const img = elem.querySelector('div picture img');
-  console.log(img);
   if (!img) return null;
 
   return {
@@ -110,17 +109,8 @@ export default async function decorate(block) {
     }
   }
 
-  console.log('original-block-width', blockImageDesktop.width);
-  console.log('original-block-height', blockImageDesktop.height);
-
-  console.log('custom-width', customWidth);
-  console.log('custom-height', customHeight);
-
   if (customWidth !== 0) blockImageDesktop.width = customWidth;
   if (customHeight !== 0) blockImageDesktop.height = customHeight;
-
-  console.log('block-width', blockImageDesktop.width);
-  console.log('block-height', blockImageDesktop.height);
 
   block.innerHTML = '';
 
