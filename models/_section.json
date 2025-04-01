@@ -35,12 +35,16 @@
               "value": "highlight"
             },
             {
-              "name": "button-white",
-              "value": "button-white"
+              "name": "footer-top",
+              "value": "footer-top"
             },
             {
-              "name": "banner-type",
-              "value": "banner-type"
+              "name": "footer-mid",
+              "value": "footer-mid"
+            },
+            {
+              "name": "copy-right",
+              "value": "copy-right"
             }
           ]
         }
