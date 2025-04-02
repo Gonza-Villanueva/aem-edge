@@ -36,8 +36,7 @@ export default async function decorate(block) {
   const blocktype = getTextContent(items.shift());
   const blockspan = getTextContent(items.shift());
 
-  // temp block
-  const tempWrapper = document.createElement('div');
+  block.innerHTML = '';
 
   const app = html`
   <${titleBlock}
@@ -48,12 +47,5 @@ export default async function decorate(block) {
   blockspan=${blockspan}
   />`;
 
-  // Render in the temporary wrapper
-  render(app, tempWrapper);
-
-  // Insert the content before the original block
-  block.parentNode.insertBefore(tempWrapper.firstElementChild, block);
-
-  // remove block
-  block.remove();
+  render(app, block);
 }
