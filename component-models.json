@@ -183,6 +183,12 @@
         "name": "text",
         "label": "Text",
         "description": "Use list to create the accordion"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockEnd",
+        "hidden": true
       }
     ]
   },
@@ -209,7 +215,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "blockend",
+        "name": "blockEnd",
         "hidden": true
       }
     ]
@@ -282,7 +288,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "blockend",
+        "name": "blockEnd",
         "hidden": true
       }
     ]
@@ -298,7 +304,7 @@
       },
       {
         "component": "text",
-        "name": "blocktitle",
+        "name": "blockTitle",
         "label": "Title"
       },
       {
@@ -350,7 +356,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "blockend",
+        "name": "blockEnd",
         "hidden": true
       }
     ]

@@ -13,7 +13,8 @@
               "blockName": "block-accordion",
               "style": "Default",
               "mediaAccordion": ["desktop", "mobile", "open"],
-              "text": "<ul><li><a>Example 1</a></li><li><a>Example 2</a></li><li><a>Example 3</a></li></ul>"
+              "text": "<ul><li><a>Example 1</a></li><li><a>Example 2</a></li><li><a>Example 3</a></li></ul>",
+              "blockEnd": "block-accordion-end"
             }
           }
         }
@@ -66,6 +67,12 @@
           "name": "text",
           "label": "Text",
           "description": "Use list to create the accordion"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "blockEnd",
+          "hidden": true
         }
       ]
     }

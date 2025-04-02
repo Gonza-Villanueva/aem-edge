@@ -12,6 +12,66 @@
  */
 import decorateBlockAccordion from '../block-accordion/block-accordion.js';
 import decorateBlockImage from '../block-image/block-image.js';
+import decorateBlockTitle from '../block-title/block-title.js';
+
+function injectBlock({
+  col,
+  colChildren,
+  blockName,
+  blockStartText = blockName,
+  blockEndText = `${blockName}-end`,
+  decorator,
+}) {
+  // Universal Editor - bloques ya estructurados
+  [...col.querySelectorAll(`.${blockName}`)].forEach((blockEl) => {
+    if (!blockEl.closest(`.${blockName}-wrapper`)) {
+      const wrapper = document.createElement('div');
+      wrapper.classList.add(`${blockName}-wrapper`);
+      blockEl.before(wrapper);
+      wrapper.appendChild(blockEl);
+      decorator(blockEl);
+    }
+  });
+
+  // HTML Plano - detectar por texto entre start/end
+  let i = 0;
+  while (i < colChildren.length) {
+    const currentIndex = i;
+    const startIndex = colChildren.findIndex(
+      (el, idx) => idx >= currentIndex && el.textContent.trim().toLowerCase() === blockStartText,
+    );
+
+    const endIndex = colChildren.findIndex(
+      (el, idx) => idx > startIndex && el.textContent.trim().toLowerCase() === blockEndText,
+    );
+
+    if (startIndex !== -1 && endIndex !== -1) {
+      const nodes = colChildren.slice(startIndex, endIndex + 1);
+
+      const outerWrapper = document.createElement('div');
+      outerWrapper.classList.add(`${blockName}-wrapper`);
+
+      const innerWrapper = document.createElement('div');
+      innerWrapper.classList.add(blockName, 'block');
+
+      nodes.forEach((node) => innerWrapper.appendChild(node.cloneNode(true)));
+      outerWrapper.appendChild(innerWrapper);
+
+      colChildren[startIndex].before(outerWrapper);
+      nodes.forEach((node) => node.remove());
+
+      decorator(innerWrapper);
+
+      // eslint-disable-next-line no-param-reassign
+      colChildren = [...col.children];
+      i = colChildren.indexOf(outerWrapper) + 1;
+    } else {
+      break;
+    }
+  }
+
+  return colChildren;
+}
 
 export default async function decorate(block) {
   const cols = [...block.firstElementChild.children];
@@ -52,56 +112,19 @@ export default async function decorate(block) {
         }
       }
 
-      // block-image
-      const blockImage = 'block-image';
-      const blockImageEnd = 'block-image-end';
-
-      // Case 1: Universal Editor - blocks already structured with class .block-image
-      [...col.querySelectorAll(`.${blockImage}`)].forEach((blockEl) => {
-        if (!blockEl.closest(`.${blockImage}-wrapper`)) {
-          const wrapper = document.createElement('div');
-          wrapper.classList.add(`${blockImage}-wrapper`);
-          blockEl.before(wrapper);
-          wrapper.appendChild(blockEl);
-          decorateBlockImage(blockEl);
-        }
+      injectBlock({
+        col,
+        colChildren,
+        blockName: 'block-image',
+        decorator: decorateBlockImage,
       });
 
-      // Case 2: Plain HTML (direct editing)
-      let i = 0;
-      while (i < colChildren.length) {
-        const currentIndex = i;
-        const startIndex = colChildren.findIndex(
-          (el, idx) => idx >= currentIndex && el.textContent.trim().toLowerCase() === blockImage,
-        );
-
-        const endIndex = colChildren.findIndex(
-          (el, idx) => idx > startIndex && el.textContent.trim().toLowerCase() === blockImageEnd,
-        );
-
-        if (startIndex !== -1 && endIndex !== -1) {
-          const imageNodes = colChildren.slice(startIndex, endIndex + 1);
-
-          const outerWrapper = document.createElement('div');
-          outerWrapper.classList.add(`${blockImage}-wrapper`);
-
-          const innerWrapper = document.createElement('div');
-          innerWrapper.classList.add(blockImage, 'block');
-
-          imageNodes.forEach((node) => innerWrapper.appendChild(node.cloneNode(true)));
-          outerWrapper.appendChild(innerWrapper);
-
-          colChildren[startIndex].before(outerWrapper);
-          imageNodes.forEach((node) => node.remove());
-
-          decorateBlockImage(innerWrapper);
-
-          colChildren = [...col.children];
-          i = colChildren.indexOf(outerWrapper) + 1;
-        } else {
-          break;
-        }
-      }
+      injectBlock({
+        col,
+        colChildren,
+        blockName: 'block-title',
+        decorator: decorateBlockTitle,
+      });
     });
   });
 }

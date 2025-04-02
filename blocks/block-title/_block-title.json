@@ -10,11 +10,11 @@
             "template": {
               "name": "block-title",
               "model": "block-title",
-              "blocktitle": "Headline",
+              "blockTitle": "Headline",
               "titleType": "h1",
               "spanContainer": false,
               "blockName": "block-title",
-              "blockend": "block-title-end"
+              "blockEnd": "block-title-end"
             }
           }
         }
@@ -33,7 +33,7 @@
         },
         {
           "component": "text",
-          "name": "blocktitle",
+          "name": "blockTitle",
           "label": "Title"
         },
         {
@@ -78,7 +78,7 @@
         {
           "component": "text",
           "valueType": "string",
-          "name": "blockend",
+          "name": "blockEnd",
           "hidden": true
         }
       ]

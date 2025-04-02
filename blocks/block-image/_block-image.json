@@ -11,7 +11,7 @@
               "name": "block-image",
               "model": "block-image",
               "blockName": "block-image",
-              "blockend": "block-image-end",
+              "blockEnd": "block-image-end",
               "blockWidth": 0,
               "blockHeight": 0
             }
@@ -89,7 +89,7 @@
         {
           "component": "text",
           "valueType": "string",
-          "name": "blockend",
+          "name": "blockEnd",
           "hidden": true
         }
       ]

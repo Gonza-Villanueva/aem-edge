@@ -114,7 +114,8 @@
                     "mobile",
                     "open"
                   ],
-                  "text": "<ul><li><a>Example 1</a></li><li><a>Example 2</a></li><li><a>Example 3</a></li></ul>"
+                  "text": "<ul><li><a>Example 1</a></li><li><a>Example 2</a></li><li><a>Example 3</a></li></ul>",
+                  "blockEnd": "block-accordion-end"
                 }
               }
             }
@@ -133,7 +134,7 @@
                   "blockName": "block-copyright",
                   "copyRight": "© Ulta Beauty, Inc. 2025",
                   "optionsLinks": "<ul><li><a>Politica de Privacidad</a></li><li><a>Términos y Condiciones</a></li></ul>",
-                  "blockend": "block-copyright-end"
+                  "blockEnd": "block-copyright-end"
                 }
               }
             }
@@ -150,7 +151,7 @@
                   "name": "block-image",
                   "model": "block-image",
                   "blockName": "block-image",
-                  "blockend": "block-image-end",
+                  "blockEnd": "block-image-end",
                   "blockWidth": 0,
                   "blockHeight": 0
                 }
@@ -168,11 +169,11 @@
                 "template": {
                   "name": "block-title",
                   "model": "block-title",
-                  "blocktitle": "Headline",
+                  "blockTitle": "Headline",
                   "titleType": "h1",
                   "spanContainer": false,
                   "blockName": "block-title",
-                  "blockend": "block-title-end"
+                  "blockEnd": "block-title-end"
                 }
               }
             }
