@@ -132,7 +132,8 @@
                   "model": "block-copyright",
                   "blockName": "block-copyright",
                   "copyRight": "© Ulta Beauty, Inc. 2025",
-                  "optionsLinks": "<ul><li><a>Politica de Privacidad</a></li><li><a>Términos y Condiciones</a></li></ul>"
+                  "optionsLinks": "<ul><li><a>Politica de Privacidad</a></li><li><a>Términos y Condiciones</a></li></ul>",
+                  "blockend": "block-copyright-end"
                 }
               }
             }
