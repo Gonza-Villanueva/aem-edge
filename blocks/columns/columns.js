@@ -53,6 +53,7 @@ function injectBlock({
       wrapper.classList.add(`${blockName}-wrapper`);
       blockEl.before(wrapper);
       wrapper.appendChild(blockEl);
+      console.log(wrapper);
       decorator(blockEl);
     }
   });
@@ -77,12 +78,16 @@ function injectBlock({
 
       const innerWrapper = document.createElement('div');
       innerWrapper.classList.add(blockName, 'block');
+      innerWrapper.setAttribute('data-block-name', blockName);
+      innerWrapper.setAttribute('data-block-status', 'loaded');
 
       nodes.forEach((node) => innerWrapper.appendChild(node.cloneNode(true)));
       outerWrapper.appendChild(innerWrapper);
 
       colChildren[startIndex].before(outerWrapper);
       nodes.forEach((node) => node.remove());
+
+      console.log(outerWrapper);
 
       decorator(innerWrapper);
 
