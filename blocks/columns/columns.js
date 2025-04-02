@@ -46,14 +46,6 @@ function injectBlock({
   blockEndText = `${blockName}-end`,
   decorator,
 }) {
-  // Fix miswrapped elements (e.g., block inside a <p>)
-  [...col.querySelectorAll(`.${blockName}`)].forEach((blockEl) => {
-    const parent = blockEl.parentElement;
-    if (parent?.tagName === 'P') {
-      parent.replaceWith(blockEl); // remove the <p> wrapping the block
-    }
-  });
-
   // Universal Editor - pre-structured blocks
   [...col.querySelectorAll(`.${blockName}`)].forEach((blockEl) => {
     if (!blockEl.closest(`.${blockName}-wrapper`)) {
