@@ -120,19 +120,19 @@ export default async function decorate(block) {
         decorator: decorateBlockTitle,
       });
 
-      injectBlock({
-        col,
-        colChildren,
-        blockName: 'block-image',
-        decorator: decorateBlockImage,
-      });
+      // injectBlock({
+      //   col,
+      //   colChildren,
+      //   blockName: 'block-image',
+      //   decorator: decorateBlockImage,
+      // });
 
-      injectBlock({
-        col,
-        colChildren,
-        blockName: 'block-accordion',
-        decorator: decorateBlockAccordion,
-      });
+      // injectBlock({
+      //   col,
+      //   colChildren,
+      //   blockName: 'block-accordion',
+      //   decorator: decorateBlockAccordion,
+      // });
     });
   });
 }
