@@ -15,6 +15,24 @@ import decorateBlockImage from '../block-image/block-image.js';
 import decorateBlockTitle from '../block-title/block-title.js';
 
 /**
+ * Remove invalid <p> wrappers around divs
+ * Useful when editor accidentally wraps block elements inside paragraphs
+ * @param {HTMLElement} col - Column element where blocks live
+ */
+function unwrapInvalidPElements(col) {
+  const paragraphs = [...col.querySelectorAll('p')];
+
+  paragraphs.forEach((p) => {
+    const hasBlockInside = [...p.children].some((child) => child.tagName === 'DIV');
+    if (hasBlockInside) {
+      const fragment = document.createDocumentFragment();
+      [...p.childNodes].forEach((node) => fragment.appendChild(node));
+      p.replaceWith(fragment);
+    }
+  });
+}
+
+/**
  * Injects and decorates custom blocks inside a column, supporting both
  * pre-structured blocks (Universal Editor) and plain HTML blocks defined
  * with textual markers (e.g., "block-name" and "block-name-end"). These are
@@ -133,6 +151,8 @@ export default async function decorate(block) {
         blockName: 'block-accordion',
         decorator: decorateBlockAccordion,
       });
+
+      unwrapInvalidPElements(col);
     });
   });
 }
