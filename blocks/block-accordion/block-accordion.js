@@ -46,6 +46,30 @@ function findFirstUl(container) {
 }
 
 /**
+ * Recursively find heading element (h1-h6) from previous siblings
+ * @param {HTMLElement} wrapper - The element from which to start search
+ * @returns {HTMLElement|null}
+ */
+function findAccordionHeading(wrapper) {
+  let sibling = wrapper?.previousElementSibling;
+
+  console.log(sibling);
+
+  while (sibling) {
+    // Check if it's already a heading
+    if (sibling.tagName?.match(/^H[1-6]$/)) return sibling;
+
+    // Otherwise, try to query inside it
+    const nestedHeading = sibling.querySelector?.('h1, h2, h3, h4, h5, h6');
+    if (nestedHeading) return nestedHeading;
+
+    sibling = sibling.previousElementSibling;
+  }
+
+  return null;
+}
+
+/**
  * Main decorator function executed by Edge Delivery Services to render the accordion block
  * @param {HTMLElement} block - The DOM element representing the accordion block
  */
@@ -61,11 +85,8 @@ export default async function decorate(block) {
   block.innerHTML = '';
 
   const blockWrapperCloses = block.closest('.block-accordion-wrapper');
-  let heading = blockWrapperCloses?.previousElementSibling;
 
-  if (!heading.tagName?.match(/^H[1-6]$/)) {
-    heading = heading.querySelector?.('h1, h2, h3, h4, h5, h6');
-  }
+  const heading = findAccordionHeading(blockWrapperCloses);
 
   if (heading) {
     heading.classList.add('accordion-heading', ...accordionType.split(' '));

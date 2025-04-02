@@ -17,7 +17,8 @@ import decorateBlockTitle from '../block-title/block-title.js';
 /**
  * Injects and decorates custom blocks inside a column, supporting both
  * pre-structured blocks (Universal Editor) and plain HTML blocks defined
- * with textual markers (e.g., "block-name" and "block-name-end").
+ * with textual markers (e.g., "block-name" and "block-name-end"). These are
+ * necessary for functionality, remember to add them in their respective JSON.
  *
  * @function injectBlock
  * @param {Object} params - Function parameters.
@@ -104,11 +105,13 @@ export default async function decorate(block) {
     [...row.children].forEach((col) => {
       const colChildren = [...col.children];
 
+      // the order of injectBlock affects the final render, if you make accordion
+      // generate before title, title will still be an AEM Block element
       injectBlock({
         col,
         colChildren,
-        blockName: 'block-accordion',
-        decorator: decorateBlockAccordion,
+        blockName: 'block-title',
+        decorator: decorateBlockTitle,
       });
 
       injectBlock({
@@ -121,8 +124,8 @@ export default async function decorate(block) {
       injectBlock({
         col,
         colChildren,
-        blockName: 'block-title',
-        decorator: decorateBlockTitle,
+        blockName: 'block-accordion',
+        decorator: decorateBlockAccordion,
       });
     });
   });
