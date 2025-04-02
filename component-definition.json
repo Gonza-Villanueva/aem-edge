@@ -169,6 +169,8 @@
                   "name": "block-title",
                   "model": "block-title",
                   "blocktitle": "Headline",
+                  "titleType": "h1",
+                  "spanContainer": false,
                   "blockName": "block-image",
                   "blockend": "block-image-end"
                 }

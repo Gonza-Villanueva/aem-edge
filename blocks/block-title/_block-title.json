@@ -11,6 +11,8 @@
               "name": "block-title",
               "model": "block-title",
               "blocktitle": "Headline",
+              "titleType": "h1",
+              "spanContainer": false,
               "blockName": "block-image",
               "blockend": "block-image-end"
             }
@@ -68,7 +70,7 @@
         {
           "component": "boolean",
           "label": "Span container",
-          "name": "boolean",
+          "name": "spanContainer",
           "valueType": "boolean",
           "description": "SEO option for Footer",
           "condition": { "!==": [{"var" : "titleType"}, "h1"] }

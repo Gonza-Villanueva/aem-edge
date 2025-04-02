@@ -335,7 +335,7 @@
       {
         "component": "boolean",
         "label": "Span container",
-        "name": "boolean",
+        "name": "spanContainer",
         "valueType": "boolean",
         "description": "SEO option for Footer",
         "condition": {
