@@ -292,7 +292,13 @@
     "fields": [
       {
         "component": "text",
-        "name": "title",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
+        "component": "text",
+        "name": "blocktitle",
         "label": "Title"
       },
       {
@@ -340,6 +346,12 @@
             "h1"
           ]
         }
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockend",
+        "hidden": true
       }
     ]
   },
