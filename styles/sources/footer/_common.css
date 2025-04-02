@@ -3,6 +3,8 @@
  * See COPYING.txt for license details.
  */
 
+ /* stylelint-disable no-descending-specificity */
+
 footer {
     background-color: var(--color-white);
 
@@ -12,8 +14,14 @@ footer {
     }
 
     .footer > div {
-        padding: var(--footer-div-padding, 24px 40px 0);
-        max-width: 1440px;
+        max-width: 100%;
+        padding: 0;
+
+        .section:not(:last-child) {
+            padding: var(--footer-div-padding, 24px 40px 0);
+            max-width: var(--desktop-width);
+            margin: auto;
+        }
     }
 
     .footer-top {
@@ -175,11 +183,58 @@ footer {
             }
         }
     }
+
+    .copy-right {
+        padding: 16px 0;
+        margin: 48px auto 0;
+        border-top: 4px solid var(--color-primary-rosy-400);
+        background-color: var(--color-gray-50);
+
+        .block-copyright-wrapper {
+            max-width: var(--desktop-width);
+            margin: auto;
+            padding: var(--footer-copy-right-padding, 0 40px 0);
+
+            .block-copyright {
+                display: flex;
+                flex-flow: var(--copy-right-block-copyright-flex-flow, row);
+                gap: 16px 0;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .copyright-text {
+                font-size: 12px;
+                letter-spacing: .36px;
+                line-height: 16px;
+                color: var(--color-black);
+            }
+
+
+            .copyright-links ul {
+                display: flex;
+                flex-flow: row;
+                gap: 0 24px;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                a {
+                    font-size: 12px;
+                    letter-spacing: .36px;
+                    line-height: 16px;
+                    color: var(--color-black);
+                    text-decoration: none;
+                }
+            }
+        }
+    }
 }
 
 @media (width <= 900px) {
     footer {
         --footer-div-padding: 24px 16px 0;
+        --footer-copy-right-padding: 0 16px 0;
         --footer-top-p-text-align: center;
         --footer-mid-flex-flow: column;
         --footer-columns-wrapper-order: 1;
@@ -198,5 +253,6 @@ footer {
         --div-last-child-block-image-last-grid-row: 3;
         --div-last-child-block-image-img-width: 122px;
         --div-last-child-block-image-img-height: 37px;
+        --copy-right-block-copyright-flex-flow: column;
     }
 }

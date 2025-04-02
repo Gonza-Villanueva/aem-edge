@@ -19,7 +19,7 @@ const copyrightBlock = ({ copyrightText, copyrightTextUl }) => html`
 `;
 
 function getTextContent(el) {
-  return el?.textContent?.trim().toLowerCase().replace(/,/g, ' ') || '';
+  return el?.textContent?.trim().replace(/,/g, ' ') || '';
 }
 
 /**
