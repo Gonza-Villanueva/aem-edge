@@ -53,8 +53,6 @@ function findFirstUl(container) {
 function findAccordionHeading(wrapper) {
   let sibling = wrapper?.previousElementSibling;
 
-  console.log(sibling);
-
   while (sibling) {
     // Check if it's already a heading
     if (sibling.tagName?.match(/^H[1-6]$/)) return sibling;
