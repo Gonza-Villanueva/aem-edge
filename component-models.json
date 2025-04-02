@@ -331,7 +331,15 @@
         "label": "Span container",
         "name": "boolean",
         "valueType": "boolean",
-        "description": "SEO option for Footer"
+        "description": "SEO option for Footer",
+        "condition": {
+          "!==": [
+            {
+              "var": "titleType"
+            },
+            "h1"
+          ]
+        }
       }
     ]
   },
