@@ -1,0 +1,47 @@
+{
+    "definitions": [
+      {
+        "title": "Block-copyright",
+        "id": "block-copyright",
+        "plugins": {
+          "xwalk": {
+            "page": {
+              "resourceType": "core/franklin/components/block/v1/block",
+              "template": {
+                "name": "block-copyright",
+                "model": "block-copyright",
+                "blockName": "block-copyright",
+                "copyRight": "© Ulta Beauty, Inc. 2025",
+                "optionsLinks": "<ul><li><a>Politica de Privacidad</a></li><li><a>Términos y Condiciones</a></li></ul>"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "models": [
+      {
+        "id": "block-copyright",
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "blockName",
+            "hidden": true
+          },
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "copyRight",
+            "label": "Copyright"
+          },
+          {
+            "component": "richtext",
+            "name": "optionsLinks",
+            "label": "Copyright Links"
+          }
+        ]
+      }
+    ],
+    "filters": []
+  }
