@@ -103,7 +103,8 @@ export default async function decorate(block) {
 
   [...block.children].forEach((row) => {
     [...row.children].forEach((col) => {
-      const colChildren = [...col.children];
+      // eslint-disable-next-line prefer-const
+      let colChildren = [...col.children];
 
       // the order of injectBlock affects the final render, if you make accordion
       // generate before title, title will still be an AEM Block element
