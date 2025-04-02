@@ -12,12 +12,6 @@
         "component": "text",
         "name": "imageAlt",
         "label": "Alt Text"
-      },
-      {
-        "component": "aem-content",
-        "label": "Image Link",
-        "name": "desktopUrl",
-        "value": ""
       }
     ]
   },
@@ -189,6 +183,28 @@
         "name": "text",
         "label": "Text",
         "description": "Use list to create the accordion"
+      }
+    ]
+  },
+  {
+    "id": "block-copyright",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "copyRight",
+        "label": "Copyright"
+      },
+      {
+        "component": "richtext",
+        "name": "optionsLinks",
+        "label": "Copyright Links"
       }
     ]
   },
