@@ -13,8 +13,8 @@
               "blocktitle": "Headline",
               "titleType": "h1",
               "spanContainer": false,
-              "blockName": "block-image",
-              "blockend": "block-image-end"
+              "blockName": "block-title",
+              "blockend": "block-title-end"
             }
           }
         }

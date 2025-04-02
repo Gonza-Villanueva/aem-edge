@@ -113,7 +113,8 @@
       "button",
       "title",
       "block-accordion",
-      "block-image"
+      "block-image",
+      "block-title"
     ]
   },
   {

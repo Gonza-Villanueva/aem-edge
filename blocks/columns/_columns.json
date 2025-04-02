@@ -44,7 +44,7 @@
     },
     {
       "id": "column",
-      "components": ["text", "image", "button", "title", "block-accordion", "block-image"]
+      "components": ["text", "image", "button", "title", "block-accordion", "block-image", "block-title"]
     }
   ]
 }
