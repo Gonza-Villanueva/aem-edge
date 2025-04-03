@@ -13,6 +13,7 @@
 import decorateBlockAccordion from '../block-accordion/block-accordion.js';
 import decorateBlockImage from '../block-image/block-image.js';
 import decorateBlockTitle from '../block-title/block-title.js';
+import decorateNewsletterCdc from '../ulta-beauty-newsletter-cdc/ulta-beauty-newsletter-cdc.js';
 
 /**
  * Remove invalid <p> wrappers around divs
@@ -147,6 +148,13 @@ export default async function decorate(block) {
         colChildren,
         blockName: 'block-accordion',
         decorator: decorateBlockAccordion,
+      });
+
+      injectBlock({
+        col,
+        colChildren,
+        blockName: 'ulta-beauty-newsletter-cdc',
+        decorator: decorateNewsletterCdc,
       });
 
       unwrapInvalidPElements(col);
