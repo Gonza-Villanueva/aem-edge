@@ -17,10 +17,16 @@ footer {
         max-width: 100%;
         padding: 0;
 
-        .section:not(:last-child) {
-            padding: var(--footer-div-padding, 24px 40px 0);
-            max-width: var(--desktop-width);
-            margin: auto;
+        .section {
+            &:not(:last-child) {
+                padding: var(--footer-div-padding, 24px 40px 0);
+                max-width: var(--desktop-width);
+                margin: auto;
+            }
+
+            &.footer-mid {
+                padding: var(--footer-mid-padding, 24px 40px 0);
+            }
         }
     }
 
@@ -45,20 +51,23 @@ footer {
         display: flex;
         flex-flow: var(--footer-mid-flex-flow, wrap);
         justify-content: space-between;
+        gap: 20px 0;
 
         .columns-wrapper {
             order: var(--footer-columns-wrapper-order, initial);
 
             &:last-child {
-                flex: 0 328px;
+                flex: 0 auto;
                 order: 0;
+                max-width: var(--columns-wrapper-last, 328px);
+                overflow: hidden;
+                margin: var(--column-wrapper-last-child-margin, 0);
             }
 
             .columns  {
                 h1,h2,h3,h4,h5,h6 {
-                    font-size: 14px;
-                    letter-spacing: .35px;
-                    line-height: 20px;
+                    font: var(--type-body-1-default-font);
+                    letter-spacing: .035rem;
                     color: var(--color-gray-600) ;
                     margin: var(--columns-h-margin, 0 0 16px);
                     padding: var(--columns-h-padding, 0);
@@ -88,9 +97,8 @@ footer {
 
                         a {
                             display: block;
-                            font-size: 12px;
-                            letter-spacing: .36px;
-                            line-height: 16px;
+                            font: var(--type-details-caption-2-font);
+                            letter-spacing: clamp(0rem, -0.024rem + 0.067vw, 0.036rem); /* .36px - 0 */
                             color: var(--color-black);
                             text-decoration: none;
                         }
@@ -120,9 +128,8 @@ footer {
                     p {
                         display: var(--columns-2-cols-div-p-display, block);
                         margin: 0 0 16px;
-                        font-size: 12px;
-                        letter-spacing: .36px;
-                        line-height: 16px;
+                        font: var(--type-details-caption-2-font);
+                        letter-spacing: .036rem;
                         color: var(--color-black);
                     }
 
@@ -209,9 +216,8 @@ footer {
             }
 
             .copyright-text {
-                font-size: 12px;
-                letter-spacing: .36px;
-                line-height: 16px;
+                font: var(--type-details-caption-2-font);
+                letter-spacing: .036rem;
                 color: var(--color-black);
             }
 
@@ -225,9 +231,8 @@ footer {
                 padding: 0;
 
                 a {
-                    font-size: 12px;
-                    letter-spacing: .36px;
-                    line-height: 16px;
+                    font: var(--type-details-caption-2-font);
+                    letter-spacing: .036rem;
                     color: var(--color-black);
                     text-decoration: none;
                 }
@@ -239,10 +244,13 @@ footer {
 @media (width <= 900px) {
     footer {
         --footer-div-padding: 24px 16px 0;
+        --footer-mid-padding: 42px 16px 0;
         --footer-copy-right-padding: 0 16px 0;
         --footer-top-p-text-align: center;
         --footer-mid-flex-flow: column;
         --footer-columns-wrapper-order: 1;
+        --columns-wrapper-last: 100%;
+        --column-wrapper-last-child-margin: 0 auto 65px;
         --columns-h-color: var(--color-black);
         --columns-h-margin: 0 0 16px;
         --columns-h-padding: 0 0 16px;
