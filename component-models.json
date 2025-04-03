@@ -294,23 +294,6 @@
     ]
   },
   {
-    "id": "block-newsletter",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "blockName",
-        "hidden": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "blockEnd",
-        "hidden": true
-      }
-    ]
-  },
-  {
     "id": "block-title",
     "fields": [
       {
@@ -620,6 +603,23 @@
         "name": "logoFlecha",
         "label": "Imagen del Logo de Flecha",
         "multi": false
+      }
+    ]
+  },
+  {
+    "id": "ulta-beauty-newsletter-cdc",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockEnd",
+        "hidden": true
       }
     ]
   },

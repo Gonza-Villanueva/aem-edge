@@ -63,8 +63,8 @@ function initializeGigya(container) {
 
 export default async function decorate(block) {
   console.log("block", block);
-  block.innerHTML = "";
-
+  //block.innerHTML = "";
+  console.log('hola');
   // Crea un nuevo div con el ID deseado
   const container = document.createElement("div");
   container.id = "ulta-beauty-newsletter-cdc-container";
