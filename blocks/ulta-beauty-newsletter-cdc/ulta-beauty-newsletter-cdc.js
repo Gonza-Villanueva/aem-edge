@@ -62,7 +62,6 @@ function initializeGigya(container) {
 }
 
 export default async function decorate(block) {
-  console.log("block", block);
   block.innerHTML = "";
   // Crea un nuevo div con el ID deseado
   const container = document.createElement("div");
