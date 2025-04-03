@@ -71,7 +71,6 @@ function injectBlock({
       wrapper.classList.add(`${blockName}-wrapper`);
       blockEl.before(wrapper);
       wrapper.appendChild(blockEl);
-      console.log(wrapper);
       decorator(blockEl);
     }
   });
@@ -104,8 +103,6 @@ function injectBlock({
 
       colChildren[startIndex].before(outerWrapper);
       nodes.forEach((node) => node.remove());
-
-      console.log(outerWrapper);
 
       decorator(innerWrapper);
 

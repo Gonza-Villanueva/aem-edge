@@ -249,7 +249,7 @@ footer {
         --columns-h-border-bottom: 1px solid var(--color-gray-300);
         --accordion-content-ul-grid-template-columns: 1fr 1fr;
         --accordion-content-margin: 0 0 24px;
-        --columns-2-cols-margin: 48px 0;
+        --columns-2-cols-margin: 48px 0 0;
         --col-2-cols-block-image-wrapper-img-size: 40px;
         --columns-2-cols-div-p-display: none;
         --div-last-gap: 0 8px;

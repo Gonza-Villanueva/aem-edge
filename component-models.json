@@ -294,6 +294,23 @@
     ]
   },
   {
+    "id": "block-newsletter",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockEnd",
+        "hidden": true
+      }
+    ]
+  },
+  {
     "id": "block-title",
     "fields": [
       {
