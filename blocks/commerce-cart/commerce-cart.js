@@ -4,6 +4,7 @@ import * as Cart from '@dropins/storefront-cart/api.js';
 
 import { h, render as Prender } from '@dropins/tools/preact.js';
 import htm from '../../scripts/htm.js';
+
 const html = htm.bind(h);
 
 // Dropin Containers
