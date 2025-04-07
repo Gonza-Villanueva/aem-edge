@@ -462,6 +462,11 @@
       },
       {
         "component": "text",
+        "label": "Background color (HEX)",
+        "name": "backgroundColor"
+      },
+      {
+        "component": "text",
         "label": "Title",
         "name": "title"
       },

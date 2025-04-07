@@ -61,6 +61,10 @@ export default async function decorate(block) {
   const $emptyCart = fragment.querySelector('.cart__empty-cart');
   const $giftOptions = fragment.querySelector('.cart__gift-options');
 
+  // commerce-cart-info
+
+  // commerce-cart-banner
+
   // block.innerHTML = '';
   block.appendChild(fragment);
 

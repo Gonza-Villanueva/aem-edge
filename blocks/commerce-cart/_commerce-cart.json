@@ -51,6 +51,7 @@
                           "model": "commerce-cart-banner",
                           "blockName": "commerce-cart-banner",
                           "blockEnd": "commerce-cart-banner-end",
+                          "backgroundColor": "#FFF5F0",
                           "title": "Belleza consciente en Ulta Beauty",
                           "subtitle": "Descubre productos éticos y sostenibles. Resalta tu belleza cuidando el planeta.",
                           "linkText": "Aplica ahora",
@@ -122,6 +123,11 @@
             "valueType": "string",
             "name": "blockName",
             "hidden": true
+          },
+          {
+            "component": "text",
+            "label": "Background color (HEX)",
+            "name": "backgroundColor"
           },
           {
             "component": "text",
