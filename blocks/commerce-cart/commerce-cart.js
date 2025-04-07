@@ -26,7 +26,7 @@ export default async function decorate(block) {
     'hide-heading': hideHeading = 'false',
     'max-items': maxItems,
     'hide-attributes': hideAttributes = '',
-    'enable-item-quantity-update': enableUpdateItemQuantity = 'false',
+    'enable-item-quantity-update': enableUpdateItemQuantity = 'true',
     'enable-item-remove': enableRemoveItem = 'true',
     'enable-estimate-shipping': enableEstimateShipping = 'true',
     'start-shopping-url': startShoppingURL = '/',
@@ -35,7 +35,8 @@ export default async function decorate(block) {
 
   const cart = Cart.getCartDataFromCache();
 
-  const isEmptyCart = isCartEmpty(cart);
+  // const isEmptyCart = isCartEmpty(cart);
+  const isEmptyCart = false;
 
   // Layout
   const fragment = document.createRange().createContextualFragment(`
@@ -72,7 +73,7 @@ export default async function decorate(block) {
     }
   }
 
-  toggleEmptyCart(isEmptyCart);
+  // toggleEmptyCart(isEmptyCart);
 
   // Render Containers
   await Promise.all([
