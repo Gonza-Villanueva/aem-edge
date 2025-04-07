@@ -86,10 +86,15 @@ export default async function decorate(block) {
     return image;
   }
 
-  function getSrcOnWebply(elem) {
-    let imgSrc = elem.querySelector('div picture img').getAttribute('src');
-    imgSrc = imgSrc.replace('format=png', 'format=webply');
-    return imgSrc;
+  function getImageData(elem) {
+    const img = elem.querySelector('div picture img');
+    if (!img) return null;
+
+    return {
+      src: img.getAttribute('src')?.replace('format=png', 'format=webply'),
+      width: img.getAttribute('width') || img.naturalWidth || '',
+      height: img.getAttribute('height') || img.naturalHeight || '',
+    };
   }
 
   function isAHref(elem) {
@@ -111,27 +116,6 @@ export default async function decorate(block) {
   const $sideBanner = fragment.querySelector('.cart__banner');
 
   if (bannerContent && $sideBanner) {
-    const SectorCartBanner = ({
-      blockColor,
-      blockTitle,
-      blockDescription,
-      blockCTA,
-      blockImage,
-    }) => html`
-    <div class="cart-banner-wrapper" style="background-color: ${blockColor}">
-      <div class="image-banner">
-        <img src="${blockImage}" alt="${blockTitle}" />
-      </div>
-      <div class="cart-banner-content">
-        <h3>${blockTitle}</h3>
-        <p>${blockDescription}</p>
-        <a href="${blockCTA.href}" class="cart-banner-cta">
-        ${blockCTA.label}
-        </a>
-      </div>
-    </div>
-    `;
-
     const items = Array.from(bannerContent.children);
     const blockName = getTextContent(items.shift());
 
@@ -146,12 +130,10 @@ export default async function decorate(block) {
       const nextItem = items[0];
 
       if (isAHref(nextItem)) {
-        // Primer botón (color o CTA)
         const btn = nextItem.querySelector('a');
         const href = getHrefFromButton(nextItem);
         const label = btn?.textContent?.trim();
-
-        // Si empieza con "#" es el color
+  
         if (label?.startsWith('#')) {
           blockColor = label;
           items.shift();
@@ -160,12 +142,11 @@ export default async function decorate(block) {
           items.shift();
         }
       } else if (isAImg(nextItem)) {
-        blockImage = getSrcOnWebply(nextItem);
+        blockImage = getImageData(nextItem); // debe devolver { src, width, height }
         items.shift();
       } else if (getTextContent(nextItem) === 'commerce-cart-banner-end') {
         blockEnd = getTextContent(items.shift());
       } else {
-        // Cualquier otro texto: si falta título lo usamos como título, si no, descripción
         const text = getTextContent(items.shift());
         if (!blockTitle) {
           blockTitle = text;
@@ -174,19 +155,61 @@ export default async function decorate(block) {
         }
       }
     }
-
-    const SectorCartBannerApp = html`
-    <${SectorCartBanner}
-    blockName=${blockName}
-    blockColor=${blockColor}
-    blockTitle=${blockTitle}
-    blockDescription=${blockDescription}
-    blockCTA=${blockCTA}
-    blockImage=${blockImage}
-    blockEnd=${blockEnd}
-    />`;
-
-    Prender(SectorCartBannerApp, $sideBanner);
+  
+    // 🔧 Construcción manual del banner
+    const wrapper = document.createElement('div');
+    wrapper.className = 'cart-banner-wrapper';
+    wrapper.style.backgroundColor = blockColor;
+  
+    const imageWrapper = document.createElement('div');
+    imageWrapper.className = 'image-banner';
+  
+    const picture = document.createElement('picture');
+  
+    const sourceMobile = document.createElement('source');
+    sourceMobile.type = 'image/webp';
+    sourceMobile.media = '(max-width: 900px)';
+    sourceMobile.srcset = blockImage.src;
+  
+    const sourceDesktop = document.createElement('source');
+    sourceDesktop.type = 'image/webp';
+    sourceDesktop.srcset = blockImage.src;
+  
+    const img = document.createElement('img');
+    img.loading = 'lazy';
+    img.src = blockImage.src;
+    img.alt = blockTitle;
+    img.width = blockImage.width;
+    img.height = blockImage.height;
+  
+    picture.appendChild(sourceMobile);
+    picture.appendChild(sourceDesktop);
+    picture.appendChild(img);
+    imageWrapper.appendChild(picture);
+    wrapper.appendChild(imageWrapper);
+  
+    const content = document.createElement('div');
+    content.className = 'cart-banner-content';
+  
+    const title = document.createElement('h3');
+    title.textContent = blockTitle;
+  
+    const desc = document.createElement('p');
+    desc.textContent = blockDescription;
+  
+    const cta = document.createElement('a');
+    cta.href = blockCTA.href;
+    cta.className = 'cart-banner-cta';
+    cta.textContent = blockCTA.label;
+  
+    content.appendChild(title);
+    content.appendChild(desc);
+    content.appendChild(cta);
+  
+    wrapper.appendChild(content);
+  
+    // Clonamos el contenido para no perder edición original
+    $sideBanner.appendChild(wrapper);
   }
 
   // commerce-cart-info
