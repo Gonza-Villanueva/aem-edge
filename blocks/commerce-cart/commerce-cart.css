@@ -27,7 +27,7 @@
 
 .fake-block {
   position: absolute;
-  display: block;
+  display: none;
   height: auto;
   opacity: 0;
   visibility: hidden;
