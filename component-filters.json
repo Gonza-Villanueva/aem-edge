@@ -119,6 +119,12 @@
     ]
   },
   {
+    "id": "commerce-cart",
+    "components": [
+      "commerce-cart-info"
+    ]
+  },
+  {
     "id": "ulta-article-list",
     "components": [
       "ulta-article-list-block"

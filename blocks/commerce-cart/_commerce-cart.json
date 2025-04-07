@@ -14,12 +14,42 @@
             }
           }
         }
+      },
+      {
+          "title": "Commerce-cart-info",
+          "id": "commerce-cart-info",
+          "plugins": {
+              "xwalk": {
+                  "page": {
+                      "resourceType": "core/franklin/components/block/v1/block/item",
+                      "template": {
+                          "name": "commerce-cart-info",
+                          "model": "commerce-cart-info"
+                      }
+                  }
+              }
+          }
       }
     ],
     "models": [
-   
+      {
+        "id": "commerce-cart-info",
+        "fields": [
+            {
+                "component": "text",
+                "valueType": "string",
+                "name": "title",
+                "label": "Block Title"
+            }
+        ]
+      }
     ],
     "filters": [
-   
+      {
+        "id": "commerce-cart",
+        "components": [
+            "commerce-cart-info"
+        ]
+      }
     ]
   }

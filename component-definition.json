@@ -300,6 +300,21 @@
           }
         },
         {
+          "title": "Commerce-cart-info",
+          "id": "commerce-cart-info",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "commerce-cart-info",
+                  "model": "commerce-cart-info"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "commerce-checkout",
           "id": "commerce-checkout",
           "plugins": {
