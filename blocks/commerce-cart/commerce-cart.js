@@ -229,15 +229,15 @@ export default async function decorate(block) {
   // Toggle Empty Cart
   function toggleEmptyCart(state) {
     if (state) {
-      $wrapper.setAttribute('hidden', '');
-      $emptyCart.removeAttribute('hidden');
+      $wrapper.setAttribute('show', '');
+      // $emptyCart.removeAttribute('hidden');
     } else {
       $wrapper.removeAttribute('hidden');
       $emptyCart.setAttribute('hidden', '');
     }
   }
 
-  // toggleEmptyCart(isEmptyCart);
+  toggleEmptyCart(isEmptyCart);
 
   // Render Containers
   await Promise.all([
