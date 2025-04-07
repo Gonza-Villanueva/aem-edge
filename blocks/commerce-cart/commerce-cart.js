@@ -26,8 +26,6 @@ import { readBlockConfig } from '../../scripts/aem.js';
 import { rootLink } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
-  const originalContent = block.cloneNode(true);
-
   // Configuration
   const {
     'hide-heading': hideHeading = 'false',
@@ -107,49 +105,101 @@ export default async function decorate(block) {
     return butonHref;
   }
 
-  const SectorCartBanner = ({ blockColor, blockTitle, blockDescription, blockCTA, blockImage }) => html`
+  // commerce-cart-banner
+  const bannerContent = extractNodesBetweenMarkers(
+    block,
+    'commerce-cart-banner',
+    'commerce-cart-banner-end',
+  );
+  const $sideBanner = fragment.querySelector('.cart__banner');
+
+  if (bannerContent && $sideBanner) {
+    const renderedBanner = bannerContent.cloneNode(true);
+    const renderTarget = document.createElement('div');
+    $sideBanner.appendChild(renderedBanner);
+    $sideBanner.appendChild(renderTarget);
+
+    const SectorCartBanner = ({
+      blockColor,
+      blockTitle,
+      blockDescription,
+      blockCTA,
+      blockImage,
+    }) => html`
     <div class="cart-banner-wrapper" style="background-color: ${blockColor}">
       <div class="image-banner">
         <picture>
           <source type="image/webp" media="(max-width: 900px)" srcset="${blockImage.src}" />
           <source type="image/webp" srcset="${blockImage.src}" />
-          <img loading="lazy" src="${blockImage.src}" alt="${blockTitle}" width="${blockImage.width}" height="${blockImage.height}" />
+          <img loading="lazy" src="${blockImage.src}" alt="${blockTitle}" width="${blockImage.width}" height="${blockImage.height}"/>
         </picture>
       </div>
       <div class="cart-banner-content">
         <h3>${blockTitle}</h3>
         <p>${blockDescription}</p>
-        <a href="${blockCTA.href}" class="cart-banner-cta">${blockCTA.label}</a>
+        <a href="${blockCTA.href}" class="cart-banner-cta">
+        ${blockCTA.label}
+        </a>
       </div>
     </div>
-  `;
+    `;
 
-  const items = Array.from(originalContent.children);
-  const blockName = getTextContent(items.shift());
+    const items = Array.from(bannerContent.children);
+    const blockName = getTextContent(items.shift());
 
-  let blockColor = '', blockTitle = '', blockDescription = '', blockCTA = null, blockImage = null;
+    let blockColor = '';
+    let blockTitle = '';
+    let blockDescription = '';
+    let blockCTA = null;
+    let blockImage = null;
+    let blockEnd = '';
 
-  while (items.length) {
-    const nextItem = items[0];
-    if (isAHref(nextItem)) {
-      const btn = nextItem.querySelector('a');
-      const href = getHrefFromButton(nextItem);
-      const label = btn?.textContent?.trim();
-      if (label?.startsWith('#')) blockColor = label;
-      else blockCTA = { href, label };
-      items.shift();
-    } else if (isAImg(nextItem)) {
-      blockImage = getImageData(nextItem);
-      items.shift();
-    } else {
-      const text = getTextContent(items.shift());
-      if (text === 'commerce-cart-banner-end') continue;
-      if (!blockTitle) blockTitle = text;
-      else blockDescription = text;
+    while (items.length) {
+      const nextItem = items[0];
+
+      if (isAHref(nextItem)) {
+        // Primer botón (color o CTA)
+        const btn = nextItem.querySelector('a');
+        const href = getHrefFromButton(nextItem);
+        const label = btn?.textContent?.trim();
+
+        // Si empieza con "#" es el color
+        if (label?.startsWith('#')) {
+          blockColor = label;
+          items.shift();
+        } else {
+          blockCTA = { href, label };
+          items.shift();
+        }
+      } else if (isAImg(nextItem)) {
+        blockImage = getImageData(nextItem);
+        items.shift();
+      } else if (getTextContent(nextItem) === 'commerce-cart-banner-end') {
+        blockEnd = getTextContent(items.shift());
+      } else {
+        // Cualquier otro texto: si falta título lo usamos como título, si no, descripción
+        const text = getTextContent(items.shift());
+        if (!blockTitle) {
+          blockTitle = text;
+        } else {
+          blockDescription = text;
+        }
+      }
     }
-  }
 
-  const SectorCartBannerApp = html`<${SectorCartBanner} blockColor=${blockColor} blockTitle=${blockTitle} blockDescription=${blockDescription} blockCTA=${blockCTA} blockImage=${blockImage} />`;
+    const SectorCartBannerApp = html`
+    <${SectorCartBanner}
+    blockName=${blockName}
+    blockColor=${blockColor}
+    blockTitle=${blockTitle}
+    blockDescription=${blockDescription}
+    blockCTA=${blockCTA}
+    blockImage=${blockImage}
+    blockEnd=${blockEnd}
+    />`;
+
+    Prender(SectorCartBannerApp, renderTarget);
+  }
 
   // Prender(SectorCartBannerApp, renderTarget);
 
@@ -166,7 +216,6 @@ export default async function decorate(block) {
 
   block.innerHTML = '';
   block.appendChild(fragment);
-  Prender(SectorCartBannerApp, block);
 
   // Toggle Empty Cart
   function toggleEmptyCart(state) {
