@@ -2,6 +2,10 @@ import { events } from '@dropins/tools/event-bus.js';
 import { render as provider } from '@dropins/storefront-cart/render.js';
 import * as Cart from '@dropins/storefront-cart/api.js';
 
+import { h, render as Prender } from '@dropins/tools/preact.js';
+import htm from '../../scripts/htm.js';
+const html = htm.bind(h);
+
 // Dropin Containers
 import CartSummaryList from '@dropins/storefront-cart/containers/CartSummaryList.js';
 import OrderSummary from '@dropins/storefront-cart/containers/OrderSummary.js';
@@ -61,11 +65,40 @@ export default async function decorate(block) {
   const $emptyCart = fragment.querySelector('.cart__empty-cart');
   const $giftOptions = fragment.querySelector('.cart__gift-options');
 
-  // commerce-cart-info
+  function extractNodesBetweenMarkers(container, startMarker, endMarker) {
+    const blockWrapper = Array.from(container.querySelectorAll(':scope > div')).find((div) => {
+      const text = div.textContent;
+      return text.includes(startMarker) && text.includes(endMarker);
+    });
+    if (!blockWrapper) {
+      return [];
+    }
+    return blockWrapper;
+  }
 
   // commerce-cart-banner
+  const bannerContent = extractNodesBetweenMarkers(
+    block,
+    'commerce-cart-banner',
+    'commerce-cart-banner-end',
+  );
+  const sideBanner = document.querySelector('.cart__banner');
+  if (bannerContent && sideBanner) {
+    sideBanner.append(bannerContent);
+  }
 
-  // block.innerHTML = '';
+  // commerce-cart-info
+  const infoContent = extractNodesBetweenMarkers(
+    block,
+    'commerce-cart-info',
+    'commerce-cart-info-end',
+  );
+  const sideInfo = document.querySelector('.cart__information');
+  if (infoContent && sideInfo) {
+    sideInfo.append(sideInfo);
+  }
+
+  block.innerHTML = '';
   block.appendChild(fragment);
 
   // Toggle Empty Cart
