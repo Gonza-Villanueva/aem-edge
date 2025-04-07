@@ -19,6 +19,20 @@
   margin-top: var(--spacing-medium);
 }
 
+.div:has(.fake-block) {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+}
+
+.fake-block {
+  position: absolute;
+  display: block;
+  height: auto;
+  opacity: 0;
+  visibility: hidden;
+}
+
 @media (width >= 900px) {
   .cart__wrapper {
     flex-direction: row;

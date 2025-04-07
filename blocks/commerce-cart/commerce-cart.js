@@ -115,6 +115,7 @@ export default async function decorate(block) {
 
   if (bannerContent && $sideBanner) {
     const renderedBanner = bannerContent.cloneNode(true);
+    renderedBanner.classList.add('fake-block');
     const renderTarget = document.createElement('div');
     $sideBanner.appendChild(renderedBanner);
     $sideBanner.appendChild(renderTarget);
