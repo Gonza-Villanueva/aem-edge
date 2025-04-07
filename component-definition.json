@@ -308,7 +308,37 @@
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
                   "name": "commerce-cart-info",
-                  "model": "commerce-cart-info"
+                  "model": "commerce-cart-info",
+                  "blockName": "commerce-cart-info",
+                  "blockEnd": "commerce-cart-info-end",
+                  "title": "¿Necesitas Ayuda?",
+                  "subtitle": "Estamos aquí todos los días de 7am a 11pm",
+                  "phone": "1-866-983-ULTA",
+                  "phoneComplete": "(1-866-983-8582)",
+                  "phoneLink": "tel:1-866-983-8582",
+                  "massage": "Comunícate con un especialista",
+                  "massageLink": "#"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Commerce-cart-banner",
+          "id": "commerce-cart-banner",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "commerce-cart-banner",
+                  "model": "commerce-cart-banner",
+                  "blockName": "commerce-cart-banner",
+                  "blockEnd": "commerce-cart-banner-end",
+                  "title": "Belleza consciente en Ulta Beauty",
+                  "subtitle": "Descubre productos éticos y sostenibles. Resalta tu belleza cuidando el planeta.",
+                  "linkText": "Aplica ahora",
+                  "link": "#"
                 }
               }
             }

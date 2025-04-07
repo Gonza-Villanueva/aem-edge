@@ -47,6 +47,8 @@ export default async function decorate(block) {
       <div class="cart__right-column">
         <div class="cart__order-summary"></div>
         <div class="cart__gift-options"></div>
+        <div class="cart__banner"></div>
+        <div class="cart__information"></div>
       </div>
     </div>
 
@@ -60,7 +62,7 @@ export default async function decorate(block) {
   const $giftOptions = fragment.querySelector('.cart__gift-options');
 
   // block.innerHTML = '';
-  // block.appendChild(fragment);
+  block.appendChild(fragment);
 
   // Toggle Empty Cart
   function toggleEmptyCart(state) {
