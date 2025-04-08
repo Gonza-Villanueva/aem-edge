@@ -159,12 +159,10 @@ export default async function decorate(block) {
       const nextItem = items[0];
 
       if (isAHref(nextItem)) {
-        // Primer botón (color o CTA)
         const btn = nextItem.querySelector('a');
         const href = getHrefFromButton(nextItem);
         const label = btn?.textContent?.trim();
 
-        // Si empieza con "#" es el color
         if (label?.startsWith('#')) {
           blockColor = label;
           items.shift();
@@ -178,7 +176,6 @@ export default async function decorate(block) {
       } else if (getTextContent(nextItem) === 'commerce-cart-banner-end') {
         blockEnd = getTextContent(items.shift());
       } else {
-        // Cualquier otro texto: si falta título lo usamos como título, si no, descripción
         const text = getTextContent(items.shift());
         if (!blockTitle) {
           blockTitle = text;
@@ -202,18 +199,83 @@ export default async function decorate(block) {
     Prender(SectorCartBannerApp, renderTargetBanner);
   }
 
-  // Prender(SectorCartBannerApp, renderTarget);
-
   // commerce-cart-info
-  // const infoContent = extractNodesBetweenMarkers(
-  //   block,
-  //   'commerce-cart-info',
-  //   'commerce-cart-info-end',
-  // );
-  // const sideInfo = document.querySelector('.cart__information');
-  // if (infoContent && sideInfo) {
-  //   sideInfo.append(sideInfo);
-  // }
+  const infoContent = extractNodesBetweenMarkers(
+    block,
+    'commerce-cart-info',
+    'commerce-cart-info-end',
+  );
+  const $sideInfo = fragment.querySelector('.cart__information');
+
+  if (infoContent && $sideInfo) {
+    const renderedInfo = infoContent.cloneNode(true);
+    renderedInfo.classList.add('fake-block');
+    const renderTargetInfo = document.createElement('div');
+    $sideInfo.appendChild(renderedInfo);
+    $sideInfo.appendChild(renderTargetInfo);
+
+    const infoItems = Array.from(infoContent.children);
+    const infoBlockName = getTextContent(infoItems.shift());
+
+    const SectorCartInfo = ({ infoData }) => html`
+      <div class="cart-info-wrapper">
+        <div class="cart-info-header">
+          <h3>${infoData.title}</h3>
+          <p>${infoData.lines[0]}</p>
+        </div>
+        <div class="cart-info-body">
+          <div class="cart-info-body__content">
+            <a href="${infoData.phoneHref}" title="${infoData.lines[1]}" class="info phone"><span>${infoData.lines[1]}</span></a>
+            <a href="${infoData.phoneHref}" title="${infoData.lines[2]}" class="extra"><span>${infoData.lines[2]}</span></a>
+          </div>
+          <div class="cart-info-body__content">
+            <a href="${infoData.cta.href}" title="${infoData.lines[3]}" class="info coms"><span>${infoData.lines[3]}</span></a>
+          </div>
+        </div>
+      </div>
+    `;
+
+    const infoData = {
+      title: '',
+      lines: [],
+      phone: '',
+      phoneHref: '',
+      cta: null,
+    };
+    while (infoItems.length) {
+      const next = infoItems[0];
+      const text = getTextContent(next);
+
+      if (text === 'commerce-cart-info-end') {
+        infoItems.shift();
+      } else if (isAHref(next)) {
+        const a = next.querySelector('a');
+        const href = getHrefFromButton(next);
+        const label = a?.textContent?.trim();
+        infoData.cta = { href, label };
+        infoItems.shift();
+      } else {
+        if (!infoData.title) {
+          infoData.title = text;
+        } else if (text.startsWith('tel:')) {
+          infoData.phoneHref = text;
+          infoData.phone = text.replace('tel:', '');
+        } else {
+          infoData.lines.push(text);
+        }
+
+        infoItems.shift();
+      }
+    }
+
+    const SectorCartInfoApp = html`
+    <${SectorCartInfo}
+    infoBlockName=${infoBlockName}
+    infoData=${infoData}
+    />`;
+
+    Prender(SectorCartInfoApp, renderTargetInfo);
+  }
 
   block.innerHTML = '';
   block.appendChild(fragment);
@@ -222,7 +284,7 @@ export default async function decorate(block) {
   function toggleEmptyCart(state) {
     if (state) {
       $wrapper.setAttribute('show', '');
-      // $emptyCart.removeAttribute('hidden');
+      $emptyCart.setAttribute('hidden', '');
     } else {
       $wrapper.removeAttribute('hidden');
       $emptyCart.setAttribute('hidden', '');
