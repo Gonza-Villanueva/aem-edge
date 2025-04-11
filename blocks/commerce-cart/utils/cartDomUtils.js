@@ -13,14 +13,14 @@
  *                              or empty array if not found
  */
 export function extractNodesBetweenMarkers(container, startMarker, endMarker) {
-    const blockWrapper = Array.from(container.querySelectorAll(':scope > div')).find((div) => {
-        const text = div.textContent;
-        return text.includes(startMarker) && text.includes(endMarker);
-    });
-    if (!blockWrapper) {
-        return [];
-    }
-    return blockWrapper;
+  const blockWrapper = Array.from(container.querySelectorAll(':scope > div')).find((div) => {
+    const text = div.textContent;
+    return text.includes(startMarker) && text.includes(endMarker);
+  });
+  if (!blockWrapper) {
+    return [];
+  }
+  return blockWrapper;
 }
 
 /**
@@ -29,7 +29,7 @@ export function extractNodesBetweenMarkers(container, startMarker, endMarker) {
  * @returns {string} The trimmed text content, or empty string if element is null/undefined
  */
 export function getTextContent(el) {
-    return el?.textContent?.trim() || '';
+  return el?.textContent?.trim() || '';
 }
 
 /**
@@ -38,27 +38,27 @@ export function getTextContent(el) {
  * @returns {boolean} True if the element contains an image, false otherwise
  */
 export function isAImg(elem) {
-    const image = elem.querySelector('div picture img');
-    return image;
+  const image = elem.querySelector('div picture img');
+  return image;
 }
 
 /**
  * Extracts image data from an element containing an image structure
  * @param {HTMLElement} elem - The element containing the image
- * @returns {Object|null} Returns an object with image data (src, width, height) or null if no image found
+ * @returns {Object|null} Returns an object with image data (src, width, height) or null image found
  * @property {string} src - The image source URL (converts png to webp format)
  * @property {string|number} width - The image width from attribute or natural width
  * @property {string|number} height - The image height from attribute or natural height
  */
 export function getImageData(elem) {
-    const img = elem.querySelector('div picture img');
-    if (!img) return null;
+  const img = elem.querySelector('div picture img');
+  if (!img) return null;
 
-    return {
-        src: img.getAttribute('src')?.replace('format=png', 'format=webply'),
-        width: img.getAttribute('width') || img.naturalWidth || '',
-        height: img.getAttribute('height') || img.naturalHeight || '',
-    };
+  return {
+    src: img.getAttribute('src')?.replace('format=png', 'format=webply'),
+    width: img.getAttribute('width') || img.naturalWidth || '',
+    height: img.getAttribute('height') || img.naturalHeight || '',
+  };
 }
 
 /**
@@ -67,8 +67,8 @@ export function getImageData(elem) {
  * @returns {boolean} True if the element contains a link, false otherwise
  */
 export function isAHref(elem) {
-    const href = elem.querySelector('div a');
-    return href;
+  const href = elem.querySelector('div a');
+  return href;
 }
 
 /**
@@ -78,15 +78,15 @@ export function isAHref(elem) {
  * @throws {Error} Will throw if the link structure is not found
  */
 export function getHrefFromButton(elem) {
-    const butonHref = elem.querySelector('div a').getAttribute('href');
-    return butonHref;
+  const butonHref = elem.querySelector('div a').getAttribute('href');
+  return butonHref;
 }
 
 export function formatPrice(amount, currency) {
-    return amount.toLocaleString('en-US', {
-      style: 'currency',
-      currency: currency,
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
+  return amount.toLocaleString('en-US', {
+    style: 'currency',
+    currency,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
 }
