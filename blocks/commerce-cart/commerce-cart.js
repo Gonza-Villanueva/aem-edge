@@ -78,6 +78,7 @@ export default async function decorate(block) {
       <div class="cart__left-column">
         <div class="cart__list-banner"></div>
         <div class="cart__list"></div>
+        <div class="cart__list-empty-banner"></div>
       </div>
       <div class="cart__right-column">
         <div class="cart__order-summary"></div>
@@ -93,6 +94,7 @@ export default async function decorate(block) {
 
   const $wrapper = fragment.querySelector('.cart__wrapper');
   const $list = fragment.querySelector('.cart__list');
+  const $listEmptyBanner = fragment.querySelector('.cart__list-empty-banner');
   const $listBanner = fragment.querySelector('.cart__list-banner');
   const $summary = fragment.querySelector('.cart__order-summary');
   const $summaryEmpty = fragment.querySelector('.cart__order-summary-empty');
@@ -100,6 +102,25 @@ export default async function decorate(block) {
   const $giftOptions = fragment.querySelector('.cart__gift-options');
   const $cartInformation = fragment.querySelector('.cart__information');
   const $cartBanner = fragment.querySelector('.cart__banner');
+
+  // commerce cartList empty banner
+  const cartListEmptybannerContent = extractNodesBetweenMarkers(
+    block,
+    'commerce-cartlist-where',
+    'commerce-cartlist-where-end',
+  );
+  const $cartlistEmptyBanner = $listBanner;
+  if (
+    !Array.isArray(cartListEmptybannerContent)
+    && cartListEmptybannerContent
+    && $cartlistEmptyBanner
+  ) {
+    const renderedBanner = cartListEmptybannerContent.cloneNode(true);
+    renderedBanner.classList.add('fake-block');
+    const renderTargetBanner = document.createElement('div');
+    $cartlistEmptyBanner.appendChild(renderedBanner);
+    $cartlistEmptyBanner.appendChild(renderTargetBanner);
+  }
 
   // commerce cartList banner
   const cartListbannerContent = extractNodesBetweenMarkers(
@@ -302,11 +323,13 @@ export default async function decorate(block) {
       $emptyCart.setAttribute('hidden', '');
       $summary.setAttribute('hidden', '');
       $summaryEmpty.removeAttribute('hidden');
+      $listEmptyBanner.removeAttribute('hidden');
     } else {
       $wrapper.removeAttribute('hidden');
       $emptyCart.setAttribute('hidden', '');
       $summary.removeAttribute('hidden');
       $summaryEmpty.setAttribute('hidden', '');
+      $listEmptyBanner.setAttribute('hidden', '');
     }
   }
 
