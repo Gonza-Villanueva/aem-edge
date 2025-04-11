@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectángulo_151606" data-name="Rectángulo 151606" width="12" height="12" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_199143" data-name="Grupo 199143" transform="translate(8779 -12163)">
+    <g id="Rectángulo_151608" data-name="Rectángulo 151608" transform="translate(-8779 12163)" fill="#fff" stroke="#707070" stroke-width="1" opacity="0">
+      <rect width="12" height="12" stroke="none"/>
+      <rect x="0.5" y="0.5" width="11" height="11" fill="none"/>
+    </g>
+    <g id="phone" transform="translate(-8779 12163)" clip-path="url(#clip-path)">
+      <path id="Trazado_53332" data-name="Trazado 53332" d="M1.539.7l-.673.674A2.11,2.11,0,0,0,.6,4.026a27.273,27.273,0,0,0,7.623,7.624,2.11,2.11,0,0,0,2.656-.266l.673-.673a1.532,1.532,0,0,0,0-2.166L10.324,7.318A1.531,1.531,0,0,0,9.241,6.87l-.1,0a1.532,1.532,0,0,0-.982.445l-.167.166-.075-.062A27.06,27.06,0,0,1,4.826,4.331l-.062-.074.167-.164a1.532,1.532,0,0,0,0-2.168L3.7.7A1.531,1.531,0,0,0,1.539.7Zm1.635.53L4.4,2.456a.782.782,0,0,1,0,1.106l-.41.406a.375.375,0,0,0-.026.5,27.81,27.81,0,0,0,3.81,3.81.375.375,0,0,0,.5-.024l.409-.409a.781.781,0,0,1,1.106,0l1.227,1.226a.782.782,0,0,1,0,1.105l-.673.672a1.36,1.36,0,0,1-1.711.172A26.52,26.52,0,0,1,1.225,3.611,1.36,1.36,0,0,1,1.4,1.9l.672-.673A.781.781,0,0,1,3.174,1.229Z" transform="translate(-0.125 -0.125)"/>
+    </g>
+  </g>
+</svg>

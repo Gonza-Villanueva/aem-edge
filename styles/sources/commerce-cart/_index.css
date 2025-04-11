@@ -1,0 +1,12 @@
+/**
+ * Copyright © infinite, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/* file imports default styles */
+@import url('default.css');
+
+/* Common */
+@import url('_common.css');
+@import url('_right-column.css');
+@import url('_right-column-banner.css');

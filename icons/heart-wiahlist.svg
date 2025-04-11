@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="Botón_Secundario_Grande" data-name="Botón Secundario Grande" transform="translate(0 0)">
+    <g id="Grupo_200386" data-name="Grupo 200386" transform="translate(-12 1)">
+      <g id="Rectángulo_151834" data-name="Rectángulo 151834" transform="translate(12 -1)" fill="#fff" stroke="#000" stroke-width="1">
+        <rect width="40" height="40" rx="20" stroke="none"/>
+        <rect x="0.5" y="0.5" width="39" height="39" rx="19.5" fill="none"/>
+      </g>
+      <path id="heartEmpty" d="M9.635,3.3,9,3.957,8.364,3.3A4.24,4.24,0,0,0,4.617,2.058a4.323,4.323,0,0,0-3.165,2.4l-.079.172a4.526,4.526,0,0,0,.753,4.789l6.466,6.953a.557.557,0,0,0,.817,0l6.343-6.822a4.515,4.515,0,0,0,.8-5.092l-.09-.176a4.321,4.321,0,0,0-3.075-2.22A4.24,4.24,0,0,0,9.635,3.3ZM13.2,3.161A3.2,3.2,0,0,1,15.471,4.8l.078.153.07.153a3.4,3.4,0,0,1-.562,3.543L9,15.165,3.065,8.784a3.4,3.4,0,0,1-.673-3.7l.069-.149A3.2,3.2,0,0,1,4.8,3.161a3.125,3.125,0,0,1,2.762.921L8.6,5.15a.557.557,0,0,0,.8,0l1.036-1.067A3.125,3.125,0,0,1,13.2,3.161Z" transform="translate(23 10)"/>
+    </g>
+  </g>
+</svg>

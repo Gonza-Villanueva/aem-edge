@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectángulo_151620" data-name="Rectángulo 151620" width="16" height="16" fill="#a42115"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_200862" data-name="Grupo 200862" transform="translate(6153 -10411.266)">
+    <rect id="Rectángulo_151621" data-name="Rectángulo 151621" width="16" height="16" transform="translate(-6153 10411.266)" fill="#a42115" opacity="0"/>
+    <g id="exclamationTriangle" transform="translate(-6153 10411.266)" clip-path="url(#clip-path)">
+      <path id="Trazado_53335" data-name="Trazado 53335" d="M8,0A1.7,1.7,0,0,1,9.472.846L9.53.953l6.315,12.865A1.514,1.514,0,0,1,14.605,16l-.12,0H1.515A1.514,1.514,0,0,1,.107,13.928l.049-.11L6.471.953A1.7,1.7,0,0,1,8,0ZM8,1a.7.7,0,0,0-.588.317l-.044.077L1.053,14.259a.514.514,0,0,0,.387.735L1.515,15H14.486a.514.514,0,0,0,.49-.671l-.028-.07L8.632,1.394A.7.7,0,0,0,8,1ZM8,12l.082,0a.75.75,0,1,1-.163,0ZM8,5a.5.5,0,0,1,.5.432l0,.068v5a.5.5,0,0,1-1,.068l0-.068v-5A.5.5,0,0,1,8,5Z" transform="translate(0 0.001)" fill="#a42115"/>
+    </g>
+  </g>
+</svg>

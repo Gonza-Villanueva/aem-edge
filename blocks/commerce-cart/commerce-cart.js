@@ -4,8 +4,35 @@ import * as Cart from '@dropins/storefront-cart/api.js';
 
 import { h, render as Prender } from '@dropins/tools/preact.js';
 import htm from '../../scripts/htm.js';
-
 const html = htm.bind(h);
+
+// Utils
+import {
+  extractNodesBetweenMarkers,
+  getTextContent,
+  isAImg,
+  getImageData,
+  isAHref,
+  getHrefFromButton,
+  formatPrice
+} from './utils/cartDomUtils.js';
+
+import {
+  createEmptySummary,
+  setupCartPriceListeners,
+  createNewSummary,
+  AddTextToDeleteItemCart
+} from './utils/cartSummaryUtils.js';
+
+// Components
+import {
+  CartBanner,
+  CartInfo,
+  PayPalButton,
+  CancelCouponButton,
+  couponTitle,
+  couponInputHelp
+} from './components/cartComponents.js';
 
 // Dropin Containers
 import CartSummaryList from '@dropins/storefront-cart/containers/CartSummaryList.js';
@@ -21,14 +48,14 @@ import { publishShoppingCartViewEvent } from '@dropins/storefront-cart/api.js';
 
 // Initializers
 import '../../scripts/initializers/cart.js';
-
-import { readBlockConfig } from '../../scripts/aem.js';
+import { readBlockConfig, fetchPlaceholders} from '../../scripts/aem.js';
 import { rootLink } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
   // Configuration
   const {
     'hide-heading': hideHeading = 'false',
+    'hide-footer': hideFooter = 'false',
     'max-items': maxItems,
     'hide-attributes': hideAttributes = '',
     'enable-item-quantity-update': enableUpdateItemQuantity = 'true',
@@ -38,6 +65,8 @@ export default async function decorate(block) {
     'checkout-url': checkoutURL = '/checkout',
   } = readBlockConfig(block);
 
+  // placeholders i18n
+  const i18n = await fetchPlaceholders();
   const cart = Cart.getCartDataFromCache();
   const isEmptyCart = isCartEmpty(cart);
 
@@ -49,6 +78,7 @@ export default async function decorate(block) {
       </div>
       <div class="cart__right-column">
         <div class="cart__order-summary"></div>
+        <div class="cart__order-summary-empty"></div>
         <div class="cart__gift-options"></div>
         <div class="cart__banner"></div>
         <div class="cart__information"></div>
@@ -61,49 +91,11 @@ export default async function decorate(block) {
   const $wrapper = fragment.querySelector('.cart__wrapper');
   const $list = fragment.querySelector('.cart__list');
   const $summary = fragment.querySelector('.cart__order-summary');
+  const $summaryEmpty = fragment.querySelector('.cart__order-summary-empty');
   const $emptyCart = fragment.querySelector('.cart__empty-cart');
   const $giftOptions = fragment.querySelector('.cart__gift-options');
-
-  function extractNodesBetweenMarkers(container, startMarker, endMarker) {
-    const blockWrapper = Array.from(container.querySelectorAll(':scope > div')).find((div) => {
-      const text = div.textContent;
-      return text.includes(startMarker) && text.includes(endMarker);
-    });
-    if (!blockWrapper) {
-      return [];
-    }
-    return blockWrapper;
-  }
-
-  function getTextContent(el) {
-    return el?.textContent?.trim() || '';
-  }
-
-  function isAImg(elem) {
-    const image = elem.querySelector('div picture img');
-    return image;
-  }
-
-  function getImageData(elem) {
-    const img = elem.querySelector('div picture img');
-    if (!img) return null;
-
-    return {
-      src: img.getAttribute('src')?.replace('format=png', 'format=webply'),
-      width: img.getAttribute('width') || img.naturalWidth || '',
-      height: img.getAttribute('height') || img.naturalHeight || '',
-    };
-  }
-
-  function isAHref(elem) {
-    const href = elem.querySelector('div a');
-    return href;
-  }
-
-  function getHrefFromButton(elem) {
-    const butonHref = elem.querySelector('div a').getAttribute('href');
-    return butonHref;
-  }
+  const $cartInformation = fragment.querySelector('.cart__information');
+  const $cartBanner = fragment.querySelector('.cart__banner');
 
   // commerce-cart-banner
   const bannerContent = extractNodesBetweenMarkers(
@@ -111,39 +103,13 @@ export default async function decorate(block) {
     'commerce-cart-banner',
     'commerce-cart-banner-end',
   );
-  const $sideBanner = fragment.querySelector('.cart__banner');
-
-  if (bannerContent && $sideBanner) {
+  const $sideBanner = $cartBanner;
+  if (!Array.isArray(bannerContent) && bannerContent && $sideBanner) {
     const renderedBanner = bannerContent.cloneNode(true);
     renderedBanner.classList.add('fake-block');
     const renderTargetBanner = document.createElement('div');
     $sideBanner.appendChild(renderedBanner);
     $sideBanner.appendChild(renderTargetBanner);
-
-    const SectorCartBanner = ({
-      blockColor,
-      blockTitle,
-      blockDescription,
-      blockCTA,
-      blockImage,
-    }) => html`
-    <div class="cart-banner-wrapper" style="background-color: ${blockColor}">
-      <div class="image-banner">
-        <picture>
-          <source type="image/webp" media="(max-width: 900px)" srcset="${blockImage.src}" />
-          <source type="image/webp" srcset="${blockImage.src}" />
-          <img loading="lazy" src="${blockImage.src}" alt="${blockTitle}" width="${blockImage.width}" height="${blockImage.height}"/>
-        </picture>
-      </div>
-      <div class="cart-banner-content">
-        <h3>${blockTitle}</h3>
-        <p>${blockDescription}</p>
-        <a href="${blockCTA.href}" class="cart-banner-cta">
-        ${blockCTA.label}
-        </a>
-      </div>
-    </div>
-    `;
 
     const items = Array.from(bannerContent.children);
     const blockName = getTextContent(items.shift());
@@ -179,14 +145,14 @@ export default async function decorate(block) {
         const text = getTextContent(items.shift());
         if (!blockTitle) {
           blockTitle = text;
-        } else {
+        } else if(!blockDescription) {
           blockDescription = text;
         }
       }
     }
 
     const SectorCartBannerApp = html`
-    <${SectorCartBanner}
+    <${CartBanner}
     blockName=${blockName}
     blockColor=${blockColor}
     blockTitle=${blockTitle}
@@ -205,9 +171,9 @@ export default async function decorate(block) {
     'commerce-cart-info',
     'commerce-cart-info-end',
   );
-  const $sideInfo = fragment.querySelector('.cart__information');
+  const $sideInfo = $cartInformation;
 
-  if (infoContent && $sideInfo) {
+  if (!Array.isArray(infoContent) && infoContent && $sideInfo) {
     const renderedInfo = infoContent.cloneNode(true);
     renderedInfo.classList.add('fake-block');
     const renderTargetInfo = document.createElement('div');
@@ -216,24 +182,6 @@ export default async function decorate(block) {
 
     const infoItems = Array.from(infoContent.children);
     const infoBlockName = getTextContent(infoItems.shift());
-
-    const SectorCartInfo = ({ infoData }) => html`
-      <div class="cart-info-wrapper">
-        <div class="cart-info-header">
-          <h3>${infoData.title}</h3>
-          <p>${infoData.lines[0]}</p>
-        </div>
-        <div class="cart-info-body">
-          <div class="cart-info-body__content">
-            <a href="${infoData.phoneHref}" title="${infoData.lines[1]}" class="info phone"><span>${infoData.lines[1]}</span></a>
-            <a href="${infoData.phoneHref}" title="${infoData.lines[2]}" class="extra"><span>${infoData.lines[2]}</span></a>
-          </div>
-          <div class="cart-info-body__content">
-            <a href="${infoData.cta.href}" title="${infoData.lines[3]}" class="info coms"><span>${infoData.lines[3]}</span></a>
-          </div>
-        </div>
-      </div>
-    `;
 
     const infoData = {
       title: '',
@@ -269,7 +217,7 @@ export default async function decorate(block) {
     }
 
     const SectorCartInfoApp = html`
-    <${SectorCartInfo}
+    <${CartInfo}
     infoBlockName=${infoBlockName}
     infoData=${infoData}
     />`;
@@ -285,9 +233,13 @@ export default async function decorate(block) {
     if (state) {
       $wrapper.setAttribute('show', '');
       $emptyCart.setAttribute('hidden', '');
+      $summary.setAttribute('hidden', '');
+      $summaryEmpty.removeAttribute('hidden');
     } else {
       $wrapper.removeAttribute('hidden');
       $emptyCart.setAttribute('hidden', '');
+      $summary.removeAttribute('hidden');
+      $summaryEmpty.setAttribute('hidden', '');
     }
   }
 
@@ -298,35 +250,89 @@ export default async function decorate(block) {
     // Cart List
     provider.render(CartSummaryList, {
       hideHeading: hideHeading === 'true',
-      routeProduct: (product) => rootLink(`/products/${product.url.urlKey}/${product.topLevelSku}`),
-      routeEmptyCartCTA: startShoppingURL ? () => rootLink(startShoppingURL) : undefined,
+      hideFooter: hideFooter === 'true',
+      routeProduct: (product) =>
+        rootLink(`/products/${product.url.urlKey}/${product.topLevelSku}`),
+      routeEmptyCartCTA: startShoppingURL
+        ? () => rootLink(startShoppingURL)
+        : undefined,
       maxItems: parseInt(maxItems, 10) || undefined,
       attributesToHide: hideAttributes
         .split(',')
         .map((attr) => attr.trim().toLowerCase()),
       enableUpdateItemQuantity: enableUpdateItemQuantity === 'true',
       enableRemoveItem: enableRemoveItem === 'true',
+      quantityType: 'dropdown',
+      dropdownOptions: [
+        { value: '1', text: '1' },
+        { value: '2', text: '2' },
+        { value: '3', text: '3' },
+        { value: '4', text: '4' },
+        { value: '5', text: '5' },
+        { value: '6', text: '6' },
+        { value: '7', text: '7' },
+        { value: '8', text: '8' },
+        { value: '9', text: '9' },
+        { value: '10', text: '10' },
+      ],
       slots: {
         Footer: (ctx) => {
-          const giftOptions = document.createElement('div');
+          // discount
+          const discounted = ctx.item?.discounted;
+          if (discounted) {
+            // price
+            const priceUnitFormated = formatPrice(ctx.item?.price?.value, ctx.item?.price?.currency)
+            const originalPriceWrapper = document.createElement('div');
+            originalPriceWrapper.classList.add('product-unit-price');
+            originalPriceWrapper.innerText = `1x${priceUnitFormated}`;
+            ctx.appendChild(originalPriceWrapper);
 
-          provider.render(GiftOptions, {
-            item: ctx.item,
-            view: 'product',
-            dataSource: 'cart',
-            handleItemsLoading: ctx.handleItemsLoading,
-            handleItemsError: ctx.handleItemsError,
-            onItemUpdate: ctx.onItemUpdate,
-          })(giftOptions);
+            // apply discount
+            const discountApplyWrapper = document.createElement('div');
+            discountApplyWrapper.classList.add('product-discount-apply');
+            discountApplyWrapper.innerText = `Descuento aplicado`;
+            ctx.appendChild(discountApplyWrapper);
+          }
+        },
+        ProductAttributes: (ctx) => {
+          // product attr Brand
+          const productAttrs = ctx.item?.productAttributes;
+          productAttrs.forEach((attr) => {
+            if(attr.code === "Ulta Marca") {
+              if(attr.selected_options) {
+                const selectedOptions = attr.selected_options
+                .filter((option) => option.label.trim() !== '')
+                .map((option) => option.label)
+                .join(', ');
 
-          ctx.appendChild(giftOptions);
+                if(selectedOptions) {
+                  const productAttribute = document.createElement('div');
+                  productAttribute.classList.add('product-brand');
+                  productAttribute.innerText = `${selectedOptions}`;
+                  ctx.appendChild(productAttribute);
+                }
+              } else if (attr.value) {
+                const productAttribute = document.createElement('div');
+                productAttribute.classList.add('product-brand');
+                productAttribute.innerText = `${attr.value}`;
+                ctx.appendChild(productAttribute);
+              }
+            }
+          })
+        },
+        EmptyCart: (ctx) => {
+          // Runs on mount
+          const emptyCart = document.createElement('div');
+          emptyCart.innerText = 'Your cart is empty';
+          ctx.appendChild(emptyCart);
         },
       },
     })($list),
 
     // Order Summary
     provider.render(OrderSummary, {
-      routeProduct: (product) => rootLink(`/products/${product.url.urlKey}/${product.topLevelSku}`),
+      routeProduct: (product) =>
+        rootLink(`/products/${product.url.urlKey}/${product.topLevelSku}`),
       routeCheckout: checkoutURL ? () => rootLink(checkoutURL) : undefined,
       slots: {
         EstimateShipping: async (ctx) => {
@@ -364,8 +370,99 @@ export default async function decorate(block) {
     })($giftOptions),
   ]);
 
-  let cartViewEventPublished = false;
+  //summary cartList button delete text
+  AddTextToDeleteItemCart(i18n);
 
+  // move cuppons to cart-order-summary__primary
+  const SectorCupons = document.querySelector('.cart-order-summary__content .cart-order-summary__coupons');
+  const summaryPrimary = document.querySelector('.cart__order-summary');
+  if (SectorCupons && summaryPrimary) {
+    summaryPrimary.appendChild(SectorCupons);
+  }
+
+  // NOTE: This button is a PayPal iframe on ulta.com
+  const SectorCheckoutButton = document.querySelector('.cart-order-summary__entry.cart-order-summary__primaryAction');
+  if (SectorCheckoutButton) {
+    const temp = document.createElement('div');
+    SectorCheckoutButton.appendChild(temp);
+    Prender(html`<${PayPalButton} />`, temp);
+    setTimeout(() => {
+      const onlyChild = temp.firstElementChild;
+      if (onlyChild) temp.replaceWith(onlyChild);
+    });
+  }
+
+  // add Cancel button for cupons
+  const couponAccordion = document.querySelector('.cart-order-summary__coupons .dropin-accordion-section__content-container');
+  if (couponAccordion) {
+    const observer = new MutationObserver((mutations) => {
+      const targetContainer = document.querySelector('.coupon-code-form__action');
+      const accordionToggle = document.querySelector('.dropin-accordion-section__flex[aria-label^="Close"]');
+
+      if (accordionToggle && targetContainer) {
+        // 1. Add Cancel Button
+        if (!targetContainer.querySelector('.cancel-button')) {
+          const tempButton = document.createElement('div');
+          tempButton.classList.add('cancel-button');
+          targetContainer.appendChild(tempButton);
+
+          Prender(html`<${ CancelCouponButton } i18n=${i18n}/>`, tempButton);
+
+          const onlyChildButton = tempButton.firstElementChild;
+          onlyChildButton.classList.add('cancel-button');
+          tempButton.replaceWith(onlyChildButton);
+        }
+
+        // 2. Add Coupon Title
+        const targetContainerTitle = targetContainer.querySelector('.dropin-input-label-container');
+        if (targetContainerTitle && !targetContainerTitle.querySelector('.coupon-label')) {
+          const tempTitle = document.createElement('div');
+          tempTitle.classList.add('coupon-label');
+          targetContainerTitle.prepend(tempTitle);
+
+          Prender(html`<${couponTitle} i18n=${i18n}/>`, tempTitle);
+
+          const onlyChildTitle= tempTitle.firstElementChild;
+          onlyChildTitle.classList.add('coupon-label');
+          tempTitle.replaceWith(onlyChildTitle);
+        }
+
+        // 3. Add Coupon Help Text
+        const targetContainerHelp = targetContainer.querySelector('.dropin-input-label-container');
+        if (targetContainerHelp && !targetContainerHelp.querySelector('.coupon-help')) {
+          const tempHelp = document.createElement('div');
+          tempHelp.classList.add('coupon-help');
+          targetContainerHelp.appendChild(tempHelp);
+
+          Prender(html`<${couponInputHelp} i18n=${i18n}/>`, tempHelp);
+
+          const onlyChildHelp = tempHelp.firstElementChild;
+          onlyChildHelp.classList.add('coupon-help');
+          tempHelp.replaceWith(onlyChildHelp);
+        }
+      }
+    });
+
+    observer.observe(document.querySelector('.cart-order-summary__coupons'), {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  // cart summary empty
+  const SectorSummaryEmpty = document.querySelector('.cart__order-summary-empty');
+  if (SectorSummaryEmpty) {
+    const temp = document.createElement('div');
+    SectorSummaryEmpty.appendChild(temp);
+    const emptySummaryVNode = createEmptySummary(i18n);
+    Prender(emptySummaryVNode, temp);
+    setTimeout(() => {
+      const onlyChild = temp.firstElementChild;
+      if (onlyChild) temp.replaceWith(onlyChild);
+    });
+  }
+
+  let cartViewEventPublished = false;
   // Events
   events.on(
     'cart/data',
@@ -377,8 +474,12 @@ export default async function decorate(block) {
         publishShoppingCartViewEvent();
       }
     },
-    { eager: true },
+    { eager: true }
   );
+
+  // Setup listeners for prices and products counts
+  setupCartPriceListeners(i18n);
+  createNewSummary(cart, i18n, false);
 
   return Promise.resolve();
 }

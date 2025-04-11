@@ -1,0 +1,52 @@
+
+/**
+ * Copyright © infinite, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+ /* stylelint-disable no-descending-specificity */
+ /* stylelint-disable selector-class-pattern */
+ /* stylelint-disable custom-property-pattern */
+
+.commerce-cart-container {
+    .dropin-input__field-icon--error,
+    .coupon-code-form__error {
+        color: var(--color-error);
+        margin: 5px 0 0;
+    }
+
+    .commerce-cart.block {
+        padding: var(--commerce-cart-block__padding, 24px 0 32px);
+    }
+
+    .cart__wrapper {
+        gap: 0 130px;
+
+        .cart__left-column {
+            flex: var(--cart__left-column__flex, 0 1 902px);
+        }
+
+        .cart__right-column {
+            flex: 1 0 328px;
+
+            .cart__order-summary {
+                display: flex;
+                flex-flow: var(--cart__order-summary__flex-flow, column);
+
+                &[hidden] {
+                    .cart-order-summary__coupons {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (width <= 900px) {
+    .commerce-cart-container {
+        --commerce-cart-block__padding: 24px 0 40px;
+        --cart__left-column__flex: 1;
+        --cart__order-summary__flex-flow: column-reverse;
+    }
+}

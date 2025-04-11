@@ -512,6 +512,135 @@
     ]
   },
   {
+    "id": "commerce-cartlist-banner",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
+        "component": "text",
+        "label": "Background color (HEX)",
+        "name": "backgroundColor"
+      },
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title"
+      },
+      {
+        "component": "text",
+        "label": "Link text",
+        "name": "linkText"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockEnd",
+        "hidden": true
+      }
+    ]
+  },
+  {
+    "id": "commerce-cartlist-where",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "Image1",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "label": "Link text",
+        "name": "linkText1"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link1"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "Image2",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "label": "Link text",
+        "name": "linkText2"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link2"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "Image3",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "label": "Link text",
+        "name": "linkText3"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link3"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "Image4",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "label": "Link text",
+        "name": "linkText4"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link4"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockEnd",
+        "hidden": true
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {

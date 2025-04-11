@@ -346,6 +346,53 @@
           }
         },
         {
+          "title": "Commerce-cartlist-banner",
+          "id": "commerce-cartlist-banner",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "commerce-cartlist-banner",
+                  "model": "commerce-cartlist-banner",
+                  "blockName": "commerce-cartlist-banner",
+                  "blockEnd": "commerce-cartlist-banner-end",
+                  "backgroundColor": "#FFF5EB",
+                  "title": "Apoya productos Libres de Crueldad Animal. Construyamos un mundo más amable para todos.",
+                  "linkText": "Regístrate",
+                  "link": "#"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Commerce-cartlist-where",
+          "id": "commerce-cartlist-where",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "commerce-cartlist-where",
+                  "model": "commerce-cartlist-where",
+                  "blockName": "commerce-cartlist-where",
+                  "blockEnd": "commerce-cartlist-where-end",
+                  "title": "¿No sabes por dónde empezar?",
+                  "linkText1": "Compra por marca",
+                  "link1": "#",
+                  "linkText2": "Novedades",
+                  "link2": "#",
+                  "linkText3": "Las mejores ofertas",
+                  "link3": "#",
+                  "linkText4": "Tips de belleza",
+                  "link4": "#"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "commerce-checkout",
           "id": "commerce-checkout",
           "plugins": {

@@ -122,7 +122,9 @@
     "id": "commerce-cart",
     "components": [
       "commerce-cart-info",
-      "commerce-cart-banner"
+      "commerce-cart-banner",
+      "commerce-cartlist-banner",
+      "commerce-cartlist-where"
     ]
   },
   {

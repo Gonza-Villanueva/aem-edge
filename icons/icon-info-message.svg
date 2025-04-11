@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+  <g id="Grupo_200908" data-name="Grupo 200908" transform="translate(8779 -12128)">
+    <g id="Rectángulo_151607" data-name="Rectángulo 151607" transform="translate(-8779 12128)" fill="#fff" stroke="#707070" stroke-width="1" opacity="0">
+      <rect width="12" height="12" stroke="none"/>
+      <rect x="0.5" y="0.5" width="11" height="11" fill="none"/>
+    </g>
+    <path id="messageBubble" d="M10.682,1a.984.984,0,0,1,.984.984V8.675a.985.985,0,0,1-.984.985H6.1L3.512,11.6a.316.316,0,0,1-.5-.208l0-.045V9.66H1.984A.985.985,0,0,1,1,8.743l0-.067V1.984A.984.984,0,0,1,1.984,1Zm0,.631h-8.7a.354.354,0,0,0-.354.354V8.675a.354.354,0,0,0,.354.354H3.323a.315.315,0,0,1,.315.315V10.72L5.81,9.092a.316.316,0,0,1,.149-.06l.041,0h4.683a.354.354,0,0,0,.354-.354V1.984A.354.354,0,0,0,10.682,1.631Z" transform="translate(-8779.333 12127.667)"/>
+  </g>
+</svg>
