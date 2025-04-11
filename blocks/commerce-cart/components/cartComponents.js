@@ -20,14 +20,13 @@ export function listBanner({
     <div class="banner-list-wrapper" style="background-color: ${blockColor}">
       ${blockImage ? html`
         <div class="image-banner">
-        <picture>
-          <source type="image/webp" media="(max-width: 900px)" srcset="${blockImage.src}" />
-          <source type="image/webp" srcset="${blockImage.src}" />
-          <img loading="lazy" src="${blockImage.src}" alt="${blockDescription}" width="${blockImage.width}" height="${blockImage.height}"/>
-        </picture>
-      </div>
+          <picture>
+            <source type="image/webp" media="(max-width: 900px)" srcset="${blockImage.src}" />
+            <source type="image/webp" srcset="${blockImage.src}" />
+            <img loading="lazy" src="${blockImage.src}" alt="${blockDescription}" width="${blockImage.width}" height="${blockImage.height}"/>
+          </picture>
+        </div>
       ` : ''}
-      </div>
       <div class="description-container">
         <p>${blockDescription}</p>
       </div>
