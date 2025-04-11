@@ -10,6 +10,53 @@ import { CustomButton } from '../../../design-system/atoms/customButton/CustomBu
 
 const html = htm.bind(h);
 
+export function listWhere({
+  introText,
+  items = [],
+}) {
+  return html`
+    <div class="where-list-wrapper">
+      ${introText ? html`
+        <h3 class="where-intro-title">${introText}</h3>
+      ` : ''}
+
+      <div class="where-items-container">
+        ${items.map((item) => html`
+          <div class="where-item">
+            ${item.image ? html`
+              <div class="where-item-image">
+                <a href="${item.button.href}" class="where-cta-img" aria-label="${item.title}">
+                  <picture>
+                    <source type="image/webp" media="(max-width: 900px)" srcset="${item.image.src}" />
+                    <source type="image/webp" srcset="${item.image.src}" />
+                    <img
+                      loading="lazy"
+                      src="${item.image.src}"
+                      alt="${item.title}"
+                      width="${item.image.width}"
+                      height="${item.image.height}"
+                    />
+                  </picture>
+                </a>
+              </div>
+            ` : ''}
+
+            ${item.button && item.button.href ? html`
+              <div class="where-item-button">
+                <a href="${item.button.href}" class="where-cta-button" aria-label="${item.title}">
+                  ${item.title}
+                </a>
+              </div>
+            ` : html`
+              ${item.title ? html`<p class="where-item-title">${item.title}</p>` : ''}
+            `}
+          </div>
+        `)}
+      </div>
+    </div>
+  `;
+}
+
 export function listBanner({
   blockColor,
   blockDescription,

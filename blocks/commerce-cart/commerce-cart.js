@@ -38,6 +38,7 @@ import {
 // Components
 import {
   listBanner,
+  listWhere,
   CartBanner,
   CartInfo,
   PayPalButton,
@@ -109,7 +110,7 @@ export default async function decorate(block) {
     'commerce-cartlist-where',
     'commerce-cartlist-where-end',
   );
-  const $cartlistEmptyBanner = $listBanner;
+  const $cartlistEmptyBanner = $listEmptyBanner;
   if (
     !Array.isArray(cartListEmptybannerContent)
     && cartListEmptybannerContent
@@ -120,6 +121,57 @@ export default async function decorate(block) {
     const renderTargetBanner = document.createElement('div');
     $cartlistEmptyBanner.appendChild(renderedBanner);
     $cartlistEmptyBanner.appendChild(renderTargetBanner);
+
+    const items = Array.from(cartListEmptybannerContent.children);
+    const blockName = getTextContent(items.shift());
+    const introText = getTextContent(items.shift()); // "¿No sabes por dónde empezar?"
+    const whereItems = []; // Array para almacenar los items encontrados
+
+    while (items.length) {
+      const nextItem = items[0];
+
+      if (getTextContent(nextItem) === 'commerce-cartlist-where-end') {
+        items.shift(); // Elimina el marcador de fin
+        break;
+      }
+
+      // Cada item tiene: imagen, título y botón
+      const item = {
+        image: null,
+        title: '',
+        button: null,
+      };
+
+      // Verificar si el siguiente elemento es una imagen
+      if (isAImg(items[0])) {
+        item.image = getImageData(items.shift());
+      }
+
+      // El siguiente elemento es el título
+      if (items.length) {
+        item.title = getTextContent(items.shift());
+      }
+
+      // Verificar si el siguiente elemento es un botón
+      if (items.length && isAHref(items[0])) {
+        const btn = items[0].querySelector('a');
+        const href = getHrefFromButton(items[0]);
+        const label = btn?.textContent?.trim();
+        item.button = { href, label };
+        items.shift();
+      }
+
+      whereItems.push(item);
+    }
+
+    const SectorCartListWhereApp = html`
+      <${listWhere}
+        blockName=${blockName}
+        introText=${introText}
+        items=${whereItems}
+      />`;
+
+    Prender(SectorCartListWhereApp, renderTargetBanner);
   }
 
   // commerce cartList banner
