@@ -109,7 +109,7 @@ export default async function decorate(block) {
   );
   const $cartlistBanner = $listBanner;
   if (!Array.isArray(cartListbannerContent) && cartListbannerContent && $cartlistBanner) {
-    const renderedBanner = $cartlistBanner.cloneNode(true);
+    const renderedBanner = cartListbannerContent.cloneNode(true);
     renderedBanner.classList.add('fake-block');
     const renderTargetBanner = document.createElement('div');
     $cartlistBanner.appendChild(renderedBanner);
