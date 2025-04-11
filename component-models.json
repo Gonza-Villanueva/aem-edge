@@ -132,6 +132,10 @@
           {
             "name": "banner",
             "value": "banner"
+          },
+          {
+            "name": "Carousel",
+            "value": "Carousel"
           }
         ]
       }
