@@ -1,0 +1,43 @@
+.custome-icon {
+    display: inline-block;
+
+    &--black {
+        fill: var(--color-black);
+        color: var(--color-black);
+    }
+
+    &--white {
+        fill: var(--color-white);
+        color: var(--color-white);
+    }
+
+    &.custome-icon--size-xxs {
+        width: var(--size-xxs);
+        height: var(--size-xxs);
+    }
+
+    &.custome-icon--size-xs {
+        width: var(--size-xs);
+        height: var(--size-xs);
+    }
+
+    &.custome-icon--size-s {
+        width: var(--size-s);
+        height: var(--size-s);
+    }
+
+    &.custome-icon--size-m {
+        width: var(--size-m);
+        height: var(--size-m);
+    }
+
+    &.custome-icon--size-l {
+        width: var(--size-l);
+        height: var(--size-l);
+    }
+    
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}

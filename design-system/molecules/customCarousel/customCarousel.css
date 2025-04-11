@@ -1,0 +1,32 @@
+.custom-carousel .swiper {
+    --swiper-theme-color: var(--color-black);
+    --swiper-navigation-size: 43.3px;
+    .swiper-button-next,
+    .swiper-button-prev {
+        z-index: 11;
+    }
+
+    .swiper-button-next {
+        border: 1px solid var(--color-black);
+        border-radius: 50%;
+        padding: 0px 7px;
+
+        &:after {
+            content: none;
+        }
+    }
+
+    .swiper-button-prev {
+        border: 1px solid var(--color-black);
+        border-radius: 50%;
+        padding: 0px 7px;
+
+        img {
+            transform: rotate(180deg);
+        }
+
+        &:after {
+            content: none;
+        }
+    }
+}

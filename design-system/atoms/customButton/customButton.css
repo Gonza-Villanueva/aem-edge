@@ -1,0 +1,23 @@
+div.custom-button-wrapper {
+    button.dropin-button.dropin-button--large {
+        padding: 0.5em 1.5em;
+        font: var(--type-body-1-emphasized-font);
+    }
+
+    button.dropin-button.dropin-button--medium {
+        padding: 0.25em 1.25em;
+        font: var(--type-body-1-emphasized-font);
+    }
+
+    button.dropin-button--secondary--disabled {
+        span {
+            color: var(--color-neutral-300);
+        }
+    }
+
+    button.dropin-button--tertiary--disabled {
+        span {
+            color: var(--color-neutral-300);
+        }
+    }
+}

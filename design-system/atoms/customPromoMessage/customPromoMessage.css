@@ -1,0 +1,14 @@
+.custom-promo-message {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 4px 2px;
+  background-color: var(--color-primary-rosy-70);
+  color: var(--color-primary-rosy-550);
+  font: var(--type-details-caption-1-font);
+  text-align: center;
+}
+
+.custom-promo-message__highlight {
+  font-weight: bold;
+}

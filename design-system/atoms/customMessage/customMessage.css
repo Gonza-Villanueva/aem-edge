@@ -1,0 +1,117 @@
+.custom-message {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding: 16px 16px 16px 24px;
+    border: 1px solid transparent;
+    margin: 8px 0;
+    gap: 16px;
+    max-width: 328px;
+}
+
+.custom-message__icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+.custom-message__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 228px;
+    flex: 1;
+}
+
+.custom-message__description {
+    margin: 0;
+}
+
+.custom-message__links {
+    display: flex;
+    gap: 32px;
+}
+
+a.custom-message__link {
+    text-underline-offset: 6px;
+    text-decoration: underline;
+}
+
+.custom-message__images {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.custom-message__image {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.custom-message__close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.custom-message__close img {
+    width: 12px;
+    height: 12px;
+}
+
+.custom-message--error {
+    border: none;
+    border-left: 3px solid var(--color-error);
+    background-color: var(--color-alert-500);
+}
+
+.custom-message--info {
+    border: none;
+    border-left: 3px solid var(--color-notification);
+    background-color: var(--color-informational-500);
+}
+
+.custom-message--success {
+    border: none;
+    border-left: 3px solid var(--color-validation);
+    background-color: var(--color-positive-500);
+}
+
+.custom-message--warning {
+    border: none;
+    border-left: 3px solid var(--color-accent);
+    background-color: var(--color-warning-500);
+}
+
+.custom-message--error.custom-message--textOnly .custom-message__title,
+.custom-message--error.custom-message--textOnly .custom-message__links {
+    display: none;
+}
+
+.custom-message--snackbar {
+    border: 1px solid;
+}
+
+.custom-message--error.custom-message--snackbar {
+    border-color: var(--color-error);
+}
+
+.custom-message--info.custom-message--snackbar {
+    border-color: var(--color-notification);
+}
+
+.custom-message--success.custom-message--snackbar {
+    border-color: var(--color-validation);
+}
+
+.custom-message--warning.custom-message--snackbar {
+    border-color: var(--color-accent);
+}

@@ -1,0 +1,38 @@
+.custom-switch {
+    display: inline-flex;
+    align-items: center;
+  
+  .custom-switch__toggle {
+    position: relative;
+    width: 51px;
+    height: 31px;
+    background: var(--color-gray-300) no-repeat padding-box;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    transition: background 0.2s ease;
+  }
+  
+  .custom-switch__toggle--on {
+    background: var(--color-black);
+  }
+  
+  .custom-switch__handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 29px;
+    height: 29px;
+    background: var(--color-white) no-repeat padding-box;
+    border: 1px solid var(--color-gray-350);
+    border-radius: 50%;
+    transition: transform 0.2s ease, border 0.2s ease;
+  }
+  
+  .custom-switch__toggle--on .custom-switch__handle {
+    transform: translateX(20px);
+    border: 1px solid var(--color-black);
+  }
+}

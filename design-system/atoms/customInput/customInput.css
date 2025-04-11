@@ -1,0 +1,25 @@
+div.custom-input-wrapper {
+    label.requiredMark {
+        color: var(--color-error);
+    }
+
+    .error-message-wrapper {
+        display: flex;
+        padding-left: 8px;
+        padding-top: 5px;
+        padding-bottom: 3px;
+        gap: 8px;
+        label.error-message {
+            font: var(--type-body-1-default-font);
+            color: var(--color-error);
+        }
+    }
+
+    .dropin-input--error {
+        border: var(--shape-border-width-2) solid var(--color-error);
+    }
+
+    div.dropin-input__field-icon--error {
+        display: none;
+    }
+}

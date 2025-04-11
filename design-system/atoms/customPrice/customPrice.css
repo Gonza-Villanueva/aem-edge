@@ -1,0 +1,27 @@
+div.custom-price-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: baseline;
+
+    span.content-price {
+        color: var(--color-black);
+
+        &.content-price--highlight {
+            color: var(--color-primary-rosy-400);
+        }
+
+        &.content-price--size-xl {
+            font: var(--type-display-2-font);
+        }
+
+        &.content-price--strikethrough {
+            color: var(--color-gray-1100);
+            text-decoration: line-through;
+        }
+    }
+
+    span.label-text {
+        color: var(--color-gray-1100);
+    }
+}

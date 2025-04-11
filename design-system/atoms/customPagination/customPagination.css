@@ -1,0 +1,120 @@
+/* stylelint-disable selector-class-pattern */
+
+/* Pagination Style */
+.pagination {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    flex-direction: var(--block-pagination-flex-direction, column);
+    gap: var(--block-pagination-gap, 32px);
+    margin: var(--block-pagination-margin, 40px 0 64px);
+}
+
+.pagination__navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    order: var(--block-pagination-navigation-order, 1);
+    margin: 0 auto;
+}
+
+.pagination__control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: var(--block-pagination-control-order, 0);
+    gap: 8px;
+
+    > label {
+        font: var(--type-display-4-font);
+        color: var(--color-black);
+        letter-spacing: .35px;
+    }
+
+    > select {
+        font: var(--type-select-1-font);
+        color: var(--color-black-50);
+        padding: 6px 12px;
+        border: none;
+        border-radius: 0;
+        background-color: var(--color-gray-50);
+        box-sizing: content-box;
+    }
+}
+
+.pagination__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    &::after {
+        display: inline-block;
+        content: '';
+        background-image: url('../../../icons/icon-arrow.svg');
+        background-size: contain;
+        width: 20px;
+        height: 20px;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.pagination__arrow--backward::after {
+    transform: rotate(180deg);
+}
+
+.pagination__list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagination__list-item {
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background-color: transparent;
+        border: none;
+        padding: 7px 6px;
+        cursor: pointer;
+        font: var(--type-button-3-font);
+        color: var(--color-black-50);
+        box-sizing: border-box;
+    }
+}
+
+.pagination__list-item--active {
+    button {
+        background-color: var(--color-primary-rosy-400);
+        color: var(--color-white);
+        border-radius: 50%;
+    }
+}
+
+/* Desktop Screen */
+@media (width >= 900px) {
+    body {
+        --block-pagination-flex-direction: row;
+        --block-pagination-gap: 0;
+        --block-pagination-margin: 64px 0 80px;
+        --block-pagination-navigation-order: 0;
+        --block-pagination-control-order: 1;
+    }
+}

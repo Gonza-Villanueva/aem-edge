@@ -1,0 +1,57 @@
+.order-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 4px 5px 4px;
+    color: var(--color-black);
+    font-size: var(--spacing-xsmall);
+    width: 100%;
+  }
+  
+  .order-status--small {
+    width: fit-content;
+  }
+  
+  .order-status--created {
+    background-color: var(--color-order-created);
+  }
+  
+  .order-status--approved {
+    background-color: var(--color-order-approved);
+  }
+  
+  .order-status--preparation {
+    background-color: var(--color-order-preparation);
+  }
+  
+  .order-status--received {
+    background-color: var(--color-order-received);
+  }
+  
+  .order-status--shipped {
+    background-color: var(--color-order-shipped);
+  }
+  
+  .order-status--delivered {
+    background-color: var(--color-order-delivered);
+  }
+  
+  .order-status--canceled {
+    background-color: var(--color-order-canceled);
+  }
+  
+  .order-status__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .order-status__icon img {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .order-status__text {
+    line-height: 1;
+  }
+  

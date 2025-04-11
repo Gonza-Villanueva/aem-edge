@@ -1,0 +1,59 @@
+div.custom-star-rating {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    div.star-wrapper {
+        display: flex;
+        flex-direction: row;
+        height: 12px;
+        width: 12px;
+        position: relative;
+
+        div.half-star-wrapper {
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+        }
+
+        svg {
+            z-index: 1;
+            width: 12px;
+            height: 12px;
+        }
+
+        div.star-icon-container-base {
+            position: absolute;
+            z-index: 1;
+            display: flex;
+        }
+
+        div.star-icon-container-filled {
+            position: absolute;
+            z-index: 1;
+            display: flex;
+            clip-path: inset(0 100% 0 0);
+
+            svg {
+                g {
+                    path {
+                        fill: var(--color-black);
+                    }
+                }
+            }
+        }
+
+        &.fill-star {
+            div.star-icon-container-filled {
+                clip-path: inset(0 0% 0 0);
+            }
+        }
+
+        &.fill-half-star {
+            div.star-icon-container-filled {
+                clip-path: inset(0 50% 0 0);
+            }
+        }
+    }
+}
