@@ -47,8 +47,12 @@
               "value": "copy-right"
             },
             {
-              "name": "prueba",
-              "value": "hola, mundo"
+              "name": "banner-mobile-text-top",
+              "value": "banner-mobile-text-top"
+            },
+            {
+              "name": "banner",
+              "value": "banner"
             }
           ]
         }
