@@ -10,6 +10,36 @@ import { CustomButton } from '../../../design-system/atoms/customButton/CustomBu
 
 const html = htm.bind(h);
 
+export function listBanner({
+  blockColor,
+  blockDescription,
+  blockCTA,
+  blockImage,
+}) {
+  return html`
+    <div class="banner-list-wrapper" style="background-color: ${blockColor}">
+      ${blockImage ? html`
+        <div class="image-banner">
+        <picture>
+          <source type="image/webp" media="(max-width: 900px)" srcset="${blockImage.src}" />
+          <source type="image/webp" srcset="${blockImage.src}" />
+          <img loading="lazy" src="${blockImage.src}" alt="${blockDescription}" width="${blockImage.width}" height="${blockImage.height}"/>
+        </picture>
+      </div>
+      ` : ''}
+      </div>
+      <div class="description-container">
+        <p>${blockDescription}</p>
+      </div>
+      <div class="link-container">
+        <a href="${blockCTA.href}" class="cart-banner-cta">
+        ${blockCTA.label}
+        </a>
+      </div>
+    </div>
+  `;
+}
+
 export function CartBanner({
   blockColor,
   blockTitle,

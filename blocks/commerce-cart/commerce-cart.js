@@ -37,6 +37,7 @@ import {
 
 // Components
 import {
+  listBanner,
   CartBanner,
   CartInfo,
   PayPalButton,
@@ -92,12 +93,76 @@ export default async function decorate(block) {
 
   const $wrapper = fragment.querySelector('.cart__wrapper');
   const $list = fragment.querySelector('.cart__list');
+  const $listBanner = fragment.querySelector('.cart__list-banner');
   const $summary = fragment.querySelector('.cart__order-summary');
   const $summaryEmpty = fragment.querySelector('.cart__order-summary-empty');
   const $emptyCart = fragment.querySelector('.cart__empty-cart');
   const $giftOptions = fragment.querySelector('.cart__gift-options');
   const $cartInformation = fragment.querySelector('.cart__information');
   const $cartBanner = fragment.querySelector('.cart__banner');
+
+  // commerce cartList banner
+  const cartListbannerContent = extractNodesBetweenMarkers(
+    block,
+    'commerce-cartlist-banner',
+    'commerce-cartlist-banner-end',
+  );
+  const $cartlistBanner = $listBanner;
+  if (!Array.isArray(cartListbannerContent) && cartListbannerContent && $cartlistBanner) {
+    const renderedBanner = $cartlistBanner.cloneNode(true);
+    renderedBanner.classList.add('fake-block');
+    const renderTargetBanner = document.createElement('div');
+    $cartlistBanner.appendChild(renderedBanner);
+    $cartlistBanner.appendChild(renderTargetBanner);
+
+    const items = Array.from(cartListbannerContent.children);
+    const blockName = getTextContent(items.shift());
+    let blockColor = '';
+    let blockDescription = '';
+    let blockCTA = null;
+    let blockImage = null;
+    let blockEnd = '';
+
+    while (items.length) {
+      const nextItem = items[0];
+
+      if (isAHref(nextItem)) {
+        const btn = nextItem.querySelector('a');
+        const href = getHrefFromButton(nextItem);
+        const label = btn?.textContent?.trim();
+
+        if (label?.startsWith('#')) {
+          blockColor = label;
+          items.shift();
+        } else {
+          blockCTA = { href, label };
+          items.shift();
+        }
+      } else if (isAImg(nextItem)) {
+        blockImage = getImageData(nextItem);
+        items.shift();
+      } else if (getTextContent(nextItem) === 'commerce-cart-banner-end') {
+        blockEnd = getTextContent(items.shift());
+      } else {
+        const text = getTextContent(items.shift());
+        if (!blockDescription) {
+          blockDescription = text;
+        }
+      }
+    }
+
+    const SectorCartListBannerApp = html`
+    <${listBanner}
+    blockName=${blockName}
+    blockColor=${blockColor}
+    blockDescription=${blockDescription}
+    blockCTA=${blockCTA}
+    blockImage=${blockImage}
+    blockEnd=${blockEnd}
+    />`;
+
+    Prender(SectorCartListBannerApp, renderTargetBanner);
+  }
 
   // commerce-cart-banner
   const bannerContent = extractNodesBetweenMarkers(
