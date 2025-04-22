@@ -1,0 +1,9 @@
+.tag-highlight {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    font: var(--type-details-caption-1-font);
+    letter-spacing: var(--type-tag-highlight-letter-spacing);
+}

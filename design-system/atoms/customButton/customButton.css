@@ -1,4 +1,10 @@
 div.custom-button-wrapper {
+    &.custom-button-wrapper--width-fit {
+        button.dropin-button {
+            width: 100%;
+        }
+    }
+
     button.dropin-button.dropin-button--large {
         padding: 0.5em 1.5em;
         font: var(--type-body-1-emphasized-font);

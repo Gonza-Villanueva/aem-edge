@@ -1,0 +1,100 @@
+div.custom-timeline-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+
+    div.timeline-line {
+        width: auto;
+        height: 1px;
+        background: black;
+        position: absolute;
+        top: 22.5px;
+        left: 44px;
+        right: 44px;
+        z-index: -3;
+    }
+
+    div.mileston-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: anchor-center;
+        max-width: 90px;
+        width: -webkit-fill-available;
+        justify-content: center;
+
+        div.timeline-line {
+            background: var(--color-gray-400);
+            height: 2px;
+            width: 100%;
+        }
+
+        div.milestone {
+            &.dot-mode {
+                display: flex;
+                align-self: baseline;
+            }
+
+            div.dot-wrapper {
+                width: 46.4px;
+                height: 46.4px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                div.dot {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    &.dot--active {
+                        background: var(--color-black);
+                    }
+                    &.dot--inactive {
+                        background: var(--color-gray-400);
+                    }
+                }
+            }
+
+            &.icon-mode {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 6px;
+
+                div.icon-wrapper {
+                    width: 46.4px;
+                    height: 46.4px;
+                    display: flex;
+                    border: 1px solid var(--color-black);
+                    background: var(--color-white);
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                }
+
+                label {
+                    margin-top: 6px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 508px) {
+    div.custom-timeline-wrapper {
+        div.timeline-line {
+            left: 36px;
+            right: 36px;
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    div.custom-timeline-wrapper {
+        div.timeline-line {
+            left: 26px;
+            right: 26px;
+        }
+    }
+}

@@ -58,7 +58,6 @@ export default async function createModal(contentNodes, type = 'default', positi
 
   dialog.addEventListener("close", () => {
     document.body.classList.remove("modal-open");
-    block.remove();
   });
 
   block.append(dialog);
@@ -69,7 +68,11 @@ export default async function createModal(contentNodes, type = 'default', positi
 
   return {
     block,
-    removeModal: () => dialog.close(),
+    closeDialog: () => dialog.close(),
+    removeModal: () => {
+      dialog.close();
+      block.remove();
+    },
     showModal: () => {
       dialog.showModal();
       setTimeout(() => {

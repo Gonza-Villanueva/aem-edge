@@ -14,6 +14,8 @@ import { SampleCustomStarRating } from './componentsSamples/customStarRating.sam
 import { SampleSelect } from './componentsSamples/customSelect.sample.js';
 import { SampleCustomPrice } from './componentsSamples/customPrice.sample.js';
 import { SamplePromoMessage } from './componentsSamples/customPromoMessage.sample.js';
+import { SampleCards } from './componentsSamples/customCards.sample.js';
+import { SampleTimeline } from './componentsSamples/customTimeline.sample.js';
 
 import htm from '../../../scripts/htm.js';
 
@@ -22,6 +24,7 @@ const html = htm.bind(h);
 export const Home = () => {
   return html`
     <div className="${['home-wrapper'].join(' ')}">
+      <${SampleTimeline} />
       <${SampleSelect} />
       <${SampleCustomPrice} />
       <${SampleCustomButton} />
@@ -36,6 +39,7 @@ export const Home = () => {
       <${SampleOrderStatusLabel} />
       <${SampleTabs} />
       <${SamplePromoMessage} />
+      <${SampleCards} />
     </div>
   `;
 };

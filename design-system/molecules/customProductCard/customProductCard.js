@@ -5,6 +5,7 @@ import { renderPrice } from '../../../scripts/commerce.js';
 import { Button } from '@dropins/tools/components.js';
 import createModal from '../../atoms/customModal/customModal.js';
 import { CustomMessage } from '../../atoms/customMessage/customMessage.js';
+import ProductOptionsModal from './customProductCardOptionsModal.js';
 
 const html = htm.bind(h);
 
@@ -128,7 +129,7 @@ class ProductCard extends Component {
    * @returns {JSX.Element} The rendered component.
    */
   render({
-    products, secondLastProduct, loading, currentPageSize, linkPdp = '', img = '', name = '', badge = '/icons/badge-test.png', wishlist = false, wishlistLink = '', wishlistAdded = false, colorVariation = 0, brand = '', ranking = 50, rankPoints = 3, rankingComment = 2, specialPrice = 0, normalPrice = 0, promo = 'Obsequio con tu pedido', blockButtonText = '', addToCartLink = '', labels
+    products, secondLastProduct, loading, currentPageSize, linkPdp = '', img = '', name = '', badge = '', wishlist = false, wishlistLink = '', wishlistAdded = false, colorVariation = 0, brand = '', ranking = 50, rankPoints = 3, rankingComment = 2, specialPrice = 0, normalPrice = 0, promo = '', blockButtonText = '', addToCartLink = '', labels
   }) {
     const { showMessage, messageType, messageDescription } = this.state;
 
@@ -154,6 +155,28 @@ class ProductCard extends Component {
       }
     };
 
+    const addToWishlist = async (product) => {
+      try {
+        const isLoggedIn = window?.CustomerData?.isLoggedIn;
+
+        if (!isLoggedIn) {
+          window.location.href = `/login?redirect_url=${encodeURIComponent(window.location.href)}`;
+          return;
+        }
+
+        const values = { sku: product.sku };
+
+        if (values?.sku) {
+          const wishlist = await import('../../scripts/wishlist/api.js');
+          await wishlist.addToWishlist(values.sku);
+
+          this.showMessage('success', labels?.PLP?.Wishlist?.Message?.Success);
+        }
+      } catch (error) {
+        this.showMessage('error', labels?.PLP?.Wishlist?.Message?.Error);
+      }
+    };
+
     return html`
       ${showMessage && html`
         <${CustomMessage}
@@ -167,29 +190,15 @@ class ProductCard extends Component {
 
       ${products.items.map((product, index) => {
         const imageUrl = product.images && product.images.length > 0 ? product.images[0].url : img;
+        const colorOption = product.options && product.options.find(option => option.id === "ulta_color");
         const linkPdp = '/products/' + product.urlKey + '/' + product.sku;
+
+        // Labels - Placeholders
         const labelButtonAddtoCartMobile = labels?.PLP?.ProductCard?.Button?.AddToCartMobile;
         const labelButtonAddtoCart = labels?.PLP?.ProductCard?.Button?.AddToCart;
         const labelButtonOptions = labels?.PLP?.ProductCard?.Button?.Options;
-        const colorOption = product.options && product.options.find(option => option.id === "color") || {
-          "id": "color",
-          "title": "Color",
-          "required": false,
-          "values": [
-              {
-                  "id": "Y29uZmlndXJhYmxlLzI3Ny8xOTM=",
-                  "title": "Orange"
-              },
-              {
-                  "id": "Y29uZmlndXJhYmxlLzI3Ny8xOTY=",
-                  "title": "Purple"
-              },
-              {
-                  "id": "Y29uZmlndXJhYmxlLzI3Ny8xOTk=",
-                  "title": "Red"
-              }
-          ]
-        };
+        const labelButtonWishlist = labels?.ProductCard?.Button?.Wishlist;
+        const labelColorTag = labels?.ProductCard?.ColorTag?.label;
 
         // Calculate ranking points
         const maxRank = 5;
@@ -197,24 +206,31 @@ class ProductCard extends Component {
 
         return html`
           <div class="product-card" ref=${index === products.items.length - 2 ? secondLastProduct : null}>
+            <${Button}
+              variant="icon"
+              className=${`product-card__wishlist-button ${product.wishlistAdded ? 'product-card__wishlist-button--remove' : ''}`}
+              onClick=${() => addToWishlist(product)}
+              aria-label="${labelButtonWishlist}"
+            />
             <a href=${product.url || linkPdp} class="product-card__link">
               <div class="product-card__image-container">
                 <img src=${imageUrl} alt=${product.name || name} class="product-card__image" />
                 ${product.badge || badge ? html`
                   <img src=${product.badge || badge} alt="Badge" class="product-card__badge" />` : ''
                 }
-                <a href=${product.wishlistLink || wishlistLink} class="product-card__wishlist-button ${product.wishlistAdded ? 'product-card__wishlist-button--remove' : ''}"></a>
                 <div class="product-card__tag-container">
-                  ${Array.isArray(product.tag) ? product.tag.map((t) => html`<div class="product-card__tag">${t}</div>`).join('') : 'Oferta'}
+                  ${Array.isArray(product.tag) ? product.tag.map((t) => html`<div class="product-card__tag">${t}</div>`) : ''}
                 </div>
                 ${colorOption && colorOption.values && colorOption.values.length > 0
                   ? html`
-                    <div class="product-card__color-variation">${colorOption.values.length} colores</div>` : ''
+                    <div class="product-card__color-variation">${colorOption.values.length} ${labelColorTag}</div>` : ''
                 }
               </div>
             </a>
             <div class="product-card__info">
-              <div class="product-card__brand">${product.brand || brand}Brand</div>
+              <div class="product-card__brand">
+                ${(product.attributes?.find(attr => attr.name === 'ulta_marca')?.value) || brand}
+              </div>
               <a href=${product.url || linkPdp} class="product-card__name">${product.name || name}</a>
               <div class="product-card__stars-wrapper">
                 ${product.ranking || ranking ? html`
@@ -236,7 +252,19 @@ class ProductCard extends Component {
               ${product.options && product.options.length > 0 
                 ? html`
                   <${Button} variant="secondary" onClick=${ async () => {
-                    const content = html`<div>OPCIONES</div>`;
+                    const content = h(ProductOptionsModal, {
+                      product,
+                      onAddToCart: async (variant) => {
+                        const { addProductsToCart } = await import('@dropins/storefront-cart/api.js');
+                        await addProductsToCart([{
+                          sku: variant.sku,
+                          quantity: 1,
+                          productType: 'simple',
+                          virtual: false
+                        }]);
+                      },
+                      labels
+                    });
                     await showModalOption(content);
                   }}>${labelButtonOptions}</${Button}>`
                 : html`<${Button} variant="primary" onClick=${() => addToCart(product)}>${this.state.isMobile ? labelButtonAddtoCartMobile : labelButtonAddtoCart}</${Button}>`

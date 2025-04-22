@@ -22,4 +22,9 @@ div.custom-input-wrapper {
     div.dropin-input__field-icon--error {
         display: none;
     }
+    input.dropin-input--primary {
+        border-radius: 0;
+        height: 40px;
+        border-color: var(--color-black);
+    }
 }

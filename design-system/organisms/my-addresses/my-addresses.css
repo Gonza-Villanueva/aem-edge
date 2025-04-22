@@ -1,0 +1,56 @@
+div.my-addresses-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    div.address-list-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+
+        div.address-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 12px;
+
+            div.wrapper {
+                display: flex;
+                flex-direction: row;
+
+                div.content {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                div.content div.mainContent {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                label span.strong {
+                    font-weight: bold;
+                }
+
+                label.mainOption {
+                    background-color: var(--color-gray-100);
+                    padding: 6px 8px;
+                    width: fit-content;
+                }
+
+                div.buttons {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: end;
+                }
+            }
+
+            div.line-divider {
+                width: 100%;
+                height: 0.5px;
+                background-color: var(--color-gray-300);
+            }
+        }
+    }
+}
