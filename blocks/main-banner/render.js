@@ -1,7 +1,7 @@
 // components/MainBanner.js
 // @ts-ignore
 import { h } from '@dropins/tools/preact.js';
-import htm from '../../../scripts/htm.js';
+import htm from '../../scripts/htm.js';
 import { CustomButton } from '../../design-system/atoms/customButton/CustomButton.js';
 
 const html = htm.bind(h);
