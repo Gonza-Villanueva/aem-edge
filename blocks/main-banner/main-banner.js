@@ -1,11 +1,11 @@
 import { h, render } from '@dropins/tools/preact.js';
-import MainBanner from './MainBanner.js';
+import { MainBanner } from './render.js';
 import htm from '../../scripts/htm.js';
 
 const html = htm.bind(h);
 
 export default async function decorate(block) {
-  const children = Array.from(block.children).filter(c => c.nodeType === 1);
+  const children = Array.from(block.children).filter((c) => c.nodeType === 1);
 
   const [
     imageDesktopEl,
@@ -48,7 +48,7 @@ export default async function decorate(block) {
     buttonText,
     buttonLink,
     styleDesktop,
-    styleMobile
+    styleMobile,
   };
 
   block.innerHTML = '';
